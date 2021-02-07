@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://error_screen/UI.gd" type="Script" id=1]
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.300156
+anchor_top = 0.177537
+anchor_right = 0.699906
+anchor_bottom = 0.822537
+margin_left = -0.19986
+margin_top = 0.173523
+margin_right = 0.120148
+margin_bottom = -0.226456
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Panel"]
+anchor_left = 0.0625
+anchor_top = 0.0689655
+anchor_right = 0.937375
+anchor_bottom = 0.172241
+margin_right = 0.0639954
+margin_bottom = 0.0800018
+text = "Message title"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="RichTextLabel" parent="Panel"]
+anchor_left = 0.0625
+anchor_top = 0.241379
+anchor_right = 0.937375
+anchor_bottom = 0.792931
+margin_right = 0.0639954
+margin_bottom = 0.0799866
+text = "Message content"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseBtn" type="Button" parent="Panel"]
+anchor_left = 0.25
+anchor_top = 0.862483
+anchor_right = 0.75
+anchor_bottom = 0.931483
+margin_top = -0.192017
+margin_right = -3.05176e-05
+margin_bottom = -0.208008
+text = "Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="Panel/CloseBtn" to="." method="_on_CloseBtn_button_up"]
