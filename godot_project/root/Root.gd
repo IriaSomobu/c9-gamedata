@@ -2,10 +2,9 @@ extends Spatial
 
 var corescript;
 
-func _ready():
-	
-	corescript = load("res://natives/front_script.gdns").new()
-	var data = corescript.test_mmenu();
+func _ready():	
+	corescript = load("res://front_script.gdns").new()
+	var data = corescript.get_main_data();
 	print("Got data from script: ", data)
 	
 	goto_main(data);

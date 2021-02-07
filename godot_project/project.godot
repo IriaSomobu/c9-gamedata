@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "",
 "class": "corescript",
 "language": "NativeScript",
-"path": "res://natives/front_script.gdns"
+"path": "res://front_script.gdns"
 } ]
 _global_script_class_icons={
 "corescript": ""
