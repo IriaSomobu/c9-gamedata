@@ -6,7 +6,7 @@ var got_nerror = false;
 func _ready():	
 	corescript = load("res://front_script.gdns").new()
 	corescript.set_error_listener(self);
-#	corescript.initialize();
+	corescript.initialize();
 	
 	if got_nerror: return;
 	
