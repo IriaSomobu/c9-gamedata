@@ -38,9 +38,14 @@ func switch_panel(name):
 			print("help")
 		"credits":
 			show_panel_text("Credits here!")
-		"quit":
-			print("quit")
+
+
 
 func show_panel_text(data):
 	$PanelContainer/PanelText.bbcode_text = data;
 	$PanelContainer/PanelText.visible = true
+
+
+func _on_Quit_button_up():
+	# TODO: stop natives
+	get_tree().quit()
