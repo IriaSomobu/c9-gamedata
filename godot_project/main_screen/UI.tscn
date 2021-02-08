@@ -13,7 +13,7 @@ size = 64
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -125,14 +125,12 @@ margin_left = 0.511993
 margin_top = 0.199997
 margin_right = -6.10352e-05
 rect_min_size = Vector2( 480, 360 )
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="PanelText" parent="PanelContainer" instance=ExtResource( 4 )]
-visible = false
-margin_left = -5.72205e-06
 
 [node name="PanelNewgame" parent="PanelContainer" instance=ExtResource( 5 )]
 visible = false

@@ -1,18 +1,29 @@
 extends Control
 
+onready var core = get_node("/root/Root").core;
+
+var motd = "";
+var credits = "";
+var tip = "";
+
 func core_data(data):
-	$AppLogo.text = data["logo"]["name"]
-	$Menu/MOTD.text = data["motd"]["name"]
-	$Menu/NewGame.text = data["ng"]["name"]
-	$Menu/Load.text = data["lg"]["name"]
-	$Menu/World.text = data["world"]["name"]
-	$Menu/Settings.text = data["sets"]["name"]
-	$Menu/Help.text = data["help"]["name"]
-	$Menu/Credits.text = data["titles"]["name"]
-	$Menu/Quit.text = data["exit"]["name"]
-	$Tips.bbcode_text = data["tips"]["tip"]
+	tip = data["tip"]
+	motd = data["motd"]
+	credits = data["credits"]
 
 func _ready():
+	$AppLogo.text = core.tr("Cataclysm Nine");
+	$Tips.bbcode_text = tip;
+	
+	$Menu/MOTD.text = core.tr("MOTD");
+	$Menu/NewGame.text = core.tr("New Game");
+	$Menu/Load.text = core.tr("Load");
+	$Menu/World.text = core.tr("World");
+	$Menu/Settings.text = core.tr("Settings");
+	$Menu/Help.text = core.tr("Help");
+	$Menu/Credits.text = core.tr("Credits");
+	$Menu/Quit.text = core.tr("Quit");
+	
 	$Menu/MOTD.grab_focus()
 
 func hide_all_panels():
@@ -25,7 +36,7 @@ func switch_panel(name):
 	
 	match name:
 		"motd":
-			show_panel_text("Motd here")
+			show_panel_text(motd)
 		"newgame":
 			$PanelContainer/PanelNewgame.visible = true
 		"loadgame":
@@ -37,13 +48,13 @@ func switch_panel(name):
 		"help":
 			print("help")
 		"credits":
-			show_panel_text("Credits here!")
+			show_panel_text(credits)
 
 
 
 func show_panel_text(data):
-	$PanelContainer/PanelText.bbcode_text = data;
 	$PanelContainer/PanelText.visible = true
+	$PanelContainer/PanelText/PanelText.bbcode_text = "\n"+data;
 
 
 func _on_Quit_button_up():

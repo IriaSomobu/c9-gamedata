@@ -1,20 +1,18 @@
 extends Spatial
 
-var corescript;
+var core;
 var got_nerror = false; # We got error report from natives
 
 func _ready():	
-	corescript = load("res://front_script.gdns").new()
-	corescript.set_error_listener(self);
-	corescript.initialize();
+	core = load("res://front_script.gdns").new()
+	core.set_error_listener(self);
+	core.initialize();
 	if got_nerror: return;
 	
-	var v = corescript.tr("Really quit?");
-	print("Translation: ", v)
+	var v = "Version: %s";
+	print("Translation of [", v, "]: ", core.tr(v))
 	
-	var data = corescript.get_main_data();
-	print("Got data from script: ", data)
-	
+	var data = core.get_main_data();
 	goto_main(data);
 
 func clear_contents():

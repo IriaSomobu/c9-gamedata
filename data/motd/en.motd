@@ -1,6 +1,3 @@
-# Max length of a line is 78 characters; the following line is for reference
-# Longer lines will be automatically folded
-##############################################################################
 <color_white>Visit us:</color>
 
 <color_light_gray>* Homepage:</color>    <color_cyan>https://github.com/IriaSomobu/cataclysm-nine</color>
@@ -12,9 +9,8 @@
 <color_light_gray>* Modding Discord:           </color><color_cyan>https://discord.gg/B5q4XCa</color>
 <color_light_gray>* Discourse:                 </color><color_cyan>https://discourse.cataclysmdda.org/</color>
 
-<color_light_red>******************************************************************************</color>
-<color_light_red>    Disclaimer for the experimental builds:</color>
-<color_light_red>******************************************************************************</color>
+
+<color_light_red>Disclaimer for the experimental builds:</color>
 
 <color_white>Q: </color><color_yellow>What is an experimental build?</color>
 
