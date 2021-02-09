@@ -46,7 +46,7 @@ func switch_panel(name):
 		"settings":
 			print("settings")
 		"help":
-			print("help")
+			$PanelContainer/Help.visible = true
 		"credits":
 			show_panel_text(credits)
 
@@ -55,6 +55,7 @@ func switch_panel(name):
 func show_panel_text(data):
 	$PanelContainer/PanelText.visible = true
 	$PanelContainer/PanelText/PanelText.bbcode_text = "\n"+data;
+
 
 
 func _on_Quit_button_up():

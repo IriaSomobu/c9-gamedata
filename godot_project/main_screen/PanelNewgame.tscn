@@ -25,6 +25,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 634.0
 margin_bottom = 355.0
+focus_neighbour_right = NodePath("../Preset")
 title = "Custom Character"
 
 [node name="Preset" parent="." instance=ExtResource( 1 )]
@@ -33,6 +34,9 @@ anchor_bottom = 0.0
 margin_left = 644.0
 margin_right = 1278.0
 margin_bottom = 355.0
+focus_neighbour_left = NodePath("../Cursom")
+focus_neighbour_right = NodePath("../Random")
+focus_next = NodePath("../Random")
 title = "Preset Character"
 subtitle = "[color=yellow]Select from one of previously created character templates.[/color]"
 
@@ -42,6 +46,9 @@ anchor_bottom = 0.0
 margin_top = 365.0
 margin_right = 634.0
 margin_bottom = 720.0
+focus_neighbour_left = NodePath("../Preset")
+focus_neighbour_right = NodePath("../Playnow")
+focus_previous = NodePath("../Preset")
 title = "Random Character"
 subtitle = "[color=yellow]Creates random character, but lets you preview the generated character and the scenario and change character or scenario if needed.[/color]"
 

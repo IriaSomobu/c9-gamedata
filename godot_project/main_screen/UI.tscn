@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://main_screen/cn_bg.png" type="Texture" id=1]
 [ext_resource path="res://main_screen/terminus.ttf" type="DynamicFontData" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://main_screen/PanelNewgame.tscn" type="PackedScene" id=5]
 [ext_resource path="res://main_screen/BtnMainMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://main_screen/theme.tres" type="Theme" id=7]
+[ext_resource path="res://help_menu/Help.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -117,10 +118,10 @@ margin_bottom = 446.0
 text = "QT"
 
 [node name="PanelContainer" type="Panel" parent="."]
-anchor_left = 0.312
-anchor_top = 0.221889
+anchor_left = 0.28085
+anchor_top = 0.221944
 anchor_right = 0.875
-anchor_bottom = 0.848889
+anchor_bottom = 0.848611
 margin_left = 0.511993
 margin_top = 0.199997
 margin_right = -6.10352e-05
@@ -134,6 +135,8 @@ __meta__ = {
 
 [node name="PanelNewgame" parent="PanelContainer" instance=ExtResource( 5 )]
 visible = false
+
+[node name="Help" parent="PanelContainer" instance=ExtResource( 8 )]
 
 [node name="Tips" type="RichTextLabel" parent="."]
 anchor_left = 0.125

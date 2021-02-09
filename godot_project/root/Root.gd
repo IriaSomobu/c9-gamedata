@@ -9,9 +9,6 @@ func _ready():
 	core.initialize();
 	if got_nerror: return;
 	
-	var v = "Version: %s";
-	print("Translation of [", v, "]: ", core.tr(v))
-	
 	var data = core.get_main_data();
 	goto_main(data);
 
@@ -26,6 +23,9 @@ func goto_main(core_data):
 	var ui = load("res://main_screen/UI.tscn").instance()
 	ui.core_data(core_data)
 	add_child(ui)
+
+func on_native_debug(message):
+	print(message)
 
 func on_native_error(title, message):
 	got_nerror = true;
