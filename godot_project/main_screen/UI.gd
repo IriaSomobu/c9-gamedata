@@ -19,7 +19,7 @@ func _ready():
 	$Menu/NewGame.text = core.tr("New Game");
 	$Menu/Load.text = core.tr("Load !");
 	$Menu/World.text = core.tr("World !");
-	$Menu/Settings.text = core.tr("Settings !");
+	$Menu/Settings.text = core.tr("Settings");
 	$Menu/Help.text = core.tr("Help");
 	$Menu/Credits.text = core.tr("Credits");
 	$Menu/Quit.text = core.tr("Quit");
@@ -44,7 +44,7 @@ func switch_panel(name):
 		"world":
 			print("World")
 		"settings":
-			print("settings")
+			$PanelContainer/Settings.visible = true
 		"help":
 			$PanelContainer/Help.visible = true
 		"credits":

@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://settings_menu/Settings.gd" type="Script" id=1]
+[ext_resource path="res://settings_menu/save_white_18dp.png" type="Texture" id=2]
+[ext_resource path="res://settings_menu/restore_white_18dp.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.627451 )
+
+[node name="Settings" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tabs" type="Tabs" parent="."]
+anchor_right = 1.0
+margin_left = 20.0
+margin_right = -10.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnSave" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -80.0
+margin_right = -40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnRestore" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 3 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsList" type="GridContainer" parent="ScrollContainer"]
+margin_right = 1280.0
+size_flags_horizontal = 3
+custom_constants/hseparation = 15
+__meta__ = {
+"_edit_use_anchors_": true
+}
+[connection signal="tab_changed" from="Tabs" to="." method="_on_tab_changed"]
+[connection signal="pressed" from="BtnSave" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="BtnRestore" to="." method="_on_restore_pressed"]

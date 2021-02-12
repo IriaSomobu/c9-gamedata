@@ -1,0 +1,752 @@
+[
+  {
+    "page": "general",
+    "name": "General",
+    "data":[
+      {
+        "code": "DEF_CHAR_NAME",
+        "name": "Default character name",
+        "descr": "Set a default character name that will be used instead of a random name on character creation.",
+        "type": "str",
+        "default": ""
+      },
+
+      {
+        "type": "empty"
+      },
+
+      {
+        "code": "AUTO_PICKUP",
+        "name": "Auto pickup enabled",
+        "descr": "Enable item auto pickup.  Change pickup rules with the Auto Pickup Manager.",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "code": "AUTO_PICKUP_ADJACENT",
+        "name": "Auto pickup adjacent",
+        "descr": "If true, will enable to pickup items one tile around to the player. You can assign No Auto Pickup zones with the Zones Manager 'Y' key for e.g. your homebase.",
+        "type": "bool",
+        "default": "false",
+        "rq": [ "AUTO_PICKUP" ]
+      },
+      {
+        "code": "AUTO_PICKUP_WEIGHT_LIMIT",
+        "name": "Auto pickup weight limit",
+        "descr": "Auto pickup items with weight less than or equal to [option] * 50 grams. You must also set the small items option.'0' disables this option",
+        "type": "num",
+        "default": "0",
+        "steps": [ 0, 20, 1 ],
+        "rq": [ "AUTO_PICKUP" ]
+      },
+      {
+        "code": "AUTO_PICKUP_VOL_LIMIT",
+        "name": "Auto pickup volume limit",
+        "descr": "Auto pickup items with volume less than or equal to [option] * 50 milliliters.  You must also set the light items option.  '0' disables this option",
+        "type": "num",
+        "default": "0",
+        "steps": [ 0, 20, 1 ],
+        "rq": [ "AUTO_PICKUP" ]
+      },
+      {
+        "code": "AUTO_PICKUP_SAFEMODE",
+        "name": "Auto pickup safe mode",
+        "descr": "Auto pickup is disabled as long as you can see monsters nearby.  This is affected by 'Safe Mode proximity distance'.",
+        "type": "bool",
+        "default": "false",
+        "rq": [ "AUTO_PICKUP" ]
+      },
+      {
+        "code": "NO_AUTO_PICKUP_ZONES_LIST_ITEMS",
+        "name": "List items within no auto pickup zones",
+        "descr": "If false, you will not see messages about items, you step on, within no auto pickup zones.",
+        "type": "bool",
+        "default": "true",
+        "rq": [ "AUTO_PICKUP" ]
+      },
+
+      {
+        "type": "empty"
+      },
+
+      {
+        "code": "AUTO_FEATURES",
+        "name": "Additional auto features",
+        "descr": "If true, enables configured auto features below.  Disabled as long as any enemy monster is seen.",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "code": "AUTO_PULP_BUTCHER",
+        "name": "Auto pulp or butcher",
+        "descr": "Action to perform when 'Auto pulp or butcher' is enabled.  Pulp: Pulp corpses you stand on.  - Pulp Adjacent: Also pulp corpses adjacent from you.  - Butcher: Butcher corpses you stand on.",
+        "type": "vals",
+        "vals": {
+          "off":"Disabled",
+          "pulp":"Pulp",
+          "pulp_adjacent":"Pulp Adjacent",
+          "butcher":"Butcher"
+        },
+        "default": "off",
+        "rq": [ "AUTO_FEATURES" ]
+      },
+      {
+        "code": "AUTO_MINING",
+        "name": "Auto mining",
+        "descr": "If true, enables automatic use of wielded pickaxes and jackhammers whenever trying to move into mineable terrain.",
+        "type": "bool",
+        "default": "false",
+        "rq": [ "AUTO_FEATURES" ]
+      },
+      {
+        "code": "AUTO_FORAGING",
+        "name": "Auto foraging",
+        "descr": "Action to perform when 'Auto foraging' is enabled.  Bushes: Only forage bushes.  - Trees: Only forage trees.  - Everything: Forage bushes, trees, and everything else including flowers, cattails etc.",
+        "type": "vals",
+        "vals": {
+          "off":"Disabled",
+          "bushes":"Bushes",
+          "trees":"Trees",
+          "both":"Everything"
+        },
+        "default": "off",
+        "rq": [ "AUTO_FEATURES" ]
+      },
+
+      {
+        "type": "empty"
+      },
+
+      {
+        "code": "DANGEROUS_PICKUPS",
+        "name": "Dangerous pickups",
+        "descr": "If false, will cause player to drop new items that cause them to exceed the weight limit.",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "code": "DANGEROUS_TERRAIN_WARNING_PROMPT",
+        "name": "Dangerous terrain warning prompt",
+        "descr": "Always: You will be prompted to move onto dangerous tiles.  Running: You will only be able to move onto dangerous tiles while running and will be prompted.  Crouching: You will only be able to move onto a dangerous tile while crouching and will be prompted.  Never:  You will not be able to move onto a dangerous tile unless running and will not be warned or prompted.",
+        "type": "vals",
+        "vals": {
+          "ALWAYS":"Always",
+          "RUNNING": "Running",
+          "CROUCHING": "Crouching",
+          "NEVER": "Never"
+        },
+        "default": "ALWAYS"
+      },
+
+      {
+        "type": "empty"
+      },
+
+      {
+        "code": "SAFEMODE",
+        "name": "Safe mode",
+        "descr": "If true, will hold the game and display a warning if a hostile monster/npc is approaching.",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "code": "SAFEMODEPROXIMITY",
+        "name": "Safe mode proximity distance",
+        "descr": "If safe mode is enabled, distance to hostiles at which safe mode should show a warning.  0 = Max player view distance.  This option only has effect when no safe mode rule is specified.  Otherwise, edit the default rule in Safe Mode Manager instead of this value.",
+        "type": "num",
+        "steps": [ 0, 60, 1 ],
+        "vals": {},
+        "default": "0"
+      },
+      {
+        "code": "SAFEMODEVEH",
+        "name": "Safe mode when driving",
+        "descr": "When true, safe mode will alert you of hostiles while you are driving a vehicle.",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "code": "AUTOSAFEMODETURNS",
+        "name": "Turns to auto reactivate safe mode",
+        "descr": "Number of turns after which safe mode is reactivated.  Will only reactivate if no hostiles are in 'Safe mode proximity distance.'",
+        "type": "num",
+        "steps": [ 1, 600, 1 ],
+        "default": "50"
+      },
+      {
+        "code": "SAFEMODEIGNORETURNS",
+        "name": "Turns to remember ignored monsters",
+        "descr": "Number of turns an ignored monster stays ignored after it is no longer seen.  0 disables this option and monsters are permanently ignored.",
+        "type": "num",
+        "steps": [ 0, 3600, 1 ],
+        "default": "200"
+      },
+
+      {
+        "type": "empty"
+      },
+
+      {
+        "code": "TURN_DURATION",
+        "name": "Realtime turn progression",
+        "descr": "If enabled, monsters will take periodic gameplay turns.  This value is the delay between each turn, in seconds.  Works best with Safe Mode disabled.  0 = disabled.",
+        "type": "num",
+        "steps": [ 0, 10, 1 ],
+        "default": "0"
+      },
+
+      {
+        "type": "empty"
+      },
+
+      {
+        "code": "AUTOSAVE",
+        "name": "Autosave",
+        "descr": "If true, game will periodically save the map.  Autosaves occur based on in-game turns or real-time minutes, whichever is larger.",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "code": "AUTOSAVE_TURNS",
+        "name": "Game turns between autosaves",
+        "descr": "Number of game turns between autosaves",
+        "type": "num",
+        "steps": [ 10, 1000, 10 ],
+        "default": "50",
+        "rq": [ "AUTOSAVE" ]
+      },
+      {
+        "code": "AUTOSAVE_MINUTES",
+        "name": "Real minutes between autosaves",
+        "descr": "Number of real time minutes between autosaves",
+        "type": "num",
+        "steps": [ 0, 127, 1 ],
+        "default": "5",
+        "rq": [ "AUTOSAVE" ]
+      },
+
+      {
+        "type": "empty"
+      },
+
+      {
+        "code": "AUTO_NOTES",
+        "name": "Auto notes",
+        "descr": "If true, automatically sets notes",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "code": "AUTO_NOTES_STAIRS",
+        "name": "Auto notes (stairs)",
+        "descr": "If true, automatically sets notes on places that have stairs that go up or down",
+        "type": "bool",
+        "default": "false",
+        "rq": [ "AUTO_NOTES" ]
+      },
+      {
+        "code": "AUTO_NOTES_MAP_EXTRAS",
+        "name": "Auto notes (map extras)",
+        "descr": "If true, automatically sets notes on places that contain various map extras",
+        "type": "bool",
+        "default": "true",
+        "rq": [ "AUTO_NOTES" ]
+      },
+
+      {
+        "type": "empty"
+      },
+
+
+      {
+        "code": "CIRCLEDIST",
+        "name": "Circular distances",
+        "descr": "If true, the game will calculate range in a realistic way: light sources will be circles, diagonal movement will cover more ground and take longer.  If disabled, everything is square: moving to the northwest corner of a building takes as long as moving to the north wall.",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "code": "DROP_EMPTY",
+        "name": "Drop empty containers",
+        "descr": "Set to drop empty containers after use.  No: Don't drop any.  - Watertight: All except watertight containers.  - All: Drop all containers.",
+        "type": "vals",
+        "vals": {
+          "no": "No",
+          "watertight": "Watertight",
+          "all": "All"
+        },
+        "default": "no"
+      },
+      {
+        "code": "DEATHCAM",
+        "name": "DeathCam",
+        "descr": "Always: Always start deathcam.  Ask: Query upon death.  Never: Never show deathcam.",
+        "type": "vals",
+        "vals": {
+          "always": "Always",
+          "ask": "Ask",
+          "never": "Never"
+        },
+        "default": "ask"
+      }
+    ]
+  },
+  {
+    "page": "interface",
+    "name": "Interface",
+    "data": [
+
+      {
+        "code": "USE_LANG",
+        "name": "Language",
+        "descr": "Switch Language.",
+        "type": "custom_vals"
+      },
+
+      {
+        "type": "empty"
+      },
+
+
+      {
+        "code": "USE_CELSIUS",
+        "name": "Temperature units",
+        "descr": "Switch between Celsius, Fahrenheit and Kelvin.",
+        "type": "vals",
+        "vals": {
+          "fahrenheit": "Fahrenheit",
+          "celsius": "Celsius",
+          "kelvin": "Kelvin"
+        },
+        "default": "celsius"
+      },
+      {
+        "code": "USE_METRIC_SPEEDS",
+        "name": "Speed units",
+        "descr": "Switch between mph, km/h and tiles/turn.",
+        "type": "vals",
+        "vals": {
+          "mph": "mph",
+          "km/h": "km/h",
+          "t/t": "tiles/turn"
+        },
+        "default": "km/h"
+      },
+      {
+        "code": "USE_METRIC_WEIGHTS",
+        "name": "Mass units",
+        "descr": "witch between kg and lbs.",
+        "type": "vals",
+        "vals": {
+          "lbs": "vals",
+          "kg": "kg"
+        },
+        "default": "kg"
+      },
+      {
+        "code": "VOLUME_UNITS",
+        "name": "Volume units",
+        "descr": "Switch between the Cup ( c ), Liter ( L ) or Quart ( qt ).",
+        "type": "vals",
+        "vals": {
+          "c": "Cup",
+          "l": "Liter",
+          "qt": "Quart"
+        },
+        "default": "l"
+      },
+      {
+        "code": "DISTANCE_UNITS",
+        "name": "Distance units",
+        "descr": "Metric or Imperial",
+        "type": "vals",
+        "vals": {
+          "metric": "Metric",
+          "imperial": "Imperial"
+        },
+        "default": "metric"
+      },
+      {
+        "code": "24_HOUR",
+        "name": "Time format",
+        "descr": "12h: AM/PM, e.g. 7:31 AM - Military: 24h Military, e.g. 0731 - 24h: Normal 24h, e.g. 7:31",
+        "type": "vals",
+        "vals": {
+          "12h": "12h",
+          "military": "Military",
+          "24h": "24h"
+        },
+        "default": "12h"
+      },
+
+      {
+        "type": "empty"
+      },
+
+      {
+        "code": "FORCE_CAPITAL_YN",
+        "name": "Force Y/N in prompts",
+        "descr": "If true, Y/N prompts are case-sensitive and y and n are not accepted.",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "code": "SNAP_TO_TARGET",
+        "name": "Snap to target",
+        "descr": "If true, automatically follow the crosshair when firing/throwing.",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "code": "QUERY_DISASSEMBLE",
+        "name": "Query on disassembly while butchering",
+        "descr": "If true, will query before disassembling items while butchering.",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "code": "QUERY_KEYBIND_REMOVAL",
+        "name": "Query on keybinding removal",
+        "descr": "If true, will query before removing a keybinding from a hotkey.",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "code": "CLOSE_ADV_INV",
+        "name": "Close advanced inventory on move all",
+        "descr": "If true, will close the advanced inventory when the move all items command is used.",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "code": "OPEN_DEFAULT_ADV_INV",
+        "name": "Open default advanced inventory layout",
+        "descr": "Open default advanced inventory layout instead of last opened layout",
+        "default": "false"
+      },
+      {
+        "code": "INV_USE_ACTION_NAMES",
+        "name": "Display actions in Use Item menu",
+        "descr": "\"If true, actions ( like \\\"Read\\\", \\\"Smoke\\\", \\\"Wrap tighter\\\" ) will be displayed next to the corresponding items.",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "code": "AUTOSELECT_SINGLE_VALID_TARGET",
+        "name": "Autoselect if exactly one valid target",
+        "descr": "If true, directional actions ( like \"Examine\", \"Open\", \"Pickup\" ) will autoselect an adjacent tile if there is exactly one valid target.",
+        "type": "bool",
+        "default": "true"
+      },
+
+      {
+        "type": "empty"
+      },
+
+      {
+        "code": "VEHICLE_ARMOR_COLOR",
+        "name": "Vehicle plating changes part color",
+        "descr": "If true, vehicle parts will change color if they are armor plated",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "code": "DRIVING_VIEW_OFFSET",
+        "name": "Auto-shift the view while driving",
+        "descr": "If true, view will automatically shift towards the driving direction",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "code": "VEHICLE_DIR_INDICATOR",
+        "name": "Draw vehicle facing indicator",
+        "descr": "If true, when controlling a vehicle, a white 'X' at distance 10 from the center will display its current facing.",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "code": "REVERSE_STEERING",
+        "name": "Reverse steering direction in reverse",
+        "descr": "If true, when driving a vehicle in reverse, steering should also reverse like real life.",
+        "type": "bool",
+        "default": "false"
+      },
+
+      {
+        "type": "empty"
+      },
+
+      {
+        "code": "SIDEBAR_POSITION",
+        "name": "Sidebar position",
+        "descr": "Switch between sidebar on the left or on the right side.  Requires restart.",
+        "type": "vals",
+        "vals": {
+          "left": "Left",
+          "right": "Right"
+        },
+        "default": "right"
+      },
+      {
+        "code": "SIDEBAR_SPACERS",
+        "name": "Draw sidebar spacers",
+        "descr": "If true, adds an extra space between sidebar panels.",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "code": "LOG_FLOW",
+        "name": "Message log flow",
+        "descr": "Where new log messages should show.",
+        "type": "vals",
+        "vals": {
+          "new_top": "Top",
+          "new_bottom": "Bottom"
+        },
+        "default": "new_bottom"
+      },
+      {
+        "code": "MESSAGE_TTL",
+        "name": "Sidebar log message display duration",
+        "descr": "Number of turns after which a message will be removed from the sidebar log.  '0' disables this option.",
+        "type": "num",
+        "steps": [ 0, 100, 1 ],
+        "default": "10"
+      },
+      {
+        "code": "MESSAGE_COOLDOWN",
+        "name": "Message cooldown",
+        "descr": "Number of turns during which similar messages are hidden.  '0' disables this option.",
+        "type": "num",
+        "steps": [ 0, 1000, 1 ],
+        "default": "3"
+      },
+      {
+        "code": "MESSAGE_LIMIT",
+        "name": "Limit message history",
+        "descr": "Number of messages to preserve in the history, and when saving.",
+        "type": "num",
+        "steps": [ 0, 10000, 1 ],
+        "default": "256"
+      },
+      {
+        "code": "NO_UNKNOWN_COMMAND_MSG",
+        "name": "Suppress \"unknown command\" messages",
+        "descr": "If true, pressing a key with no set function will not display a notice in the chat log.",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "code": "LOOKAROUND_POSITION",
+        "name": "Look around position",
+        "descr": "Switch between look around panel being left or right.",
+        "type": "vals",
+        "vals": {
+          "left": "Left",
+          "right": "Right"
+        },
+        "default": "right"
+      },
+      {
+        "code": "PICKUP_POSITION",
+        "name": "Pickup position",
+        "descr": "Switch between pickup panel being left, right, or overlapping the sidebar.",
+        "type": "vals",
+        "vals": {
+          "left": "Left",
+          "right": "Right",
+          "overlapping": "Overlapping"
+        },
+        "default": "left"
+      },
+      {
+        "code": "ACCURACY_DISPLAY",
+        "name": "Aim window display style",
+        "descr": "How should confidence and steadiness be communicated to the player.",
+        "type": "vals",
+        "vals": {
+          "numbers": "Numbers",
+          "bars": "Bars"
+        },
+        "default": "bars"
+      },
+      {
+        "code": "MORALE_STYLE",
+        "name": "Morale style",
+        "descr": "Morale display style in sidebar.",
+        "type": "vals",
+        "vals": {
+          "vertical": "Vertical",
+          "horizontal": "Horizontal"
+        },
+        "default": "vertical"
+      },
+      {
+        "code": "AIM_WIDTH",
+        "name": "Full screen Advanced Inventory Manager",
+        "descr": "If true, Advanced Inventory Manager menu will fit full screen, otherwise it will leave sidebar visible.",
+        "type": "bool",
+        "default": "true"
+      },
+
+      {
+        "type": "empty"
+      },
+
+      {
+        "code": "MOVE_VIEW_OFFSET",
+        "name": "Move view offset",
+        "descr": "Move view by how many squares per keypress.",
+        "type": "num",
+        "steps": [ 1, 50, 1 ],
+        "default": "1"
+      },
+      {
+        "code": "FAST_SCROLL_OFFSET",
+        "name": "Overmap fast scroll offset",
+        "descr": "With Fast Scroll option enabled, shift view on the overmap and while looking around by this many squares per keypress.",
+        "type": "num",
+        "steps": [ 1, 50, 1 ],
+        "default": "5"
+      },
+      {
+        "code": "MENU_SCROLL",
+        "name": "Centered menu scrolling",
+        "descr": "If true, menus will start scrolling in the center of the list, and keep the list centered.",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "code": "SHIFT_LIST_ITEM_VIEW",
+        "name": "Shift list item view",
+        "descr": "Centered or to edge, shift the view toward the selected item if it is outside of your current viewport.",
+        "type": "vals",
+        "vals": {
+          "false": "False",
+          "centered": "Centered",
+          "edge": "To edge"
+        },
+        "default": "centered"
+      },
+      {
+        "code": "AUTO_INV_ASSIGN",
+        "name": "Auto inventory letters",
+        "descr": "Enabled: automatically assign letters to any carried items that lack them.  Disabled: do not auto-assign letters.  Favorites: only auto-assign letters to favorited items.",
+        "type": "vals",
+        "vals": {
+          "disabled": "Disabled",
+          "enabled": "Enabled",
+          "favorites": "Favorites"
+        },
+        "default": "favorites"
+      },
+      {
+        "code": "ITEM_HEALTH_BAR",
+        "name": "Show item health bars",
+        "descr": "If true, show item health bars instead of reinforced, scratched etc. text.",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "code": "ITEM_SYMBOLS",
+        "name": "Show item symbols",
+        "descr": "If true, show item symbols in inventory and pick up menu.",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "code": "AMMO_IN_NAMES",
+        "name": "Add ammo to weapon/magazine names",
+        "descr": "If true, the default ammo is added to weapon and magazine names.  For example \"Mosin-Nagant M44 (4/5)\" becomes \"Mosin-Nagant M44 (4/5 7.62x54mm)\".",
+        "type": "bool",
+        "default": "false"
+      }
+    ]
+  },
+  {
+    "page": "graphics",
+    "name": "Graphics",
+    "data": [
+      {
+        "code": "ANIMATIONS",
+        "name": "Animations",
+        "descr": "If true, will display enabled animations.",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "code": "ANIMATION_RAIN",
+        "name": "Rain animation",
+        "descr": "If true, will display weather animations.",
+        "type": "bool",
+        "default": "true",
+        "rq": [ "ANIMATIONS" ]
+      },
+      {
+        "code": "ANIMATION_PROJECTILES",
+        "name": "Projectile animation",
+        "descr": "If true, will display animations for projectiles like bullets, arrows, and thrown items.",
+        "type": "bool",
+        "default": "true",
+        "rq": [ "ANIMATIONS" ]
+      },
+      {
+        "code": "ANIMATION_SCT",
+        "name": "SCT animation",
+        "descr": "If true, will display scrolling combat text animations.",
+        "type": "bool",
+        "default": "true",
+        "rq": [ "ANIMATIONS" ]
+      },
+      {
+        "code": "ANIMATION_SCT_USE_FONT",
+        "name": "SCT with Unicode font",
+        "descr": "If true, will display scrolling combat text with Unicode font.",
+        "type": "bool",
+        "default": "true",
+        "rq": [ "ANIMATIONS" ]
+      },
+      {
+        "code": "ANIMATION_DELAY",
+        "name": "Animation delay",
+        "descr": "The amount of time to pause between animation frames in ms.",
+        "type": "num",
+        "steps": [ 0, 100, 10 ],
+        "default": "10",
+        "rq": [ "ANIMATIONS" ]
+      },
+      {
+        "code": "FORCE_REDRAW",
+        "name": "Force redraw",
+        "descr": "If true, forces the game to redraw at least once per turn.",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "code": "ENABLE_ASCII_ART_ITEM",
+        "name": "Enable ASCII art in item description",
+        "descr": "When available item description will show a picture of the item in ascii art.",
+        "type": "bool",
+        "default": "true"
+      }
+    ]
+  },
+  {
+    "page": "world_default",
+    "name": "World Defaults",
+    "data": [
+      {
+        "code": "",
+        "name": "",
+        "descr": "",
+        "type": "bool",
+        "steps": [ 0, 20, 1 ],
+        "vals": {},
+        "default": "false",
+        "rq": [  ],
+        "features": [  ]
+      }
+    ]
+  }
+
+]
