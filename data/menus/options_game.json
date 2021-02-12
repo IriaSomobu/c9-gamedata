@@ -730,23 +730,6 @@
         "default": "true"
       }
     ]
-  },
-  {
-    "page": "world_default",
-    "name": "World Defaults",
-    "data": [
-      {
-        "code": "",
-        "name": "",
-        "descr": "",
-        "type": "bool",
-        "steps": [ 0, 20, 1 ],
-        "vals": {},
-        "default": "false",
-        "rq": [  ],
-        "features": [  ]
-      }
-    ]
   }
 
 ]
