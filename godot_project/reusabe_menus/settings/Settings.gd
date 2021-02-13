@@ -3,7 +3,7 @@ extends Panel
 onready var core = get_node("/root/Root").core;
 var pages = [];
 
-var option_scene = load("res://settings_menu/Option.tscn");
+var option_scene = load("res://reusabe_menus/settings/Option.tscn");
 
 func _ready():
 	reload_data();
@@ -79,12 +79,18 @@ func on_option_changed(name, value):
 	core.set_option(name, value);
 	$BtnSave.visible = true
 	$BtnRestore.visible = true
+	
+	for o in pages[$Tabs.current_tab]["options"]:
+		if o["code"] == name:
+			o["value"] = value;
+			break;
 
 
 func _on_save_pressed():
 	core.save_settings();
 	$BtnSave.visible = false
 	$BtnRestore.visible = false
+	get_node("/root/Root").on_settings_applied();
 
 
 func _on_restore_pressed():

@@ -295,7 +295,6 @@
     "page": "interface",
     "name": "Interface",
     "data": [
-
       {
         "code": "USE_LANG",
         "name": "Language",
@@ -667,6 +666,45 @@
     "page": "graphics",
     "name": "Graphics",
     "data": [
+      {
+        "code": "GD_FULLSCREEN",
+        "name": "Fullscreen",
+        "descr": "",
+        "type": "bool",
+        "default": "false",
+        "features": [ "GODOT" ]
+      },
+      {
+        "code": "GD_BORDERLESS",
+        "name": "Borderless",
+        "descr": "",
+        "type": "bool",
+        "default": "false",
+        "features": [ "GODOT" ]
+      },
+      {
+        "code": "GD_RESOLUTION",
+        "name": "Resolution",
+        "descr": "",
+        "type": "vals",
+        "default": "1280x720",
+        "vals": {
+          "800x600":"800x600",
+          "1024x768":"1024x768",
+          "1280x720":"1280x720",
+          "1280x768":"1280x768",
+          "1280x800":"1280x800",
+          "1440x900":"1440x900",
+          "1680x1050":"1680x1050",
+          "1920x1080":"1920x1080"
+        },
+        "features": [ "GODOT" ]
+      },
+      {
+        "type": "empty",
+        "features": [ "GODOT" ]
+      },
+
       {
         "code": "ANIMATIONS",
         "name": "Animations",

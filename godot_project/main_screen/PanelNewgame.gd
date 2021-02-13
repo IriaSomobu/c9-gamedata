@@ -19,3 +19,7 @@ func _ready():
 	
 	$Playnow.title = core.tr("Play Now!");
 	$Playnow.subtitle = "[color=yellow]"+core.tr(subtitle_playnow)+"[/color]";
+
+
+func _on_btn_press(mode):
+	get_node("/root/Root").goto_newchar(mode);

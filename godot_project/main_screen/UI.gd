@@ -6,19 +6,19 @@ var motd = "";
 var credits = "";
 var tip = "";
 
-func core_data(data):
+
+func _ready():
+	var data = core.get_main_data();
 	tip = data["tip"]
 	motd = data["motd"]
 	credits = data["credits"]
-
-func _ready():
+	
 	$AppLogo.text = core.tr("Cataclysm Nine");
 	$Tips.bbcode_text = tip;
 	
 	$Menu/MOTD.text = core.tr("MOTD");
 	$Menu/NewGame.text = core.tr("New Game");
-	$Menu/Load.text = core.tr("Load !");
-	$Menu/World.text = core.tr("World !");
+	$Menu/Load.text = core.tr("Load .");
 	$Menu/Settings.text = core.tr("Settings");
 	$Menu/Help.text = core.tr("Help");
 	$Menu/Credits.text = core.tr("Credits");
@@ -40,9 +40,7 @@ func switch_panel(name):
 		"newgame":
 			$PanelContainer/PanelNewgame.visible = true
 		"loadgame":
-			print("Loadgame")
-		"world":
-			print("World")
+			$PanelContainer/PanelLoadgame.visible = true
 		"settings":
 			$PanelContainer/Settings.visible = true
 		"help":

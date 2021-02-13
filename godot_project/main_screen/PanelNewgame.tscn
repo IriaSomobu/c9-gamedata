@@ -61,3 +61,7 @@ margin_right = 1278.0
 margin_bottom = 720.0
 title = "Play now!"
 subtitle = "[color=yellow]Puts you right in the game, randomly choosing scenario and characters traits, profession, skills and other parameters.[/color]"
+[connection signal="pressed" from="Cursom" to="." method="_on_btn_press" binds= [ "custom" ]]
+[connection signal="pressed" from="Preset" to="." method="_on_btn_press" binds= [ "preset" ]]
+[connection signal="pressed" from="Random" to="." method="_on_btn_press" binds= [ "random" ]]
+[connection signal="pressed" from="Playnow" to="." method="_on_btn_press" binds= [ "playnow" ]]

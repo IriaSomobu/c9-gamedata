@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://main_screen/cn_bg.png" type="Texture" id=1]
 [ext_resource path="res://theme/terminus.ttf" type="DynamicFontData" id=2]
@@ -7,8 +7,9 @@
 [ext_resource path="res://main_screen/PanelNewgame.tscn" type="PackedScene" id=5]
 [ext_resource path="res://main_screen/BtnMainMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://theme/theme.tres" type="Theme" id=7]
-[ext_resource path="res://help_menu/Help.tscn" type="PackedScene" id=8]
-[ext_resource path="res://settings_menu/Settings.tscn" type="PackedScene" id=9]
+[ext_resource path="res://reusabe_menus/help/Help.tscn" type="PackedScene" id=8]
+[ext_resource path="res://reusabe_menus/settings/Settings.tscn" type="PackedScene" id=9]
+[ext_resource path="res://main_screen/PanelLoadgame.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -73,49 +74,43 @@ __meta__ = {
 
 [node name="MOTD" parent="Menu" instance=ExtResource( 6 )]
 margin_right = 160.0
-margin_bottom = 47.0
+margin_bottom = 55.0
 text = "MOTD"
 
 [node name="NewGame" parent="Menu" instance=ExtResource( 6 )]
-margin_top = 57.0
+margin_top = 65.0
 margin_right = 160.0
-margin_bottom = 104.0
+margin_bottom = 120.0
 text = "NG"
 
 [node name="Load" parent="Menu" instance=ExtResource( 6 )]
-margin_top = 114.0
+margin_top = 130.0
 margin_right = 160.0
-margin_bottom = 161.0
+margin_bottom = 185.0
 text = "LD"
 
-[node name="World" parent="Menu" instance=ExtResource( 6 )]
-margin_top = 171.0
-margin_right = 160.0
-margin_bottom = 218.0
-text = "WL"
-
 [node name="Settings" parent="Menu" instance=ExtResource( 6 )]
-margin_top = 228.0
+margin_top = 195.0
 margin_right = 160.0
-margin_bottom = 275.0
+margin_bottom = 250.0
 text = "STT"
 
 [node name="Help" parent="Menu" instance=ExtResource( 6 )]
-margin_top = 285.0
+margin_top = 260.0
 margin_right = 160.0
-margin_bottom = 332.0
+margin_bottom = 315.0
 text = "HLP"
 
 [node name="Credits" parent="Menu" instance=ExtResource( 6 )]
-margin_top = 342.0
+margin_top = 325.0
 margin_right = 160.0
-margin_bottom = 389.0
+margin_bottom = 380.0
 text = "CD"
 
 [node name="Quit" parent="Menu" instance=ExtResource( 6 )]
-margin_top = 399.0
+margin_top = 390.0
 margin_right = 160.0
-margin_bottom = 446.0
+margin_bottom = 445.0
 text = "QT"
 
 [node name="PanelContainer" type="Panel" parent="."]
@@ -138,10 +133,13 @@ visible = false
 [node name="PanelNewgame" parent="PanelContainer" instance=ExtResource( 5 )]
 visible = false
 
+[node name="PanelLoadgame" parent="PanelContainer" instance=ExtResource( 10 )]
+
 [node name="Help" parent="PanelContainer" instance=ExtResource( 8 )]
 visible = false
 
 [node name="Settings" parent="PanelContainer" instance=ExtResource( 9 )]
+visible = false
 
 [node name="Tips" type="RichTextLabel" parent="."]
 anchor_left = 0.125
@@ -162,7 +160,6 @@ __meta__ = {
 [connection signal="focus_entered" from="Menu/MOTD" to="." method="switch_panel" binds= [ "motd" ]]
 [connection signal="focus_entered" from="Menu/NewGame" to="." method="switch_panel" binds= [ "newgame" ]]
 [connection signal="focus_entered" from="Menu/Load" to="." method="switch_panel" binds= [ "loadgame" ]]
-[connection signal="focus_entered" from="Menu/World" to="." method="switch_panel" binds= [ "world" ]]
 [connection signal="focus_entered" from="Menu/Settings" to="." method="switch_panel" binds= [ "settings" ]]
 [connection signal="focus_entered" from="Menu/Help" to="." method="switch_panel" binds= [ "help" ]]
 [connection signal="focus_entered" from="Menu/Credits" to="." method="switch_panel" binds= [ "credits" ]]

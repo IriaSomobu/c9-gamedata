@@ -22,12 +22,17 @@ _global_script_class_icons={
 
 config/name="Cataclysm Nine"
 run/main_scene="res://root/Root.tscn"
+boot_splash/image="res://splash.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [display]
 
-window/size/width=1280
-window/size/height=720
+window/size/width=640
+window/size/height=360
+window/size/resizable=false
+window/size/borderless=true
 window/dpi/allow_hidpi=true
 window/stretch/aspect="keep"
 

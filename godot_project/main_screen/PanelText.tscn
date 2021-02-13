@@ -2,7 +2,6 @@
 
 [ext_resource path="res://theme/terminus.ttf" type="DynamicFontData" id=1]
 
-
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.627451 )
 
@@ -23,8 +22,10 @@ anchor_left = 0.0234375
 anchor_top = 0.0138889
 anchor_right = 0.992188
 anchor_bottom = 0.986111
+focus_mode = 2
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
+selection_enabled = true
 __meta__ = {
 "_edit_use_anchors_": true
 }

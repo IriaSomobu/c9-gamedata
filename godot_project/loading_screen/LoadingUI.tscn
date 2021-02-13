@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://loading_screen/LoadingUI.gd" type="Script" id=1]
+
+[node name="LoadingUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.375
+anchor_top = 0.444444
+anchor_right = 0.624687
+anchor_bottom = 0.555111
+margin_right = 0.400002
+margin_bottom = 0.319996
+text = "Loading screen will be here!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.375
+anchor_top = 0.555556
+anchor_right = 0.624813
+anchor_bottom = 0.667
+margin_right = 0.239929
+margin_bottom = -0.23999
+text = "Back to main"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+[connection signal="pressed" from="Button" to="." method="fuck_go_back"]

@@ -1,7 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://theme/theme_btn_focus.tres" type="StyleBox" id=2]
-[ext_resource path="res://settings_menu/Option.gd" type="Script" id=3]
+[ext_resource path="res://reusabe_menus/settings/Option.gd" type="Script" id=3]
+
+
+
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.117647, 0.117647, 0.117647, 0.745098 )

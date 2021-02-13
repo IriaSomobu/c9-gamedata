@@ -15,11 +15,9 @@
 <color_yellow>  Community</color> - For supporting original projects.
 
 <color_white>For a full list of contributors please see:</color>
-<color_cyan>https://github.com/CleverRaven/Cataclysm-DDA/contributors</color> (<color_dark_gray>DDA fork</color>)
-<color_cyan>https://github.com/cataclysmbnteam/Cataclysm-BN/contributors</color> (<color_dark_gray>BN fork</color>)
+<color_cyan>https://github.com/IriaSomobu/cataclysm-nine/blob/master/AUTHORS.md</color>
 
 <color_light_cyan>Cataclysm Nine</color> is released under <color_white>CC-BY-SA 4.0</color>:
 <color_cyan>http://creativecommons.org/licenses/by-sa/4.0/</color>
 
-<color_white>Cataclysm Nine was started as fork of Cataclysm: Bright Nights.</color>
-<color_white>Cataclysm: Bright Nights was started as fork of Cataclysm: Dark Days Ahead.</color>
+<color_white>Cataclysm Nine is based on of Cataclysm: Bright Nights project.</color>

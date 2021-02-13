@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://help_menu/Help.gd" type="Script" id=1]
+[ext_resource path="res://reusabe_menus/help/Help.gd" type="Script" id=1]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.627451 )
@@ -36,7 +36,9 @@ margin_left = 0.559998
 margin_top = 40.0
 margin_right = 0.32
 margin_bottom = -0.32
+focus_mode = 2
 bbcode_enabled = true
+selection_enabled = true
 __meta__ = {
 "_edit_use_anchors_": true
 }

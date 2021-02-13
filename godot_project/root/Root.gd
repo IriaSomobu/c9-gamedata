@@ -9,19 +9,49 @@ func _ready():
 	core.initialize();
 	if got_nerror: return;
 	
-	var data = core.get_main_data();
-	goto_main(data);
+	setup_window_from_options();
+	
+	goto_main();
+
+func setup_window_from_options():
+	var fullscreen = core.get_option("GD_FULLSCREEN") == "true"
+	
+	OS.set_window_fullscreen(fullscreen)
+	
+	if not fullscreen:
+		print("GD_R ", core.get_option("GD_RESOLUTION"))
+		var ws = core.get_option("GD_RESOLUTION").split("x") as PoolStringArray
+		OS.window_size = Vector2(ws[0], ws[1])
+		OS.window_borderless = core.get_option("GD_BORDERLESS") == "true";
+		
+		var scr_size = OS.get_screen_size(OS.current_screen)
+		var win_size = OS.get_window_size()
+		OS.set_window_position(scr_size*0.5 - win_size*0.5)
+	
+
 
 func clear_contents():
 	for n in get_children():
 		remove_child(n)
 		n.queue_free()
 
-func goto_main(core_data):
+func goto_main():
 	clear_contents();
 	
 	var ui = load("res://main_screen/UI.tscn").instance()
-	ui.core_data(core_data)
+	add_child(ui)
+
+func goto_newchar(mode):
+	clear_contents();
+	
+	var ui = load("res://newgame_screen/NewgameUI.tscn").instance()
+	add_child(ui)
+	ui.set_mode(mode);
+
+func goto_loading():
+	clear_contents();
+	
+	var ui = load("res://loading_screen/LoadingUI.tscn").instance()
 	add_child(ui)
 
 func on_native_debug(message):
@@ -34,3 +64,6 @@ func on_native_error(title, message):
 	var ui = load("res://error_screen/UI.tscn").instance()
 	ui.set_error(title, message);
 	add_child(ui)
+
+func on_settings_applied():
+	setup_window_from_options();

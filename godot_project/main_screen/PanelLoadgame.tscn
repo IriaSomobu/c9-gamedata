@@ -1,0 +1,182 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://main_screen/BtnLoadgame.tscn" type="PackedScene" id=1]
+
+[node name="PanelLoadgame" type="ScrollContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_right = 1268.0
+margin_bottom = 1228.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+
+[node name="BtnLoadgame" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 420.0
+margin_bottom = 150.0
+
+[node name="BtnLoadgame2" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 424.0
+margin_right = 844.0
+margin_bottom = 150.0
+
+[node name="BtnLoadgame3" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 848.0
+margin_right = 1268.0
+margin_bottom = 150.0
+
+[node name="BtnLoadgame4" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 154.0
+margin_right = 420.0
+margin_bottom = 304.0
+
+[node name="BtnLoadgame5" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 424.0
+margin_top = 154.0
+margin_right = 844.0
+margin_bottom = 304.0
+
+[node name="BtnLoadgame6" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 848.0
+margin_top = 154.0
+margin_right = 1268.0
+margin_bottom = 304.0
+
+[node name="BtnLoadgame7" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 308.0
+margin_right = 420.0
+margin_bottom = 458.0
+
+[node name="BtnLoadgame8" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 424.0
+margin_top = 308.0
+margin_right = 844.0
+margin_bottom = 458.0
+
+[node name="BtnLoadgame9" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 848.0
+margin_top = 308.0
+margin_right = 1268.0
+margin_bottom = 458.0
+
+[node name="BtnLoadgame10" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 462.0
+margin_right = 420.0
+margin_bottom = 612.0
+
+[node name="BtnLoadgame11" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 424.0
+margin_top = 462.0
+margin_right = 844.0
+margin_bottom = 612.0
+
+[node name="BtnLoadgame12" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 848.0
+margin_top = 462.0
+margin_right = 1268.0
+margin_bottom = 612.0
+
+[node name="BtnLoadgame13" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 616.0
+margin_right = 420.0
+margin_bottom = 766.0
+
+[node name="BtnLoadgame14" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 424.0
+margin_top = 616.0
+margin_right = 844.0
+margin_bottom = 766.0
+
+[node name="BtnLoadgame15" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 848.0
+margin_top = 616.0
+margin_right = 1268.0
+margin_bottom = 766.0
+
+[node name="BtnLoadgame16" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 770.0
+margin_right = 420.0
+margin_bottom = 920.0
+
+[node name="BtnLoadgame17" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 424.0
+margin_top = 770.0
+margin_right = 844.0
+margin_bottom = 920.0
+
+[node name="BtnLoadgame18" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 848.0
+margin_top = 770.0
+margin_right = 1268.0
+margin_bottom = 920.0
+
+[node name="BtnLoadgame19" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 924.0
+margin_right = 420.0
+margin_bottom = 1074.0
+
+[node name="BtnLoadgame20" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 424.0
+margin_top = 924.0
+margin_right = 844.0
+margin_bottom = 1074.0
+
+[node name="BtnLoadgame21" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 848.0
+margin_top = 924.0
+margin_right = 1268.0
+margin_bottom = 1074.0
+
+[node name="BtnLoadgame22" parent="GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1078.0
+margin_right = 420.0
+margin_bottom = 1228.0
