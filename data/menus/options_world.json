@@ -255,5 +255,110 @@
         "default": "false"
       }
     ]
+  },
+  {
+    "page": "world_workaround",
+    "name": "World Internals",
+    "data": [
+      {
+        "code": "SPEEDYDEX_MIN_DEX",
+        "name": "SPEEDYDEX_MIN_DEX",
+        "descr": "",
+        "type": "num",
+        "steps": [ 1, 20, 1 ],
+        "default": "1"
+      },
+      {
+        "code": "SPEEDYDEX_DEX_SPEED",
+        "name": "SPEEDYDEX_DEX_SPEED",
+        "descr": "",
+        "type": "num",
+        "steps": [ 1, 20, 1 ],
+        "default": "1"
+      },
+      {
+        "code": "PLAYER_MAX_STAMINA",
+        "name": "PLAYER_MAX_STAMINA",
+        "descr": "",
+        "type": "num",
+        "steps": [ 0, 500, 10 ],
+        "default": "50"
+      },
+      {
+        "code": "PLAYER_HUNGER_RATE",
+        "name": "PLAYER_HUNGER_RATE",
+        "descr": "",
+        "type": "num",
+        "steps": [ 1, 10, 1 ],
+        "default": "1"
+      },
+      {
+        "code": "PLAYER_BASE_STAMINA_BURN_RATE",
+        "name": "PLAYER_BASE_STAMINA_BURN_RATE",
+        "descr": "",
+        "type": "num",
+        "steps": [ 1, 10, 1 ],
+        "default": "1"
+      },
+      {
+        "code": "PLAYER_BASE_STAMINA_REGEN_RATE",
+        "name": "PLAYER_BASE_STAMINA_REGEN_RATE",
+        "descr": "",
+        "type": "num",
+        "steps": [ 1, 10, 1 ],
+        "default": "1"
+      },
+      {
+        "code": "PLAYER_THIRST_RATE",
+        "name": "PLAYER_THIRST_RATE",
+        "descr": "",
+        "type": "num",
+        "steps": [ 1, 10, 1 ],
+        "default": "1"
+      },
+      {
+        "code": "PLAYER_FATIGUE_RATE",
+        "name": "PLAYER_FATIGUE_RATE",
+        "descr": "",
+        "type": "num",
+        "steps": [ 1, 10, 1 ],
+        "default": "1"
+      },
+      {
+        "code": "PLAYER_HEALING_RATE",
+        "name": "PLAYER_HEALING_RATE",
+        "descr": "",
+        "type": "num",
+        "steps": [ 1, 10, 1 ],
+        "default": "1"
+      },
+      {
+        "code": "NPC_HEALING_RATE",
+        "name": "NPC_HEALING_RATE",
+        "descr": "",
+        "type": "num",
+        "steps": [ 1, 10, 1 ],
+        "default": "1"
+      },
+      {
+        "code": "SPAWN_ANIMAL_DENSITY",
+        "name": "SPAWN_ANIMAL_DENSITY",
+        "descr": "",
+        "type": "num",
+        "steps": [ 1, 10, 1 ],
+        "default": "1"
+      },
+      {
+        "type": "empty"
+      },
+      {
+        "code": "EDGE_SCROLL",
+        "name": "EDGE_SCROLL",
+        "descr": "",
+        "type": "num",
+        "steps": [ 1, 10, 1 ],
+        "default": "1"
+      }
+    ]
   }
 ]
