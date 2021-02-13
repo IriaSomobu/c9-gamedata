@@ -1,5 +1,5 @@
 [gd_resource type="GDNativeLibrary" format=2]
 
 [resource]
-entry/X11.64 = "../../libcnFrontGodot.so"
-dependency/X11.64 = [ "../../libcnCore.so", "../../libcnCommon.so" ]
+entry/X11.64 = "res://bin/libcnFrontGodot.so"
+dependency/X11.64 = [ "res://bin/libcnCore.so", "res://bin/libcnCommon.so" ]
