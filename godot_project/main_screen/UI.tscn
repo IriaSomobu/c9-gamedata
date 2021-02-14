@@ -143,9 +143,9 @@ visible = false
 
 [node name="Tips" type="RichTextLabel" parent="."]
 anchor_left = 0.125
-anchor_top = 0.889222
+anchor_top = 0.8878
 anchor_right = 0.875469
-anchor_bottom = 0.944222
+anchor_bottom = 0.9873
 margin_top = -0.240051
 margin_right = -0.600098
 margin_bottom = 0.159973

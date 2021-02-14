@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://newgame_screen/NewgameUI.gd" type="Script" id=1]
+[ext_resource path="res://theme/theme_btn_normal.tres" type="StyleBox" id=2]
+[ext_resource path="res://theme/terminus.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://theme/theme_btn_hover.tres" type="StyleBox" id=4]
+[ext_resource path="res://theme/theme_btn_focus.tres" type="StyleBox" id=5]
+
+[sub_resource type="DynamicFont" id=3]
+size = 18
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+font_data = ExtResource( 3 )
 
 [node name="NewgameUI" type="Control"]
 anchor_right = 1.0
@@ -10,25 +26,748 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
-anchor_left = 0.375
-anchor_top = 0.444444
-anchor_right = 0.625
-anchor_bottom = 0.555556
-text = "Chargen screen will be here!"
+[node name="Worldgen" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnBack" type="Button" parent="Worldgen"]
+anchor_left = 0.0390625
+anchor_top = 0.05
+anchor_right = 0.1875
+anchor_bottom = 0.1
+custom_styles/hover = ExtResource( 4 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 2 )
+text = "Back to main menu"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="BtnConfirm" type="Button" parent="Worldgen"]
+anchor_left = 0.8125
+anchor_top = 0.05
+anchor_right = 0.960938
+anchor_bottom = 0.1
+custom_styles/hover = ExtResource( 4 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 2 )
+text = "Confirm"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Modlist" type="Panel" parent="Worldgen"]
+anchor_left = 0.0390625
+anchor_top = 0.1125
+anchor_right = 0.351562
+anchor_bottom = 0.95
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Worldgen/Modlist"]
+anchor_left = 0.025
+anchor_top = 0.0151515
+anchor_right = 0.975
+anchor_bottom = 0.984848
+custom_fonts/font = SubResource( 3 )
+text = "Modlist here
+
+- [x] Dark days ahead
+- [ ] No npc needs"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Settings" type="Panel" parent="Worldgen"]
+anchor_left = 0.359375
+anchor_top = 0.1125
+anchor_right = 0.960938
+anchor_bottom = 0.95
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Worldgen/Settings"]
+anchor_left = 0.025
+anchor_top = 0.0151515
+anchor_right = 0.975
+anchor_bottom = 0.984848
+custom_fonts/font = SubResource( 3 )
+text = "World settings here"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Chargen" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnBack" type="Button" parent="Chargen"]
+anchor_left = 0.0390625
+anchor_top = 0.05
+anchor_right = 0.1875
+anchor_bottom = 0.1
+custom_styles/hover = ExtResource( 4 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 2 )
+text = "Back to world settings"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="BtnConfirm" type="Button" parent="Chargen"]
+anchor_left = 0.8125
+anchor_top = 0.05
+anchor_right = 0.960938
+anchor_bottom = 0.1
+custom_styles/hover = ExtResource( 4 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 2 )
+text = "Confirm"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label9" type="Label" parent="Chargen"]
+anchor_left = 0.202508
+anchor_top = 0.05
+anchor_right = 0.796492
+anchor_bottom = 0.0999
+margin_left = 0.790009
+margin_right = 0.489929
+margin_bottom = 0.0799866
+custom_fonts/font = SubResource( 2 )
+text = "Очков осталось: 3"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Button" type="Button" parent="."]
-anchor_left = 0.375
-anchor_top = 0.555556
-anchor_right = 0.625
-anchor_bottom = 0.666667
-text = "Back to main"
+[node name="Doll" type="Panel" parent="Chargen"]
+anchor_left = 0.0390625
+anchor_top = 0.1125
+anchor_right = 0.351562
+anchor_bottom = 0.95
+custom_styles/panel = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
-[connection signal="pressed" from="Button" to="." method="fuck_go_back"]
+
+[node name="Label" type="Label" parent="Chargen/Doll"]
+anchor_left = 0.025
+anchor_top = 0.0151515
+anchor_right = 0.975
+anchor_bottom = 0.984848
+custom_fonts/font = SubResource( 3 )
+text = "Char
+Doll
+Here"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Basic" type="Panel" parent="Chargen"]
+anchor_left = 0.359375
+anchor_top = 0.1125
+anchor_right = 0.664062
+anchor_bottom = 0.325
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Chargen/Basic"]
+anchor_left = 0.029
+anchor_top = 0.059
+anchor_right = 0.324
+anchor_bottom = 0.235
+margin_left = 0.139999
+margin_top = -0.0299997
+margin_right = -0.160004
+margin_bottom = 0.0500031
+custom_fonts/font = SubResource( 1 )
+text = "Пол"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Chargen/Basic"]
+anchor_left = 0.471
+anchor_top = 0.059
+anchor_right = 0.971
+anchor_bottom = 0.235
+margin_left = -0.139999
+margin_top = -0.0299997
+margin_right = -0.140015
+margin_bottom = 0.0500031
+custom_fonts/font = SubResource( 1 )
+text = "мужской"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="Chargen/Basic"]
+anchor_left = 0.029
+anchor_top = 0.294
+anchor_right = 0.324
+anchor_bottom = 0.471
+margin_left = 0.139999
+margin_top = 0.0200043
+margin_right = -0.160004
+margin_bottom = -0.0699921
+custom_fonts/font = SubResource( 1 )
+text = "Имя"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Chargen/Basic"]
+anchor_left = 0.471
+anchor_top = 0.294
+anchor_right = 0.971
+anchor_bottom = 0.471
+margin_left = -0.139999
+margin_top = 0.0200043
+margin_right = -0.140015
+margin_bottom = -0.0699921
+custom_fonts/font = SubResource( 1 )
+text = "Джермейн Рукер"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="Chargen/Basic"]
+anchor_left = 0.029
+anchor_top = 0.529
+anchor_right = 0.324
+anchor_bottom = 0.706
+margin_left = 0.139999
+margin_top = 0.0699997
+margin_right = -0.160004
+margin_bottom = -0.0199966
+custom_fonts/font = SubResource( 1 )
+text = "Рост"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="Chargen/Basic"]
+anchor_left = 0.471
+anchor_top = 0.529
+anchor_right = 0.971
+anchor_bottom = 0.706
+margin_left = -0.139999
+margin_top = 0.0699997
+margin_right = -0.140015
+margin_bottom = -0.0199966
+custom_fonts/font = SubResource( 1 )
+text = "155 см"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label8" type="Label" parent="Chargen/Basic"]
+anchor_left = 0.029
+anchor_top = 0.765
+anchor_right = 0.324
+anchor_bottom = 0.941
+margin_left = 0.139999
+margin_top = -0.0500031
+margin_right = -0.160004
+margin_bottom = 0.030014
+custom_fonts/font = SubResource( 1 )
+text = "Возраст"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label7" type="Label" parent="Chargen/Basic"]
+anchor_left = 0.471
+anchor_top = 0.765
+anchor_right = 0.971
+anchor_bottom = 0.941
+margin_left = -0.139999
+margin_top = -0.0500031
+margin_right = -0.140015
+margin_bottom = 0.030014
+custom_fonts/font = SubResource( 1 )
+text = "32"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Appearance" type="Panel" parent="Chargen"]
+anchor_left = 0.359375
+anchor_top = 0.3375
+anchor_right = 0.664062
+anchor_bottom = 0.5
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Chargen/Appearance"]
+anchor_left = 0.029
+anchor_top = 0.0696154
+anchor_right = 0.324
+anchor_bottom = 0.307692
+margin_left = 0.139999
+margin_top = -0.0500002
+margin_right = -0.160004
+margin_bottom = -3.8147e-06
+custom_fonts/font = SubResource( 1 )
+text = "Цвет кожи"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label1" type="Label" parent="Chargen/Appearance"]
+anchor_left = 0.471
+anchor_top = 0.0689231
+anchor_right = 0.971
+anchor_bottom = 0.307461
+margin_left = -0.139999
+margin_top = 0.039999
+margin_right = -0.140015
+margin_bottom = 0.0300179
+custom_fonts/font = SubResource( 1 )
+text = "бронзовый"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label3" type="Label" parent="Chargen/Appearance"]
+anchor_left = 0.029
+anchor_top = 0.385
+anchor_right = 0.324
+anchor_bottom = 0.615385
+margin_left = 0.139999
+margin_top = -0.0500002
+margin_right = -0.160004
+margin_bottom = -3.8147e-06
+custom_fonts/font = SubResource( 1 )
+text = "Волосы"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label2" type="Label" parent="Chargen/Appearance"]
+anchor_left = 0.471
+anchor_top = 0.384308
+anchor_right = 0.971
+anchor_bottom = 0.615154
+margin_left = -0.139999
+margin_top = 0.039999
+margin_right = -0.140015
+margin_bottom = 0.0300179
+custom_fonts/font = SubResource( 1 )
+text = "коричневые, длинные"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label5" type="Label" parent="Chargen/Appearance"]
+anchor_left = 0.029
+anchor_top = 0.692692
+anchor_right = 0.324
+anchor_bottom = 0.923077
+margin_left = 0.139999
+margin_top = -0.0500002
+margin_right = -0.160004
+margin_bottom = -3.8147e-06
+custom_fonts/font = SubResource( 1 )
+text = "Усы/борода"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label4" type="Label" parent="Chargen/Appearance"]
+anchor_left = 0.471
+anchor_top = 0.692
+anchor_right = 0.971
+anchor_bottom = 0.922846
+margin_left = -0.139999
+margin_top = 0.039999
+margin_right = -0.140015
+margin_bottom = 0.0300179
+custom_fonts/font = SubResource( 1 )
+text = "шкиперск.борода"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="StartProps" type="Panel" parent="Chargen"]
+anchor_left = 0.359375
+anchor_top = 0.5125
+anchor_right = 0.664062
+anchor_bottom = 0.725
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Chargen/StartProps"]
+anchor_left = 0.026
+anchor_top = 0.0588235
+anchor_right = 0.316526
+anchor_bottom = 0.234887
+margin_left = 0.12
+margin_top = -9.53674e-07
+margin_right = 1.71999
+margin_bottom = 0.0692368
+custom_fonts/font = SubResource( 1 )
+text = "Сценарий"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label1" type="Label" parent="Chargen/StartProps"]
+anchor_left = 0.474105
+anchor_top = 0.0588235
+anchor_right = 0.974105
+anchor_bottom = 0.234561
+margin_left = -0.160049
+margin_top = -9.53674e-07
+margin_right = -0.160065
+margin_bottom = 0.124596
+custom_fonts/font = SubResource( 1 )
+text = "Оч.плохой день"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label3" type="Label" parent="Chargen/StartProps"]
+anchor_left = 0.026
+anchor_top = 0.294118
+anchor_right = 0.316526
+anchor_bottom = 0.470181
+margin_left = 0.12
+margin_top = -9.53674e-07
+margin_right = 1.71999
+margin_bottom = 0.0692368
+custom_fonts/font = SubResource( 1 )
+text = "Профессия"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label2" type="Label" parent="Chargen/StartProps"]
+anchor_left = 0.468842
+anchor_top = 0.294118
+anchor_right = 0.968
+anchor_bottom = 0.470588
+margin_left = -0.160049
+margin_top = -9.53674e-07
+margin_right = 0.159973
+margin_bottom = -7.62939e-06
+custom_fonts/font = SubResource( 1 )
+text = "Выживший"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label5" type="Label" parent="Chargen/StartProps"]
+anchor_left = 0.026
+anchor_top = 0.529412
+anchor_right = 0.316526
+anchor_bottom = 0.705475
+margin_left = 0.12
+margin_top = -9.53674e-07
+margin_right = 1.71999
+margin_bottom = 0.0692368
+custom_fonts/font = SubResource( 1 )
+text = "Локация"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label4" type="Label" parent="Chargen/StartProps"]
+anchor_left = 0.474105
+anchor_top = 0.529412
+anchor_right = 0.973263
+anchor_bottom = 0.705882
+margin_left = -0.160049
+margin_top = -9.53674e-07
+margin_right = 0.159973
+margin_bottom = -7.62939e-06
+custom_fonts/font = SubResource( 1 )
+text = "АЗС (1 вар)"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label7" type="Label" parent="Chargen/StartProps"]
+anchor_left = 0.026
+anchor_top = 0.764706
+anchor_right = 0.316526
+anchor_bottom = 0.940769
+margin_left = 0.12
+margin_top = -9.53674e-07
+margin_right = 1.71999
+margin_bottom = 0.0692368
+custom_fonts/font = SubResource( 1 )
+text = "Транспорт"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label6" type="Label" parent="Chargen/StartProps"]
+anchor_left = 0.468842
+anchor_top = 0.764706
+anchor_right = 0.968
+anchor_bottom = 0.941176
+margin_left = -0.160049
+margin_top = -9.53674e-07
+margin_right = 0.159973
+margin_bottom = -7.62939e-06
+custom_fonts/font = SubResource( 1 )
+text = "Food Truck"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Stats" type="Panel" parent="Chargen"]
+anchor_left = 0.359375
+anchor_top = 0.7375
+anchor_right = 0.664062
+anchor_bottom = 0.95
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Chargen/Stats"]
+anchor_left = 0.026
+anchor_top = 0.0592354
+anchor_right = 0.321
+anchor_bottom = 0.235228
+margin_left = 0.12
+margin_top = -0.0700159
+margin_right = 0.0199966
+margin_bottom = 0.0112534
+custom_fonts/font = SubResource( 1 )
+text = "Сила"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label1" type="Label" parent="Chargen/Stats"]
+anchor_left = 0.474
+anchor_top = 0.0592354
+anchor_right = 0.974
+anchor_bottom = 0.235266
+margin_left = -0.12001
+margin_top = -0.0700159
+margin_right = -0.120026
+margin_bottom = 0.00475311
+custom_fonts/font = SubResource( 1 )
+text = "8"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label3" type="Label" parent="Chargen/Stats"]
+anchor_left = 0.026
+anchor_top = 0.294529
+anchor_right = 0.321
+anchor_bottom = 0.470522
+margin_left = 0.12
+margin_top = -0.0700159
+margin_right = 0.0199966
+margin_bottom = 0.0112534
+custom_fonts/font = SubResource( 1 )
+text = "Ловкость"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label2" type="Label" parent="Chargen/Stats"]
+anchor_left = 0.474
+anchor_top = 0.294529
+anchor_right = 0.974
+anchor_bottom = 0.47056
+margin_left = -0.12001
+margin_top = -0.0700159
+margin_right = -0.120026
+margin_bottom = 0.00475311
+custom_fonts/font = SubResource( 1 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label5" type="Label" parent="Chargen/Stats"]
+anchor_left = 0.026
+anchor_top = 0.529824
+anchor_right = 0.321
+anchor_bottom = 0.705816
+margin_left = 0.12
+margin_top = -0.0700159
+margin_right = 0.0199966
+margin_bottom = 0.0112534
+custom_fonts/font = SubResource( 1 )
+text = "Интеллект"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label4" type="Label" parent="Chargen/Stats"]
+anchor_left = 0.474
+anchor_top = 0.529824
+anchor_right = 0.974
+anchor_bottom = 0.705854
+margin_left = -0.12001
+margin_top = -0.0700159
+margin_right = -0.120026
+margin_bottom = 0.00475311
+custom_fonts/font = SubResource( 1 )
+text = "8"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label7" type="Label" parent="Chargen/Stats"]
+anchor_left = 0.026
+anchor_top = 0.765118
+anchor_right = 0.321
+anchor_bottom = 0.94111
+margin_left = 0.12
+margin_top = -0.0700159
+margin_right = 0.0199966
+margin_bottom = 0.0112534
+custom_fonts/font = SubResource( 1 )
+text = "Восприятие"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label6" type="Label" parent="Chargen/Stats"]
+anchor_left = 0.474
+anchor_top = 0.765118
+anchor_right = 0.974
+anchor_bottom = 0.941148
+margin_left = -0.12001
+margin_top = -0.0700159
+margin_right = -0.120026
+margin_bottom = 0.00475311
+custom_fonts/font = SubResource( 1 )
+text = "8"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Skills" type="Panel" parent="Chargen"]
+anchor_left = 0.671875
+anchor_top = 0.1125
+anchor_right = 0.960938
+anchor_bottom = 0.5
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label8" type="Label" parent="Chargen/Skills"]
+anchor_left = 0.027027
+anchor_top = 0.0322581
+anchor_right = 0.972973
+anchor_bottom = 0.975115
+custom_fonts/font = SubResource( 1 )
+text = "Черты:
+- Психоз от стимуляторов
+- Гурман
+- Людоед
+- Психоз
+- Больные колени
+- Перепады настроения"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Traits" type="Panel" parent="Chargen"]
+anchor_left = 0.671875
+anchor_top = 0.5125
+anchor_right = 0.960938
+anchor_bottom = 0.95
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label8" type="Label" parent="Chargen/Traits"]
+anchor_left = 0.027027
+anchor_top = 0.0285714
+anchor_right = 0.972973
+anchor_bottom = 0.971429
+custom_fonts/font = SubResource( 1 )
+text = "Навыки:
+- плавание ( 5 )
+- метание ( 4 )
+- вождение ( 5 )
+"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+[connection signal="pressed" from="Worldgen/BtnBack" to="." method="back_to_main"]
+[connection signal="pressed" from="Worldgen/BtnConfirm" to="." method="to_chargen"]
+[connection signal="pressed" from="Chargen/BtnBack" to="." method="back_to_mapgen"]
+[connection signal="pressed" from="Chargen/BtnConfirm" to="." method="confirm"]

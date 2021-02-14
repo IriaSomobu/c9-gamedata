@@ -1,7 +1,21 @@
 extends Control
 
-func set_mode(mode):
-	$Label.text += "\nIn mode \""+str(mode)+"\""
+onready var core = get_node("/root/Root").core;
 
-func fuck_go_back():
-	get_node("/root/Root").goto_main();
+func set_mode(mode):
+	$Worldgen.visible = true
+	$Chargen.visible = false
+
+func back_to_main():
+	get_node("/root/Root").goto_main()
+
+func to_chargen():
+	$Worldgen.visible = false
+	$Chargen.visible = true
+
+func back_to_mapgen():
+	$Worldgen.visible = true
+	$Chargen.visible = false
+
+func confirm():
+	pass
