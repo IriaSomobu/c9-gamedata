@@ -18,7 +18,7 @@ func _ready():
 	
 	$Menu/MOTD.text = core.tr("MOTD");
 	$Menu/NewGame.text = core.tr("New Game");
-	$Menu/Load.text = core.tr("Load .");
+	$Menu/Load.text = core.tr("Saves");
 	$Menu/Settings.text = core.tr("Settings");
 	$Menu/Help.text = core.tr("Help");
 	$Menu/Credits.text = core.tr("Credits");

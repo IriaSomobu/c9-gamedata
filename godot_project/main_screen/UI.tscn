@@ -74,43 +74,43 @@ __meta__ = {
 
 [node name="MOTD" parent="Menu" instance=ExtResource( 6 )]
 margin_right = 160.0
-margin_bottom = 55.0
+margin_bottom = 62.0
 text = "MOTD"
 
 [node name="NewGame" parent="Menu" instance=ExtResource( 6 )]
-margin_top = 65.0
+margin_top = 72.0
 margin_right = 160.0
-margin_bottom = 120.0
+margin_bottom = 134.0
 text = "NG"
 
 [node name="Load" parent="Menu" instance=ExtResource( 6 )]
-margin_top = 130.0
+margin_top = 144.0
 margin_right = 160.0
-margin_bottom = 185.0
+margin_bottom = 206.0
 text = "LD"
 
 [node name="Settings" parent="Menu" instance=ExtResource( 6 )]
-margin_top = 195.0
+margin_top = 216.0
 margin_right = 160.0
-margin_bottom = 250.0
+margin_bottom = 278.0
 text = "STT"
 
 [node name="Help" parent="Menu" instance=ExtResource( 6 )]
-margin_top = 260.0
+margin_top = 288.0
 margin_right = 160.0
-margin_bottom = 315.0
+margin_bottom = 350.0
 text = "HLP"
 
 [node name="Credits" parent="Menu" instance=ExtResource( 6 )]
-margin_top = 325.0
+margin_top = 360.0
 margin_right = 160.0
-margin_bottom = 380.0
+margin_bottom = 422.0
 text = "CD"
 
 [node name="Quit" parent="Menu" instance=ExtResource( 6 )]
-margin_top = 390.0
+margin_top = 432.0
 margin_right = 160.0
-margin_bottom = 445.0
+margin_bottom = 494.0
 text = "QT"
 
 [node name="PanelContainer" type="Panel" parent="."]

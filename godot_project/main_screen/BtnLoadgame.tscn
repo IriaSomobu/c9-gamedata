@@ -1,18 +1,19 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://theme/theme_btn_focus.tres" type="StyleBox" id=1]
 [ext_resource path="res://theme/theme_btn_normal.tres" type="StyleBox" id=2]
 [ext_resource path="res://theme/theme_btn_hover.tres" type="StyleBox" id=3]
 [ext_resource path="res://theme/terminus.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://main_screen/test_save_bg.jpg" type="Texture" id=5]
+[ext_resource path="res://main_screen/BtnLoadgame.gd" type="Script" id=6]
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0, 0, 0, 0.529412 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=5]
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 18
 font_data = ExtResource( 4 )
 
@@ -24,6 +25,7 @@ size_flags_horizontal = 3
 custom_styles/hover = ExtResource( 3 )
 custom_styles/focus = ExtResource( 1 )
 custom_styles/normal = ExtResource( 2 )
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -46,7 +48,7 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -59,37 +61,38 @@ __meta__ = {
 }
 
 [node name="World" type="Label" parent="Control"]
-margin_top = 16.0
-margin_right = 250.0
-margin_bottom = 33.0
+margin_top = 19.0
+margin_right = 249.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.603922, 0.603922, 0.603922, 1 )
-text = "Elk Plain"
+text = "Unknown World"
 align = 1
 valign = 1
 
 [node name="Char" type="Label" parent="Control"]
-margin_top = 69.0
-margin_right = 250.0
-margin_bottom = 89.0
+margin_top = 78.0
+margin_right = 249.0
+margin_bottom = 98.0
 rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_fonts/font = SubResource( 2 )
-text = "Митчел 'Фронт' Луонг"
+custom_fonts/font = SubResource( 3 )
+text = "Unknown Character"
 align = 1
 valign = 1
 
 [node name="Date" type="Label" parent="Control"]
-margin_top = 125.0
-margin_right = 250.0
-margin_bottom = 142.0
+margin_top = 140.0
+margin_right = 249.0
+margin_bottom = 157.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.603922, 0.603922, 0.603922, 1 )
-text = "13.02.1997 23:35"
+text = "Unknown Playtime"
 align = 1
 valign = 1
+[connection signal="pressed" from="." to="." method="_on_BtnLoadgame_pressed"]

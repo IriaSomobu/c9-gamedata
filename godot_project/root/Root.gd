@@ -3,7 +3,7 @@ extends Spatial
 var core;
 var got_nerror = false; # We got error report from natives
 
-func _ready():	
+func _ready():
 	core = load("res://front_script.gdns").new()
 	core.set_error_listener(self);
 	core.initialize();
@@ -19,14 +19,13 @@ func setup_window_from_options():
 	OS.set_window_fullscreen(fullscreen)
 	
 	if not fullscreen:
-		print("GD_R ", core.get_option("GD_RESOLUTION"))
 		var ws = core.get_option("GD_RESOLUTION").split("x") as PoolStringArray
 		OS.window_size = Vector2(ws[0], ws[1])
 		OS.window_borderless = core.get_option("GD_BORDERLESS") == "true";
 		
 		var scr_size = OS.get_screen_size(OS.current_screen)
 		var win_size = OS.get_window_size()
-		OS.set_window_position(scr_size*0.5 - win_size*0.5)
+#		OS.set_window_position(scr_size*0.5 - win_size*0.5)
 	
 
 

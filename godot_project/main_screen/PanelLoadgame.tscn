@@ -1,182 +1,164 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://main_screen/BtnLoadgame.tscn" type="PackedScene" id=1]
+[ext_resource path="res://theme/theme_btn_normal.tres" type="StyleBox" id=1]
+[ext_resource path="res://main_screen/PanelLoadgame.gd" type="Script" id=2]
+[ext_resource path="res://theme/theme_btn_focus.tres" type="StyleBox" id=3]
+[ext_resource path="res://theme/theme_btn_hover.tres" type="StyleBox" id=4]
 
-[node name="PanelLoadgame" type="ScrollContainer"]
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 0.470588 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.180392, 0.180392, 0.180392, 1 )
+
+[node name="PanelLoadgame" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NosavesPanel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="NosavesPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "No saves found"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GridContainer" type="GridContainer" parent="."]
-margin_right = 1268.0
-margin_bottom = 1228.0
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+margin_right = 1280.0
+margin_bottom = 800.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="BtnLoadgame" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 420.0
-margin_bottom = 150.0
+[node name="PopupPanel" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+popup_exclusive = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="BtnLoadgame2" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 424.0
-margin_right = 844.0
-margin_bottom = 150.0
+[node name="Panel" type="Panel" parent="PopupPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="BtnLoadgame3" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 848.0
-margin_right = 1268.0
-margin_bottom = 150.0
+[node name="Content" type="Panel" parent="PopupPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -160.0
+margin_right = 160.0
+margin_bottom = 160.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="BtnLoadgame4" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 154.0
-margin_right = 420.0
-margin_bottom = 304.0
+[node name="Container" type="VBoxContainer" parent="PopupPanel/Content"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="BtnLoadgame5" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 424.0
-margin_top = 154.0
-margin_right = 844.0
-margin_bottom = 304.0
+[node name="Label" type="Label" parent="PopupPanel/Content/Container"]
+margin_right = 300.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 150, 30 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Charname
+World"
+align = 1
+valign = 1
 
-[node name="BtnLoadgame6" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 848.0
-margin_top = 154.0
-margin_right = 1268.0
-margin_bottom = 304.0
+[node name="Load" type="Button" parent="PopupPanel/Content/Container"]
+margin_top = 76.0
+margin_right = 300.0
+margin_bottom = 148.0
+rect_min_size = Vector2( 150, 30 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = ExtResource( 4 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/normal = ExtResource( 1 )
+text = "Load savegame"
 
-[node name="BtnLoadgame7" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 308.0
-margin_right = 420.0
-margin_bottom = 458.0
+[node name="Delete" type="Button" parent="PopupPanel/Content/Container"]
+margin_top = 152.0
+margin_right = 300.0
+margin_bottom = 224.0
+rect_min_size = Vector2( 150, 30 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = ExtResource( 4 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/normal = ExtResource( 1 )
+text = "Delete savegame"
 
-[node name="BtnLoadgame8" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 424.0
-margin_top = 308.0
-margin_right = 844.0
-margin_bottom = 458.0
+[node name="Cancel" type="Button" parent="PopupPanel/Content/Container"]
+margin_top = 228.0
+margin_right = 300.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 150, 30 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = ExtResource( 4 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/normal = ExtResource( 1 )
+text = "Cancel"
 
-[node name="BtnLoadgame9" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 848.0
-margin_top = 308.0
-margin_right = 1268.0
-margin_bottom = 458.0
-
-[node name="BtnLoadgame10" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 462.0
-margin_right = 420.0
-margin_bottom = 612.0
-
-[node name="BtnLoadgame11" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 424.0
-margin_top = 462.0
-margin_right = 844.0
-margin_bottom = 612.0
-
-[node name="BtnLoadgame12" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 848.0
-margin_top = 462.0
-margin_right = 1268.0
-margin_bottom = 612.0
-
-[node name="BtnLoadgame13" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 616.0
-margin_right = 420.0
-margin_bottom = 766.0
-
-[node name="BtnLoadgame14" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 424.0
-margin_top = 616.0
-margin_right = 844.0
-margin_bottom = 766.0
-
-[node name="BtnLoadgame15" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 848.0
-margin_top = 616.0
-margin_right = 1268.0
-margin_bottom = 766.0
-
-[node name="BtnLoadgame16" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 770.0
-margin_right = 420.0
-margin_bottom = 920.0
-
-[node name="BtnLoadgame17" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 424.0
-margin_top = 770.0
-margin_right = 844.0
-margin_bottom = 920.0
-
-[node name="BtnLoadgame18" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 848.0
-margin_top = 770.0
-margin_right = 1268.0
-margin_bottom = 920.0
-
-[node name="BtnLoadgame19" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 924.0
-margin_right = 420.0
-margin_bottom = 1074.0
-
-[node name="BtnLoadgame20" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 424.0
-margin_top = 924.0
-margin_right = 844.0
-margin_bottom = 1074.0
-
-[node name="BtnLoadgame21" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 848.0
-margin_top = 924.0
-margin_right = 1268.0
-margin_bottom = 1074.0
-
-[node name="BtnLoadgame22" parent="GridContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 1078.0
-margin_right = 420.0
-margin_bottom = 1228.0
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = -30.0
+margin_right = 120.0
+margin_bottom = 51.0
+popup_exclusive = true
+window_title = "Delete savegame"
+dialog_text = "Are you sure want to delete this savegame?
+Entire world will be deleted!"
+dialog_autowrap = true
+[connection signal="pressed" from="PopupPanel/Content/Container/Load" to="." method="popup_load"]
+[connection signal="pressed" from="PopupPanel/Content/Container/Delete" to="." method="popup_delete"]
+[connection signal="pressed" from="PopupPanel/Content/Container/Cancel" to="." method="popup_cancel"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="on_delete_confirmed"]
