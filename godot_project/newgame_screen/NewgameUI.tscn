@@ -1,34 +1,65 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://newgame_screen/NewgameUI.gd" type="Script" id=1]
 [ext_resource path="res://theme/theme_btn_normal.tres" type="StyleBox" id=2]
 [ext_resource path="res://theme/terminus.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://theme/theme_btn_hover.tres" type="StyleBox" id=4]
 [ext_resource path="res://theme/theme_btn_focus.tres" type="StyleBox" id=5]
+[ext_resource path="res://newgame_screen/space.jpg" type="Texture" id=6]
+[ext_resource path="res://theme/theme.tres" type="Theme" id=7]
+[ext_resource path="res://newgame_screen/casino_white_18dp.png" type="Texture" id=8]
+[ext_resource path="res://newgame_screen/Number.tscn" type="PackedScene" id=9]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.301961, 0.301961, 0.301961, 0.470588 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 18
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 28
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=5]
 size = 18
 font_data = ExtResource( 3 )
 
 [node name="NewgameUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 7 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Worldgen" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Worldgen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Worldgen/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -41,7 +72,8 @@ anchor_bottom = 0.1
 custom_styles/hover = ExtResource( 4 )
 custom_styles/focus = ExtResource( 5 )
 custom_styles/normal = ExtResource( 2 )
-text = "Back to main menu"
+custom_fonts/font = SubResource( 2 )
+text = "Back"
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -54,6 +86,7 @@ anchor_bottom = 0.1
 custom_styles/hover = ExtResource( 4 )
 custom_styles/focus = ExtResource( 5 )
 custom_styles/normal = ExtResource( 2 )
+custom_fonts/font = SubResource( 2 )
 text = "Confirm"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -64,7 +97,6 @@ anchor_left = 0.0390625
 anchor_top = 0.1125
 anchor_right = 0.351562
 anchor_bottom = 0.95
-custom_styles/panel = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -88,7 +120,6 @@ anchor_left = 0.359375
 anchor_top = 0.1125
 anchor_right = 0.960938
 anchor_bottom = 0.95
-custom_styles/panel = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -105,7 +136,6 @@ __meta__ = {
 }
 
 [node name="Chargen" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -120,7 +150,8 @@ anchor_bottom = 0.1
 custom_styles/hover = ExtResource( 4 )
 custom_styles/focus = ExtResource( 5 )
 custom_styles/normal = ExtResource( 2 )
-text = "Back to world settings"
+custom_fonts/font = SubResource( 2 )
+text = "Back"
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -133,6 +164,7 @@ anchor_bottom = 0.1
 custom_styles/hover = ExtResource( 4 )
 custom_styles/focus = ExtResource( 5 )
 custom_styles/normal = ExtResource( 2 )
+custom_fonts/font = SubResource( 2 )
 text = "Confirm"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -146,7 +178,7 @@ anchor_bottom = 0.0999
 margin_left = 0.790009
 margin_right = 0.489929
 margin_bottom = 0.0799866
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "Очков осталось: 3"
 align = 1
 valign = 1
@@ -159,7 +191,6 @@ anchor_left = 0.0390625
 anchor_top = 0.1125
 anchor_right = 0.351562
 anchor_bottom = 0.95
-custom_styles/panel = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -184,554 +215,532 @@ anchor_left = 0.359375
 anchor_top = 0.1125
 anchor_right = 0.664062
 anchor_bottom = 0.325
-custom_styles/panel = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="Chargen/Basic"]
+[node name="SexLabel" type="Label" parent="Chargen/Basic"]
 anchor_left = 0.029
 anchor_top = 0.059
-anchor_right = 0.324
+anchor_right = 0.256718
 anchor_bottom = 0.235
-margin_left = 0.139999
+margin_left = -0.309982
 margin_top = -0.0299997
-margin_right = -0.160004
-margin_bottom = 0.0500031
-custom_fonts/font = SubResource( 1 )
+margin_right = -0.11982
+margin_bottom = 0.0499992
+custom_fonts/font = SubResource( 5 )
 text = "Пол"
 valign = 1
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
-[node name="Label2" type="Label" parent="Chargen/Basic"]
-anchor_left = 0.471
+[node name="Sex" type="OptionButton" parent="Chargen/Basic"]
+anchor_left = 0.282411
 anchor_top = 0.059
-anchor_right = 0.971
+anchor_right = 0.972155
 anchor_bottom = 0.235
 margin_left = -0.139999
 margin_top = -0.0299997
 margin_right = -0.140015
 margin_bottom = 0.0500031
-custom_fonts/font = SubResource( 1 )
 text = "мужской"
 align = 1
-valign = 1
+items = [ "мужской", null, false, 0, null, "женский", null, false, 1, null ]
+selected = 0
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
-[node name="Label4" type="Label" parent="Chargen/Basic"]
+[node name="NameLabel" type="Label" parent="Chargen/Basic"]
 anchor_left = 0.029
 anchor_top = 0.294
-anchor_right = 0.324
+anchor_right = 0.256077
 anchor_bottom = 0.471
-margin_left = 0.139999
-margin_top = 0.0200043
-margin_right = -0.160004
-margin_bottom = -0.0699921
-custom_fonts/font = SubResource( 1 )
+margin_left = -0.309982
+margin_top = 0.0200005
+margin_right = 0.130203
+margin_bottom = -0.0699997
+custom_fonts/font = SubResource( 5 )
 text = "Имя"
 valign = 1
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
-[node name="Label3" type="Label" parent="Chargen/Basic"]
-anchor_left = 0.471
+[node name="Name" type="LineEdit" parent="Chargen/Basic"]
+anchor_left = 0.282411
 anchor_top = 0.294
-anchor_right = 0.971
+anchor_right = 0.872155
 anchor_bottom = 0.471
 margin_left = -0.139999
 margin_top = 0.0200043
 margin_right = -0.140015
 margin_bottom = -0.0699921
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Джермейн Рукер"
 align = 1
-valign = 1
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
-[node name="Label6" type="Label" parent="Chargen/Basic"]
-anchor_left = 0.029
+[node name="NameRandom" type="TextureButton" parent="Chargen/Basic"]
+anchor_left = 0.897437
+anchor_top = 0.294118
+anchor_right = 0.974
+anchor_bottom = 0.471
+margin_right = 0.140594
+margin_bottom = -0.0699997
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HeightLabel" type="Label" parent="Chargen/Basic"]
+anchor_left = 0.0252821
 anchor_top = 0.529
-anchor_right = 0.324
+anchor_right = 0.256821
 anchor_bottom = 0.706
 margin_left = 0.139999
 margin_top = 0.0699997
 margin_right = -0.160004
 margin_bottom = -0.0199966
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Рост"
 valign = 1
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
-[node name="Label5" type="Label" parent="Chargen/Basic"]
-anchor_left = 0.471
+[node name="Height" type="SpinBox" parent="Chargen/Basic"]
+anchor_left = 0.282513
 anchor_top = 0.529
 anchor_right = 0.971
 anchor_bottom = 0.706
-margin_left = -0.139999
+margin_left = -0.179718
 margin_top = 0.0699997
-margin_right = -0.140015
-margin_bottom = -0.0199966
-custom_fonts/font = SubResource( 1 )
-text = "155 см"
+margin_right = 0.310577
+margin_bottom = -0.0200043
+min_value = 130.0
+max_value = 200.0
+value = 130.0
 align = 1
-valign = 1
+suffix = "см"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label8" type="Label" parent="Chargen/Basic"]
-anchor_left = 0.029
+[node name="AgeLabel" type="Label" parent="Chargen/Basic"]
+anchor_left = 0.0278462
 anchor_top = 0.765
-anchor_right = 0.324
+anchor_right = 0.256821
 anchor_bottom = 0.941
 margin_left = 0.139999
 margin_top = -0.0500031
 margin_right = -0.160004
 margin_bottom = 0.030014
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Возраст"
 valign = 1
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
-[node name="Label7" type="Label" parent="Chargen/Basic"]
-anchor_left = 0.471
+[node name="Age" type="SpinBox" parent="Chargen/Basic"]
+anchor_left = 0.282411
 anchor_top = 0.765
-anchor_right = 0.971
+anchor_right = 0.972155
 anchor_bottom = 0.941
 margin_left = -0.139999
 margin_top = -0.0500031
 margin_right = -0.140015
 margin_bottom = 0.030014
-custom_fonts/font = SubResource( 1 )
-text = "32"
+min_value = 16.0
+max_value = 55.0
+value = 16.0
 align = 1
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Appearance" type="Panel" parent="Chargen"]
-anchor_left = 0.359375
+anchor_left = 0.359
 anchor_top = 0.3375
 anchor_right = 0.664062
-anchor_bottom = 0.5
-custom_styles/panel = ExtResource( 2 )
+anchor_bottom = 0.6
+margin_left = 0.47998
+margin_right = 0.000610352
+margin_bottom = -3.05176e-05
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Chargen/Appearance"]
-anchor_left = 0.029
-anchor_top = 0.0696154
-anchor_right = 0.324
-anchor_bottom = 0.307692
+anchor_left = 0.0252821
+anchor_top = 0.0478571
+anchor_right = 0.305538
+anchor_bottom = 0.190476
 margin_left = 0.139999
 margin_top = -0.0500002
 margin_right = -0.160004
 margin_bottom = -3.8147e-06
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Цвет кожи"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label1" type="Label" parent="Chargen/Appearance"]
-anchor_left = 0.471
-anchor_top = 0.0689231
-anchor_right = 0.971
-anchor_bottom = 0.307461
+[node name="Label1" type="Button" parent="Chargen/Appearance"]
+anchor_left = 0.359333
+anchor_top = 0.0474286
+anchor_right = 0.972154
+anchor_bottom = 0.190333
 margin_left = -0.139999
 margin_top = 0.039999
 margin_right = -0.140015
 margin_bottom = 0.0300179
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "бронзовый"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
+clip_text = true
+align = 0
 
 [node name="Label3" type="Label" parent="Chargen/Appearance"]
-anchor_left = 0.029
-anchor_top = 0.385
-anchor_right = 0.324
-anchor_bottom = 0.615385
+anchor_left = 0.0252821
+anchor_top = 0.238333
+anchor_right = 0.305538
+anchor_bottom = 0.380952
 margin_left = 0.139999
 margin_top = -0.0500002
 margin_right = -0.160004
 margin_bottom = -3.8147e-06
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Волосы"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label2" type="Label" parent="Chargen/Appearance"]
-anchor_left = 0.471
-anchor_top = 0.384308
-anchor_right = 0.971
-anchor_bottom = 0.615154
+[node name="Label2" type="Button" parent="Chargen/Appearance"]
+anchor_left = 0.359333
+anchor_top = 0.237905
+anchor_right = 0.972154
+anchor_bottom = 0.380809
 margin_left = -0.139999
 margin_top = 0.039999
 margin_right = -0.140015
 margin_bottom = 0.0300179
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "коричневые, длинные"
-align = 1
-valign = 1
 clip_text = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
+align = 0
 
 [node name="Label5" type="Label" parent="Chargen/Appearance"]
-anchor_left = 0.029
-anchor_top = 0.692692
-anchor_right = 0.324
-anchor_bottom = 0.923077
+anchor_left = 0.0252821
+anchor_top = 0.42881
+anchor_right = 0.305538
+anchor_bottom = 0.571429
 margin_left = 0.139999
 margin_top = -0.0500002
 margin_right = -0.160004
 margin_bottom = -3.8147e-06
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Усы/борода"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label4" type="Label" parent="Chargen/Appearance"]
-anchor_left = 0.471
-anchor_top = 0.692
-anchor_right = 0.971
-anchor_bottom = 0.922846
+[node name="Label4" type="Button" parent="Chargen/Appearance"]
+anchor_left = 0.359333
+anchor_top = 0.428381
+anchor_right = 0.972154
+anchor_bottom = 0.571286
 margin_left = -0.139999
 margin_top = 0.039999
 margin_right = -0.140015
 margin_bottom = 0.0300179
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "шкиперск.борода"
-align = 1
-valign = 1
 clip_text = true
+align = 0
+
+[node name="Label7" type="Label" parent="Chargen/Appearance"]
+anchor_left = 0.0252821
+anchor_top = 0.619286
+anchor_right = 0.305538
+anchor_bottom = 0.757143
+margin_left = 0.139999
+margin_top = -0.0500002
+margin_right = -0.160004
+margin_bottom = -3.8147e-06
+custom_fonts/font = SubResource( 5 )
+text = "Доп.черты"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label6" type="Button" parent="Chargen/Appearance"]
+anchor_left = 0.359333
+anchor_top = 0.618857
+anchor_right = 0.972154
+anchor_bottom = 0.952238
+margin_left = -0.139999
+margin_top = 0.0399933
+margin_right = 0.859985
+margin_bottom = 0.030014
+custom_fonts/font = SubResource( 5 )
+text = "нет"
+align = 0
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="StartProps" type="Panel" parent="Chargen"]
 anchor_left = 0.359375
-anchor_top = 0.5125
+anchor_top = 0.6125
 anchor_right = 0.664062
-anchor_bottom = 0.725
-custom_styles/panel = ExtResource( 2 )
+anchor_bottom = 0.775
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="Chargen/StartProps"]
-anchor_left = 0.026
-anchor_top = 0.0588235
-anchor_right = 0.316526
-anchor_bottom = 0.234887
+[node name="ScenarioLabel" type="Label" parent="Chargen/StartProps"]
+anchor_left = 0.0253333
+anchor_top = 0.0769231
+anchor_right = 0.431487
+anchor_bottom = 0.230237
 margin_left = 0.12
 margin_top = -9.53674e-07
 margin_right = 1.71999
 margin_bottom = 0.0692368
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Сценарий"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label1" type="Label" parent="Chargen/StartProps"]
-anchor_left = 0.474105
-anchor_top = 0.0588235
-anchor_right = 0.974105
-anchor_bottom = 0.234561
+[node name="Scenario" type="Button" parent="Chargen/StartProps"]
+anchor_left = 0.461949
+anchor_top = 0.0769231
+anchor_right = 0.974769
+anchor_bottom = 0.229811
 margin_left = -0.160049
 margin_top = -9.53674e-07
 margin_right = -0.160065
 margin_bottom = 0.124596
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Оч.плохой день"
-align = 1
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label3" type="Label" parent="Chargen/StartProps"]
-anchor_left = 0.026
-anchor_top = 0.294118
-anchor_right = 0.316526
-anchor_bottom = 0.470181
+[node name="ProfessionLabel" type="Label" parent="Chargen/StartProps"]
+anchor_left = 0.0253333
+anchor_top = 0.307692
+anchor_right = 0.431487
+anchor_bottom = 0.47639
 margin_left = 0.12
 margin_top = -9.53674e-07
 margin_right = 1.71999
 margin_bottom = 0.0692368
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Профессия"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label2" type="Label" parent="Chargen/StartProps"]
-anchor_left = 0.468842
-anchor_top = 0.294118
-anchor_right = 0.968
-anchor_bottom = 0.470588
+[node name="Profession" type="Button" parent="Chargen/StartProps"]
+anchor_left = 0.461949
+anchor_top = 0.307692
+anchor_right = 0.973949
+anchor_bottom = 0.461539
 margin_left = -0.160049
 margin_top = -9.53674e-07
 margin_right = 0.159973
 margin_bottom = -7.62939e-06
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Выживший"
-align = 1
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label5" type="Label" parent="Chargen/StartProps"]
-anchor_left = 0.026
-anchor_top = 0.529412
-anchor_right = 0.316526
-anchor_bottom = 0.705475
+[node name="LocationLabel" type="Label" parent="Chargen/StartProps"]
+anchor_left = 0.0253333
+anchor_top = 0.538462
+anchor_right = 0.431487
+anchor_bottom = 0.691775
 margin_left = 0.12
 margin_top = -9.53674e-07
 margin_right = 1.71999
 margin_bottom = 0.0692368
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Локация"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label4" type="Label" parent="Chargen/StartProps"]
-anchor_left = 0.474105
-anchor_top = 0.529412
-anchor_right = 0.973263
-anchor_bottom = 0.705882
+[node name="Location" type="Button" parent="Chargen/StartProps"]
+anchor_left = 0.461949
+anchor_top = 0.538462
+anchor_right = 0.973949
+anchor_bottom = 0.715385
 margin_left = -0.160049
 margin_top = -9.53674e-07
 margin_right = 0.159973
 margin_bottom = -7.62939e-06
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "АЗС (1 вар)"
-align = 1
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label7" type="Label" parent="Chargen/StartProps"]
-anchor_left = 0.026
-anchor_top = 0.764706
-anchor_right = 0.316526
-anchor_bottom = 0.940769
+[node name="VehicleLabel" type="Label" parent="Chargen/StartProps"]
+anchor_left = 0.0253333
+anchor_top = 0.769231
+anchor_right = 0.431487
+anchor_bottom = 0.922544
 margin_left = 0.12
 margin_top = -9.53674e-07
 margin_right = 1.71999
 margin_bottom = 0.0692368
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Транспорт"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label6" type="Label" parent="Chargen/StartProps"]
-anchor_left = 0.468842
-anchor_top = 0.764706
-anchor_right = 0.968
-anchor_bottom = 0.941176
+[node name="Label6" type="Button" parent="Chargen/StartProps"]
+anchor_left = 0.461949
+anchor_top = 0.769231
+anchor_right = 0.973949
+anchor_bottom = 0.923077
 margin_left = -0.160049
 margin_top = -9.53674e-07
 margin_right = 0.159973
 margin_bottom = -7.62939e-06
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Food Truck"
-align = 1
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="Stats" type="Panel" parent="Chargen"]
 anchor_left = 0.359375
-anchor_top = 0.7375
+anchor_top = 0.7875
 anchor_right = 0.664062
 anchor_bottom = 0.95
-custom_styles/panel = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="Chargen/Stats"]
-anchor_left = 0.026
-anchor_top = 0.0592354
-anchor_right = 0.321
-anchor_bottom = 0.235228
+[node name="StrLabel" type="Label" parent="Chargen/Stats"]
+anchor_left = 0.0253333
+anchor_top = 0.0774617
+anchor_right = 0.320462
+anchor_bottom = 0.230683
 margin_left = 0.12
 margin_top = -0.0700159
 margin_right = 0.0199966
 margin_bottom = 0.0112534
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Сила"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label1" type="Label" parent="Chargen/Stats"]
-anchor_left = 0.474
-anchor_top = 0.0592354
-anchor_right = 0.974
-anchor_bottom = 0.235266
-margin_left = -0.12001
-margin_top = -0.0700159
-margin_right = -0.120026
-margin_bottom = 0.00475311
-custom_fonts/font = SubResource( 1 )
-text = "8"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
+[node name="Str" parent="Chargen/Stats" instance=ExtResource( 9 )]
+anchor_left = 0.769231
+anchor_top = 0.0769231
+anchor_right = 0.974359
+anchor_bottom = 0.230769
 
-[node name="Label3" type="Label" parent="Chargen/Stats"]
-anchor_left = 0.026
-anchor_top = 0.294529
-anchor_right = 0.321
-anchor_bottom = 0.470522
+[node name="DexLabel" type="Label" parent="Chargen/Stats"]
+anchor_left = 0.0253333
+anchor_top = 0.308231
+anchor_right = 0.320462
+anchor_bottom = 0.461452
 margin_left = 0.12
 margin_top = -0.0700159
 margin_right = 0.0199966
 margin_bottom = 0.0112534
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Ловкость"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label2" type="Label" parent="Chargen/Stats"]
-anchor_left = 0.474
-anchor_top = 0.294529
-anchor_right = 0.974
-anchor_bottom = 0.47056
-margin_left = -0.12001
-margin_top = -0.0700159
-margin_right = -0.120026
-margin_bottom = 0.00475311
-custom_fonts/font = SubResource( 1 )
-text = "10"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
+[node name="Dex" parent="Chargen/Stats" instance=ExtResource( 9 )]
+anchor_left = 0.769231
+anchor_top = 0.307692
+anchor_right = 0.974359
+anchor_bottom = 0.461538
 
-[node name="Label5" type="Label" parent="Chargen/Stats"]
-anchor_left = 0.026
-anchor_top = 0.529824
-anchor_right = 0.321
-anchor_bottom = 0.705816
+[node name="IntelLabel" type="Label" parent="Chargen/Stats"]
+anchor_left = 0.0253333
+anchor_top = 0.539
+anchor_right = 0.320462
+anchor_bottom = 0.707606
 margin_left = 0.12
 margin_top = -0.0700159
 margin_right = 0.0199966
 margin_bottom = 0.0112534
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Интеллект"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label4" type="Label" parent="Chargen/Stats"]
-anchor_left = 0.474
-anchor_top = 0.529824
-anchor_right = 0.974
-anchor_bottom = 0.705854
-margin_left = -0.12001
-margin_top = -0.0700159
-margin_right = -0.120026
-margin_bottom = 0.00475311
-custom_fonts/font = SubResource( 1 )
-text = "8"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
+[node name="Intel" parent="Chargen/Stats" instance=ExtResource( 9 )]
+anchor_left = 0.769231
+anchor_top = 0.538462
+anchor_right = 0.974359
+anchor_bottom = 0.692308
 
-[node name="Label7" type="Label" parent="Chargen/Stats"]
-anchor_left = 0.026
-anchor_top = 0.765118
-anchor_right = 0.321
-anchor_bottom = 0.94111
+[node name="PerceptLabel" type="Label" parent="Chargen/Stats"]
+anchor_left = 0.0253333
+anchor_top = 0.769769
+anchor_right = 0.320462
+anchor_bottom = 0.92299
 margin_left = 0.12
-margin_top = -0.0700159
+margin_top = -0.070015
 margin_right = 0.0199966
 margin_bottom = 0.0112534
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Восприятие"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label6" type="Label" parent="Chargen/Stats"]
-anchor_left = 0.474
-anchor_top = 0.765118
-anchor_right = 0.974
-anchor_bottom = 0.941148
-margin_left = -0.12001
-margin_top = -0.0700159
-margin_right = -0.120026
-margin_bottom = 0.00475311
-custom_fonts/font = SubResource( 1 )
-text = "8"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
+[node name="Percept" parent="Chargen/Stats" instance=ExtResource( 9 )]
+anchor_left = 0.769231
+anchor_top = 0.769231
+anchor_right = 0.974359
+anchor_bottom = 0.923077
 
 [node name="Skills" type="Panel" parent="Chargen"]
 anchor_left = 0.671875
 anchor_top = 0.1125
 anchor_right = 0.960938
 anchor_bottom = 0.5
-custom_styles/panel = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Label8" type="Label" parent="Chargen/Skills"]
 anchor_left = 0.027027
 anchor_top = 0.0322581
-anchor_right = 0.972973
-anchor_bottom = 0.975115
-custom_fonts/font = SubResource( 1 )
+anchor_right = 0.972971
+anchor_bottom = 0.83871
+custom_fonts/font = SubResource( 5 )
 text = "Черты:
 - Психоз от стимуляторов
 - Гурман
@@ -743,27 +752,52 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="Edit2" type="Button" parent="Chargen/Skills"]
+anchor_left = 0.0267572
+anchor_top = 0.870936
+anchor_right = 0.972757
+anchor_bottom = 0.96794
+margin_left = 0.0998306
+margin_top = 0.00997925
+margin_right = 0.0792542
+margin_bottom = -0.0614014
+text = "Изменить"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="Traits" type="Panel" parent="Chargen"]
 anchor_left = 0.671875
 anchor_top = 0.5125
 anchor_right = 0.960938
 anchor_bottom = 0.95
-custom_styles/panel = ExtResource( 2 )
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="Label8" type="Label" parent="Chargen/Traits"]
 anchor_left = 0.027027
 anchor_top = 0.0285714
-anchor_right = 0.972973
-anchor_bottom = 0.971429
-custom_fonts/font = SubResource( 1 )
+anchor_right = 0.972971
+anchor_bottom = 0.857143
+custom_fonts/font = SubResource( 5 )
 text = "Навыки:
 - плавание ( 5 )
 - метание ( 4 )
 - вождение ( 5 )
 "
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Edit" type="Button" parent="Chargen/Traits"]
+anchor_left = 0.027027
+anchor_top = 0.885714
+anchor_right = 0.972755
+anchor_bottom = 0.971
+margin_right = 0.0798645
+margin_bottom = 0.149998
+text = "Изменить"
 __meta__ = {
 "_edit_use_anchors_": true
 }
