@@ -5,6 +5,8 @@ onready var core = get_node("/root/Root").core;
 func set_mode(mode):
 	$Worldgen.visible = true
 	$Chargen.visible = false
+	var pages = core.get_settings();
+	$Worldgen/Settings/OptionsPanel.set_data(pages[3]["options"]);
 
 func back_to_main():
 	get_node("/root/Root").goto_main()

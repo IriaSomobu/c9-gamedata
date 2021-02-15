@@ -4,12 +4,38 @@
     "name": "World Defaults",
     "data": [
       {
-        "code": "CORE_VERSION",
-        "name": "Core version data",
-        "descr": "Controls what migrations are applied for legacy worlds",
-        "type": "num",
-        "steps": [ 1, 20, 1 ],
-        "default": "6"
+        "code": "WORLD_NAME_RND",
+        "name": "World name (suggested)",
+        "descr": "",
+        "type": "vals",
+        "vals": {
+          "a": "A",
+          "b": "B",
+          "c": "C"
+        },
+        "default": "a"
+      },
+      {
+        "code": "WORLD_NAME_RND",
+        "name": "World name (user-defined)",
+        "descr": "",
+        "type": "str",
+        "default": ""
+      },
+      {
+        "type": "empty"
+      },
+      {
+        "code": "CHARACTER_POINT_POOLS",
+        "name": "Character point pools",
+        "descr": "Allowed point pools for character generation.",
+        "type": "vals",
+        "vals": {
+          "any": "Any",
+          "multi_pool": "Multi-pool only",
+          "no_freeform": "No freeform"
+        },
+        "default": "any"
       },
       {
         "code": "WORLD_END",
@@ -27,6 +53,114 @@
       {
         "type": "empty"
       },
+      {
+        "code": "WANDER_SPAWNS",
+        "name": "Wander spawns",
+        "descr": "Emulation of zombie hordes.  Zombie spawn points wander around cities and may go to noise.  Must reset world directory after changing for it to take effect.",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "code": "BLACK_ROAD",
+        "name": "Surrounded start",
+        "descr": "If true, spawn zombies at shelters.  Makes the starting game a lot harder.",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "type": "empty"
+      },
+      {
+        "code": "STATIC_NPC",
+        "name": "Static NPCs",
+        "descr": "If true, static NPCs will spawn at pre-defined locations.  Requires world reset.",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "code": "STARTING_NPC",
+        "name": "Starting NPCs spawn",
+        "descr": "Determines whether starting NPCs should spawn, and if they do, how exactly.",
+        "type": "vals",
+        "vals": {
+          "never": "Never",
+          "always": "Always",
+          "scenario": "Scenario-based"
+        },
+        "default": "scenario",
+        "rq": [ "STATIC_NPC" ]
+      },
+      {
+        "code": "RANDOM_NPC",
+        "name": "Random NPCs",
+        "descr": "If true, the game will randomly spawn NPCs during gameplay.",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "type": "empty"
+      },
+      {
+        "code": "RAD_MUTATION",
+        "name": "Mutations by radiation",
+        "descr": "If true, radiation causes the player to mutate.",
+        "type": "bool",
+        "default": "true"
+      },
+      {
+        "type": "empty"
+      },
+      {
+        "code": "INITIAL_TIME",
+        "name": "Initial time",
+        "descr": "Initial starting time of day on character generation.",
+        "type": "num",
+        "steps": [ 0, 23, 1 ],
+        "default": "8"
+      },
+      {
+        "code": "INITIAL_DAY",
+        "name": "Initial day",
+        "descr": "How many days into the year the cataclysm occurred.  Day 0 is Spring 1.  Day -1 randomizes the start date.  Can be overridden by scenarios.  This does not advance food rot or monster evolution.",
+        "type": "num",
+        "steps": [ -1, 999, 1 ],
+        "default": "7"
+      },
+      {
+        "code": "SPAWN_DELAY",
+        "name": "Spawn delay",
+        "descr": "How many days after the cataclysm the player spawns.  Day 0 is the day of the cataclysm.  Can be overridden by scenarios.  Increasing this will cause food rot and monster evolution to advance.",
+        "type": "bool",
+        "steps": [ 0, 9999, 1 ],
+        "default": "0"
+      },
+      {
+        "code": "SEASON_LENGTH",
+        "name": "Season length",
+        "descr": "Season length, in days.",
+        "type": "num",
+        "steps": [ 14, 127, 1 ],
+        "default": "14"
+      },
+      {
+        "code": "CONSTRUCTION_SCALING",
+        "name": "Construction scaling",
+        "descr": "Sets the time of construction in percents.  '50' is two times faster than default, '200' is two times longer.  '0' automatically scales construction time to match the world's season length.",
+        "type": "num",
+        "steps": [ 0, 1000, 10 ],
+        "default": "100"
+      },
+      {
+        "code": "ETERNAL_SEASON",
+        "name": "Eternal season",
+        "descr": "Keep the initial season for ever.",
+        "type": "bool",
+        "default": "false"
+      },
+      {
+        "type": "empty"
+      },
+
       {
         "code": "CITY_SIZE",
         "name": "Size of cities",
@@ -101,10 +235,19 @@
         "type": "num",
         "steps": [ 10, 1000, 10 ],
         "default": "100"
-      },
-      {
-        "type": "empty"
-      },
+      }
+    ]
+  },
+
+
+
+
+
+
+  {
+    "page": "world_workaround",
+    "name": "World Internals",
+    "data": [
       {
         "code": "DEFAULT_REGION",
         "name": "Default region type",
@@ -116,116 +259,6 @@
         "default": "default"
       },
       {
-        "type": "empty"
-      },
-      {
-        "code": "INITIAL_TIME",
-        "name": "Initial time",
-        "descr": "Initial starting time of day on character generation.",
-        "type": "num",
-        "steps": [ 0, 23, 1 ],
-        "default": "8"
-      },
-      {
-        "code": "INITIAL_DAY",
-        "name": "Initial day",
-        "descr": "How many days into the year the cataclysm occurred.  Day 0 is Spring 1.  Day -1 randomizes the start date.  Can be overridden by scenarios.  This does not advance food rot or monster evolution.",
-        "type": "num",
-        "steps": [ -1, 999, 1 ],
-        "default": "7"
-      },
-      {
-        "code": "SPAWN_DELAY",
-        "name": "Spawn delay",
-        "descr": "How many days after the cataclysm the player spawns.  Day 0 is the day of the cataclysm.  Can be overridden by scenarios.  Increasing this will cause food rot and monster evolution to advance.",
-        "type": "bool",
-        "steps": [ 0, 9999, 1 ],
-        "default": "0"
-      },
-      {
-        "code": "SEASON_LENGTH",
-        "name": "Season length",
-        "descr": "Season length, in days.",
-        "type": "num",
-        "steps": [ 14, 127, 1 ],
-        "default": "14"
-      },
-      {
-        "code": "CONSTRUCTION_SCALING",
-        "name": "Construction scaling",
-        "descr": "Sets the time of construction in percents.  '50' is two times faster than default, '200' is two times longer.  '0' automatically scales construction time to match the world's season length.",
-        "type": "num",
-        "steps": [ 0, 1000, 10 ],
-        "default": "100"
-      },
-      {
-        "code": "ETERNAL_SEASON",
-        "name": "Eternal season",
-        "descr": "Keep the initial season for ever.",
-        "type": "bool",
-        "default": "false"
-      },
-      {
-        "type": "empty"
-      },
-      {
-        "code": "WANDER_SPAWNS",
-        "name": "Wander spawns",
-        "descr": "Emulation of zombie hordes.  Zombie spawn points wander around cities and may go to noise.  Must reset world directory after changing for it to take effect.",
-        "type": "bool",
-        "default": "false"
-      },
-      {
-        "code": "BLACK_ROAD",
-        "name": "Surrounded start",
-        "descr": "If true, spawn zombies at shelters.  Makes the starting game a lot harder.",
-        "type": "bool",
-        "default": "false"
-      },
-      {
-        "type": "empty"
-      },
-      {
-        "code": "STATIC_NPC",
-        "name": "Static NPCs",
-        "descr": "If true, static NPCs will spawn at pre-defined locations.  Requires world reset.",
-        "type": "bool",
-        "default": "true"
-      },
-      {
-        "code": "STARTING_NPC",
-        "name": "Starting NPCs spawn",
-        "descr": "Determines whether starting NPCs should spawn, and if they do, how exactly.",
-        "type": "vals",
-        "vals": {
-          "never": "Never",
-          "always": "Always",
-          "scenario": "Scenario-based"
-        },
-        "default": "scenario",
-        "rq": [ "STATIC_NPC" ]
-      },
-      {
-        "code": "RANDOM_NPC",
-        "name": "Random NPCs",
-        "descr": "If true, the game will randomly spawn NPCs during gameplay.",
-        "type": "bool",
-        "default": "false"
-      },
-      {
-        "type": "empty"
-      },
-      {
-        "code": "RAD_MUTATION",
-        "name": "Mutations by radiation",
-        "descr": "If true, radiation causes the player to mutate.",
-        "type": "bool",
-        "default": "true"
-      },
-      {
-        "type": "empty"
-      },
-      {
         "code": "ZLEVELS",
         "name": "Z-levels",
         "descr": "If true, enables several features related to vertical movement, such as hauling items up stairs, climbing downspouts, and flying aircraft.  May cause problems if toggled mid-game.",
@@ -233,19 +266,12 @@
         "default": "true"
       },
       {
-        "type": "empty"
-      },
-      {
-        "code": "CHARACTER_POINT_POOLS",
-        "name": "Character point pools",
-        "descr": "Allowed point pools for character generation.",
-        "type": "vals",
-        "vals": {
-          "any": "Any",
-          "multi_pool": "Multi-pool only",
-          "no_freeform": "No freeform"
-        },
-        "default": "any"
+        "code": "CORE_VERSION",
+        "name": "Core version data",
+        "descr": "Controls what migrations are applied for legacy worlds",
+        "type": "num",
+        "steps": [ 1, 20, 1 ],
+        "default": "6"
       },
       {
         "code": "DISABLE_LIFTING",
@@ -253,13 +279,12 @@
         "descr": "If true, strength checks and/or lifting qualities no longer need to be met in order to change parts.",
         "type": "bool",
         "default": "false"
-      }
-    ]
-  },
-  {
-    "page": "world_workaround",
-    "name": "World Internals",
-    "data": [
+      },
+      {
+        "type": "empty"
+      },
+
+
       {
         "code": "SPEEDYDEX_MIN_DEX",
         "name": "SPEEDYDEX_MIN_DEX",

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://newgame_screen/NewgameUI.gd" type="Script" id=1]
 [ext_resource path="res://theme/theme_btn_normal.tres" type="StyleBox" id=2]
@@ -9,20 +9,46 @@
 [ext_resource path="res://theme/theme.tres" type="Theme" id=7]
 [ext_resource path="res://newgame_screen/casino_white_18dp.png" type="Texture" id=8]
 [ext_resource path="res://newgame_screen/Number.tscn" type="PackedScene" id=9]
+[ext_resource path="res://newgame_screen/city.jpg" type="Texture" id=10]
+[ext_resource path="res://reusabe_menus/settings/OptionsPanel.tscn" type="PackedScene" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.301961, 0.301961, 0.301961, 0.470588 )
+bg_color = Color( 0, 0, 0, 0.584314 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color( 0, 0, 0, 0.745098 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color( 0, 0, 0, 0.862745 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 0.27451 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color( 0.301961, 0.298039, 0.298039, 0.572549 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 18
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 18
+[sub_resource type="DynamicFont" id=9]
+size = 26
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 28
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 18
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=5]
@@ -46,7 +72,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="Worldgen"]
+[node name="Background" type="TextureRect" parent="Worldgen"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 6 )
@@ -56,7 +82,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="Worldgen/TextureRect"]
+[node name="Panel" type="Panel" parent="Worldgen/Background"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 1 )
@@ -69,9 +95,9 @@ anchor_left = 0.0390625
 anchor_top = 0.05
 anchor_right = 0.1875
 anchor_bottom = 0.1
-custom_styles/hover = ExtResource( 4 )
-custom_styles/focus = ExtResource( 5 )
-custom_styles/normal = ExtResource( 2 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
 custom_fonts/font = SubResource( 2 )
 text = "Back"
 __meta__ = {
@@ -83,9 +109,9 @@ anchor_left = 0.8125
 anchor_top = 0.05
 anchor_right = 0.960938
 anchor_bottom = 0.1
-custom_styles/hover = ExtResource( 4 )
-custom_styles/focus = ExtResource( 5 )
-custom_styles/normal = ExtResource( 2 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
 custom_fonts/font = SubResource( 2 )
 text = "Confirm"
 __meta__ = {
@@ -101,16 +127,229 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="Worldgen/Modlist"]
+[node name="Title" type="Label" parent="Worldgen/Modlist"]
 anchor_left = 0.025
-anchor_top = 0.0151515
-anchor_right = 0.975
-anchor_bottom = 0.984848
-custom_fonts/font = SubResource( 3 )
-text = "Modlist here
+anchor_top = 0.015
+anchor_right = 0.974531
+anchor_bottom = 0.075
+margin_left = 3.24249e-05
+margin_top = -0.0500002
+margin_right = 0.1884
+margin_bottom = -0.250004
+custom_fonts/font = SubResource( 9 )
+text = "Active mods"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-- [x] Dark days ahead
-- [ ] No npc needs"
+[node name="Categories" type="OptionButton" parent="Worldgen/Modlist"]
+anchor_left = 0.025
+anchor_top = 0.0746269
+anchor_right = 0.975002
+anchor_bottom = 0.132985
+margin_right = 3.43323e-05
+margin_bottom = 0.9
+text = "Core content packs"
+items = [ "Core content packs", null, false, 0, null, "Item addition", null, false, 1, null, "Creatures", null, false, 2, null, "Misc", null, false, 3, null, "Buildings", null, false, 4, null, "Graphical", null, false, 5, null, "Monster exclusion", null, false, 6, null, "Rebalancing", null, false, 7, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Worldgen/Modlist"]
+anchor_left = 0.025
+anchor_top = 0.149254
+anchor_right = 0.975002
+anchor_bottom = 0.791134
+margin_right = 1.90735e-05
+margin_bottom = -0.0600004
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="GridContainer" type="GridContainer" parent="Worldgen/Modlist/ScrollContainer"]
+margin_right = 380.0
+margin_bottom = 886.0
+size_flags_horizontal = 3
+custom_constants/vseparation = 7
+
+[node name="CheckBox" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
+margin_right = 368.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "Cata DDA"
+
+[node name="CheckBox2" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
+margin_top = 47.0
+margin_right = 368.0
+margin_bottom = 87.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "Another mod"
+
+[node name="CheckBox3" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
+margin_top = 94.0
+margin_right = 368.0
+margin_bottom = 134.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "Another mod"
+
+[node name="CheckBox4" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
+margin_top = 141.0
+margin_right = 368.0
+margin_bottom = 181.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "Another mod"
+
+[node name="CheckBox5" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
+margin_top = 188.0
+margin_right = 368.0
+margin_bottom = 228.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "Another mod"
+
+[node name="CheckBox6" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
+margin_top = 235.0
+margin_right = 368.0
+margin_bottom = 275.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "Another mod"
+
+[node name="CheckBox7" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
+margin_top = 282.0
+margin_right = 368.0
+margin_bottom = 322.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "Another mod"
+
+[node name="CheckBox8" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
+margin_top = 329.0
+margin_right = 368.0
+margin_bottom = 369.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "Another mod"
+
+[node name="CheckBox9" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
+margin_top = 376.0
+margin_right = 368.0
+margin_bottom = 416.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "Another mod"
+
+[node name="CheckBox10" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
+margin_top = 423.0
+margin_right = 368.0
+margin_bottom = 463.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "Another mod"
+
+[node name="CheckBox11" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
+margin_top = 470.0
+margin_right = 368.0
+margin_bottom = 510.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "Another mod"
+
+[node name="CheckBox12" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
+margin_top = 517.0
+margin_right = 368.0
+margin_bottom = 557.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "Another mod"
+
+[node name="CheckBox13" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
+margin_top = 564.0
+margin_right = 368.0
+margin_bottom = 604.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "Another mod"
+
+[node name="CheckBox14" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
+margin_top = 611.0
+margin_right = 368.0
+margin_bottom = 651.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "Another mod"
+
+[node name="CheckBox15" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
+margin_top = 658.0
+margin_right = 368.0
+margin_bottom = 698.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "Another mod"
+
+[node name="CheckBox16" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
+margin_top = 705.0
+margin_right = 368.0
+margin_bottom = 745.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "Another mod"
+
+[node name="CheckBox17" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
+margin_top = 752.0
+margin_right = 368.0
+margin_bottom = 792.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "Another mod"
+
+[node name="CheckBox18" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
+margin_top = 799.0
+margin_right = 368.0
+margin_bottom = 839.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "Another mod"
+
+[node name="CheckBox19" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
+margin_top = 846.0
+margin_right = 368.0
+margin_bottom = 886.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "Another mod"
+
+[node name="ModinfoBtn" type="Button" parent="Worldgen/Modlist"]
+anchor_left = 0.025
+anchor_top = 0.80597
+anchor_right = 0.975001
+anchor_bottom = 0.98497
+margin_right = 0.000190735
+margin_bottom = 0.0699997
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="RichTextLabel" parent="Worldgen/Modlist/ModinfoBtn"]
+anchor_left = 0.0262632
+anchor_top = 0.0834167
+anchor_right = 0.973316
+anchor_bottom = 0.916667
+margin_left = 0.0200005
+margin_top = -0.0100002
+margin_right = 0.139954
+mouse_filter = 2
+text = "Author: Soupster89
+Maintainer: Soupster89
+Depends on: DDA
+[Press here to view mod info]"
+scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -124,20 +363,46 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="Worldgen/Settings"]
-anchor_left = 0.025
-anchor_top = 0.0151515
-anchor_right = 0.975
-anchor_bottom = 0.984848
-custom_fonts/font = SubResource( 3 )
-text = "World settings here"
+[node name="Title" type="Label" parent="Worldgen/Settings"]
+anchor_left = 0.025974
+anchor_top = 0.0149254
+anchor_right = 0.688363
+anchor_bottom = 0.0747612
+margin_right = -0.0400391
+margin_bottom = -0.0900002
+custom_fonts/font = SubResource( 9 )
+text = "World options"
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="OptionsPanel" parent="Worldgen/Settings" instance=ExtResource( 11 )]
+anchor_top = 0.0895522
+margin_right = -0.000610352
+margin_bottom = -20.0
+
 [node name="Chargen" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="Chargen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Chargen/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -170,7 +435,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label9" type="Label" parent="Chargen"]
+[node name="Points" type="Label" parent="Chargen"]
 anchor_left = 0.202508
 anchor_top = 0.05
 anchor_right = 0.796492
@@ -236,7 +501,7 @@ __meta__ = {
 }
 
 [node name="Sex" type="OptionButton" parent="Chargen/Basic"]
-anchor_left = 0.282411
+anchor_left = 0.359334
 anchor_top = 0.059
 anchor_right = 0.972155
 anchor_bottom = 0.235
@@ -269,9 +534,9 @@ __meta__ = {
 }
 
 [node name="Name" type="LineEdit" parent="Chargen/Basic"]
-anchor_left = 0.282411
+anchor_left = 0.359334
 anchor_top = 0.294
-anchor_right = 0.872155
+anchor_right = 0.897796
 anchor_bottom = 0.471
 margin_left = -0.139999
 margin_top = 0.0200043
@@ -315,7 +580,7 @@ __meta__ = {
 }
 
 [node name="Height" type="SpinBox" parent="Chargen/Basic"]
-anchor_left = 0.282513
+anchor_left = 0.359436
 anchor_top = 0.529
 anchor_right = 0.971
 anchor_bottom = 0.706
@@ -329,7 +594,7 @@ value = 130.0
 align = 1
 suffix = "см"
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="AgeLabel" type="Label" parent="Chargen/Basic"]
@@ -349,7 +614,7 @@ __meta__ = {
 }
 
 [node name="Age" type="SpinBox" parent="Chargen/Basic"]
-anchor_left = 0.282411
+anchor_left = 0.359334
 anchor_top = 0.765
 anchor_right = 0.972155
 anchor_bottom = 0.941
@@ -362,7 +627,7 @@ max_value = 55.0
 value = 16.0
 align = 1
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="Appearance" type="Panel" parent="Chargen"]
@@ -525,9 +790,9 @@ __meta__ = {
 }
 
 [node name="Scenario" type="Button" parent="Chargen/StartProps"]
-anchor_left = 0.461949
+anchor_left = 0.359385
 anchor_top = 0.0769231
-anchor_right = 0.974769
+anchor_right = 0.974771
 anchor_bottom = 0.229811
 margin_left = -0.160049
 margin_top = -9.53674e-07
@@ -556,9 +821,9 @@ __meta__ = {
 }
 
 [node name="Profession" type="Button" parent="Chargen/StartProps"]
-anchor_left = 0.461949
+anchor_left = 0.359385
 anchor_top = 0.307692
-anchor_right = 0.973949
+anchor_right = 0.97395
 anchor_bottom = 0.461539
 margin_left = -0.160049
 margin_top = -9.53674e-07
@@ -587,9 +852,9 @@ __meta__ = {
 }
 
 [node name="Location" type="Button" parent="Chargen/StartProps"]
-anchor_left = 0.461949
+anchor_left = 0.359385
 anchor_top = 0.538462
-anchor_right = 0.973949
+anchor_right = 0.97395
 anchor_bottom = 0.715385
 margin_left = -0.160049
 margin_top = -9.53674e-07
@@ -618,9 +883,9 @@ __meta__ = {
 }
 
 [node name="Label6" type="Button" parent="Chargen/StartProps"]
-anchor_left = 0.461949
+anchor_left = 0.359385
 anchor_top = 0.769231
-anchor_right = 0.973949
+anchor_right = 0.97395
 anchor_bottom = 0.923077
 margin_left = -0.160049
 margin_top = -9.53674e-07
