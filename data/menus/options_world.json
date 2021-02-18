@@ -7,13 +7,7 @@
         "code": "WORLD_NAME_RND",
         "name": "World name (suggested)",
         "descr": "",
-        "type": "vals",
-        "vals": {
-          "a": "A",
-          "b": "B",
-          "c": "C"
-        },
-        "default": "a"
+        "type": "custom_vals"
       },
       {
         "code": "WORLD_NAME_RND",

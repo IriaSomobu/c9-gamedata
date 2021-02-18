@@ -52,6 +52,13 @@ func back_to_main():
 	get_node("/root/Root").goto_main()
 
 func to_chargen():
+	
+	
+	core.create_tmp_world({
+		"options": {},
+		"mods": []
+	});
+	
 	$Worldgen.visible = false
 	$Chargen.visible = true
 
