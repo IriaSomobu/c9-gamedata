@@ -15,12 +15,12 @@
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.584314 )
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=2]
 content_margin_left = 4.0
 content_margin_right = 4.0
 bg_color = Color( 0, 0, 0, 0.745098 )
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=3]
 content_margin_left = 4.0
 content_margin_right = 4.0
 bg_color = Color( 0, 0, 0, 0.862745 )
@@ -30,28 +30,28 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color( 1, 1, 1, 0.27451 )
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=4]
 content_margin_left = 4.0
 content_margin_right = 4.0
 bg_color = Color( 0.301961, 0.298039, 0.298039, 0.572549 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
+size = 18
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 26
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 28
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=8]
 size = 18
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=9]
-size = 26
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 28
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 18
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=5]
 size = 18
 font_data = ExtResource( 3 )
 
@@ -65,7 +65,6 @@ __meta__ = {
 }
 
 [node name="Worldgen" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -95,10 +94,10 @@ anchor_left = 0.0390625
 anchor_top = 0.05
 anchor_right = 0.1875
 anchor_bottom = 0.1
-custom_styles/hover = SubResource( 6 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
-custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -109,10 +108,10 @@ anchor_left = 0.8125
 anchor_top = 0.05
 anchor_right = 0.960938
 anchor_bottom = 0.1
-custom_styles/hover = SubResource( 6 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
-custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Confirm"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -136,30 +135,16 @@ margin_left = 3.24249e-05
 margin_top = -0.0500002
 margin_right = 0.1884
 margin_bottom = -0.250004
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 6 )
 text = "Active mods"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Categories" type="OptionButton" parent="Worldgen/Modlist"]
-anchor_left = 0.025
-anchor_top = 0.0746269
-anchor_right = 0.975002
-anchor_bottom = 0.132985
-margin_right = 3.43323e-05
-margin_bottom = 0.9
-text = "Core content packs"
-items = [ "Core content packs", null, false, 0, null, "Item addition", null, false, 1, null, "Creatures", null, false, 2, null, "Misc", null, false, 3, null, "Buildings", null, false, 4, null, "Graphical", null, false, 5, null, "Monster exclusion", null, false, 6, null, "Rebalancing", null, false, 7, null ]
-selected = 0
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
 [node name="ScrollContainer" type="ScrollContainer" parent="Worldgen/Modlist"]
 anchor_left = 0.025
-anchor_top = 0.149254
+anchor_top = 0.0746269
 anchor_right = 0.975002
 anchor_bottom = 0.791134
 margin_right = 1.90735e-05
@@ -170,160 +155,8 @@ __meta__ = {
 
 [node name="GridContainer" type="GridContainer" parent="Worldgen/Modlist/ScrollContainer"]
 margin_right = 380.0
-margin_bottom = 886.0
 size_flags_horizontal = 3
 custom_constants/vseparation = 7
-
-[node name="CheckBox" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
-margin_right = 368.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Cata DDA"
-
-[node name="CheckBox2" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
-margin_top = 47.0
-margin_right = 368.0
-margin_bottom = 87.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Another mod"
-
-[node name="CheckBox3" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
-margin_top = 94.0
-margin_right = 368.0
-margin_bottom = 134.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Another mod"
-
-[node name="CheckBox4" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
-margin_top = 141.0
-margin_right = 368.0
-margin_bottom = 181.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Another mod"
-
-[node name="CheckBox5" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
-margin_top = 188.0
-margin_right = 368.0
-margin_bottom = 228.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Another mod"
-
-[node name="CheckBox6" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
-margin_top = 235.0
-margin_right = 368.0
-margin_bottom = 275.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Another mod"
-
-[node name="CheckBox7" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
-margin_top = 282.0
-margin_right = 368.0
-margin_bottom = 322.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Another mod"
-
-[node name="CheckBox8" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
-margin_top = 329.0
-margin_right = 368.0
-margin_bottom = 369.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Another mod"
-
-[node name="CheckBox9" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
-margin_top = 376.0
-margin_right = 368.0
-margin_bottom = 416.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Another mod"
-
-[node name="CheckBox10" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
-margin_top = 423.0
-margin_right = 368.0
-margin_bottom = 463.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Another mod"
-
-[node name="CheckBox11" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
-margin_top = 470.0
-margin_right = 368.0
-margin_bottom = 510.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Another mod"
-
-[node name="CheckBox12" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
-margin_top = 517.0
-margin_right = 368.0
-margin_bottom = 557.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Another mod"
-
-[node name="CheckBox13" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
-margin_top = 564.0
-margin_right = 368.0
-margin_bottom = 604.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Another mod"
-
-[node name="CheckBox14" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
-margin_top = 611.0
-margin_right = 368.0
-margin_bottom = 651.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Another mod"
-
-[node name="CheckBox15" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
-margin_top = 658.0
-margin_right = 368.0
-margin_bottom = 698.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Another mod"
-
-[node name="CheckBox16" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
-margin_top = 705.0
-margin_right = 368.0
-margin_bottom = 745.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Another mod"
-
-[node name="CheckBox17" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
-margin_top = 752.0
-margin_right = 368.0
-margin_bottom = 792.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Another mod"
-
-[node name="CheckBox18" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
-margin_top = 799.0
-margin_right = 368.0
-margin_bottom = 839.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Another mod"
-
-[node name="CheckBox19" type="CheckBox" parent="Worldgen/Modlist/ScrollContainer/GridContainer"]
-margin_top = 846.0
-margin_right = 368.0
-margin_bottom = 886.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Another mod"
 
 [node name="ModinfoBtn" type="Button" parent="Worldgen/Modlist"]
 anchor_left = 0.025
@@ -370,7 +203,7 @@ anchor_right = 0.688363
 anchor_bottom = 0.0747612
 margin_right = -0.0400391
 margin_bottom = -0.0900002
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 6 )
 text = "World options"
 valign = 1
 __meta__ = {
@@ -382,7 +215,21 @@ anchor_top = 0.0895522
 margin_right = -0.000610352
 margin_bottom = -20.0
 
+[node name="ModInfoDlg" type="AcceptDialog" parent="Worldgen"]
+visible = true
+anchor_left = 0.3125
+anchor_top = 0.3
+anchor_right = 0.687125
+anchor_bottom = 0.7
+margin_right = 0.479996
+margin_bottom = -3.8147e-06
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="Chargen" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -415,7 +262,7 @@ anchor_bottom = 0.1
 custom_styles/hover = ExtResource( 4 )
 custom_styles/focus = ExtResource( 5 )
 custom_styles/normal = ExtResource( 2 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -429,7 +276,7 @@ anchor_bottom = 0.1
 custom_styles/hover = ExtResource( 4 )
 custom_styles/focus = ExtResource( 5 )
 custom_styles/normal = ExtResource( 2 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 text = "Confirm"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -443,7 +290,7 @@ anchor_bottom = 0.0999
 margin_left = 0.790009
 margin_right = 0.489929
 margin_bottom = 0.0799866
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 text = "Очков осталось: 3"
 align = 1
 valign = 1
@@ -465,7 +312,7 @@ anchor_left = 0.025
 anchor_top = 0.0151515
 anchor_right = 0.975
 anchor_bottom = 0.984848
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 8 )
 text = "Char
 Doll
 Here"
@@ -493,7 +340,7 @@ margin_left = -0.309982
 margin_top = -0.0299997
 margin_right = -0.11982
 margin_bottom = 0.0499992
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Пол"
 valign = 1
 __meta__ = {
@@ -526,7 +373,7 @@ margin_left = -0.309982
 margin_top = 0.0200005
 margin_right = 0.130203
 margin_bottom = -0.0699997
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Имя"
 valign = 1
 __meta__ = {
@@ -542,7 +389,7 @@ margin_left = -0.139999
 margin_top = 0.0200043
 margin_right = -0.140015
 margin_bottom = -0.0699921
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Джермейн Рукер"
 align = 1
 __meta__ = {
@@ -572,7 +419,7 @@ margin_left = 0.139999
 margin_top = 0.0699997
 margin_right = -0.160004
 margin_bottom = -0.0199966
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Рост"
 valign = 1
 __meta__ = {
@@ -606,7 +453,7 @@ margin_left = 0.139999
 margin_top = -0.0500031
 margin_right = -0.160004
 margin_bottom = 0.030014
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Возраст"
 valign = 1
 __meta__ = {
@@ -651,7 +498,7 @@ margin_left = 0.139999
 margin_top = -0.0500002
 margin_right = -0.160004
 margin_bottom = -3.8147e-06
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Цвет кожи"
 valign = 1
 __meta__ = {
@@ -667,7 +514,7 @@ margin_left = -0.139999
 margin_top = 0.039999
 margin_right = -0.140015
 margin_bottom = 0.0300179
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "бронзовый"
 clip_text = true
 align = 0
@@ -681,7 +528,7 @@ margin_left = 0.139999
 margin_top = -0.0500002
 margin_right = -0.160004
 margin_bottom = -3.8147e-06
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Волосы"
 valign = 1
 __meta__ = {
@@ -697,7 +544,7 @@ margin_left = -0.139999
 margin_top = 0.039999
 margin_right = -0.140015
 margin_bottom = 0.0300179
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "коричневые, длинные"
 clip_text = true
 align = 0
@@ -711,7 +558,7 @@ margin_left = 0.139999
 margin_top = -0.0500002
 margin_right = -0.160004
 margin_bottom = -3.8147e-06
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Усы/борода"
 valign = 1
 __meta__ = {
@@ -727,7 +574,7 @@ margin_left = -0.139999
 margin_top = 0.039999
 margin_right = -0.140015
 margin_bottom = 0.0300179
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "шкиперск.борода"
 clip_text = true
 align = 0
@@ -741,7 +588,7 @@ margin_left = 0.139999
 margin_top = -0.0500002
 margin_right = -0.160004
 margin_bottom = -3.8147e-06
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Доп.черты"
 valign = 1
 __meta__ = {
@@ -757,7 +604,7 @@ margin_left = -0.139999
 margin_top = 0.0399933
 margin_right = 0.859985
 margin_bottom = 0.030014
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "нет"
 align = 0
 __meta__ = {
@@ -782,7 +629,7 @@ margin_left = 0.12
 margin_top = -9.53674e-07
 margin_right = 1.71999
 margin_bottom = 0.0692368
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Сценарий"
 valign = 1
 __meta__ = {
@@ -798,7 +645,7 @@ margin_left = -0.160049
 margin_top = -9.53674e-07
 margin_right = -0.160065
 margin_bottom = 0.124596
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Оч.плохой день"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -813,7 +660,7 @@ margin_left = 0.12
 margin_top = -9.53674e-07
 margin_right = 1.71999
 margin_bottom = 0.0692368
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Профессия"
 valign = 1
 __meta__ = {
@@ -829,7 +676,7 @@ margin_left = -0.160049
 margin_top = -9.53674e-07
 margin_right = 0.159973
 margin_bottom = -7.62939e-06
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Выживший"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -844,7 +691,7 @@ margin_left = 0.12
 margin_top = -9.53674e-07
 margin_right = 1.71999
 margin_bottom = 0.0692368
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Локация"
 valign = 1
 __meta__ = {
@@ -860,7 +707,7 @@ margin_left = -0.160049
 margin_top = -9.53674e-07
 margin_right = 0.159973
 margin_bottom = -7.62939e-06
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "АЗС (1 вар)"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -875,7 +722,7 @@ margin_left = 0.12
 margin_top = -9.53674e-07
 margin_right = 1.71999
 margin_bottom = 0.0692368
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Транспорт"
 valign = 1
 __meta__ = {
@@ -891,7 +738,7 @@ margin_left = -0.160049
 margin_top = -9.53674e-07
 margin_right = 0.159973
 margin_bottom = -7.62939e-06
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Food Truck"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -915,7 +762,7 @@ margin_left = 0.12
 margin_top = -0.0700159
 margin_right = 0.0199966
 margin_bottom = 0.0112534
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Сила"
 valign = 1
 __meta__ = {
@@ -937,7 +784,7 @@ margin_left = 0.12
 margin_top = -0.0700159
 margin_right = 0.0199966
 margin_bottom = 0.0112534
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Ловкость"
 valign = 1
 __meta__ = {
@@ -959,7 +806,7 @@ margin_left = 0.12
 margin_top = -0.0700159
 margin_right = 0.0199966
 margin_bottom = 0.0112534
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Интеллект"
 valign = 1
 __meta__ = {
@@ -981,7 +828,7 @@ margin_left = 0.12
 margin_top = -0.070015
 margin_right = 0.0199966
 margin_bottom = 0.0112534
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Восприятие"
 valign = 1
 __meta__ = {
@@ -1005,7 +852,7 @@ anchor_left = 0.027027
 anchor_top = 0.0322581
 anchor_right = 0.972971
 anchor_bottom = 0.83871
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Черты:
 - Психоз от стимуляторов
 - Гурман
@@ -1045,7 +892,7 @@ anchor_left = 0.027027
 anchor_top = 0.0285714
 anchor_right = 0.972971
 anchor_bottom = 0.857143
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 text = "Навыки:
 - плавание ( 5 )
 - метание ( 4 )
@@ -1068,5 +915,6 @@ __meta__ = {
 }
 [connection signal="pressed" from="Worldgen/BtnBack" to="." method="back_to_main"]
 [connection signal="pressed" from="Worldgen/BtnConfirm" to="." method="to_chargen"]
+[connection signal="pressed" from="Worldgen/Modlist/ModinfoBtn" to="." method="on_mod_info_btn"]
 [connection signal="pressed" from="Chargen/BtnBack" to="." method="back_to_mapgen"]
 [connection signal="pressed" from="Chargen/BtnConfirm" to="." method="confirm"]

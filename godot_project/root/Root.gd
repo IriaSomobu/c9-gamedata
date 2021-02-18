@@ -66,3 +66,6 @@ func on_native_error(title, message):
 
 func on_settings_applied():
 	setup_window_from_options();
+
+
+
