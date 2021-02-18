@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "",
+"base": "Reference",
 "class": "corescript",
 "language": "NativeScript",
 "path": "res://front_script.gdns"

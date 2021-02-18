@@ -6,7 +6,7 @@ var settings_page;
 var current_mods;
 
 func set_mode(mode):
-	settings_page = core.get_settings()[3]["options"];
+	settings_page = core.get_world_settings()[0]["options"];
 	current_mods = core.list_available_mods()
 	$Worldgen/Settings/OptionsPanel.set_data(settings_page);
 	

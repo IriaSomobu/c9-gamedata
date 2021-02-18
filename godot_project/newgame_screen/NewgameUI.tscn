@@ -216,7 +216,6 @@ margin_right = -0.000610352
 margin_bottom = -20.0
 
 [node name="ModInfoDlg" type="AcceptDialog" parent="Worldgen"]
-visible = true
 anchor_left = 0.3125
 anchor_top = 0.3
 anchor_right = 0.687125
