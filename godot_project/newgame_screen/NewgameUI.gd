@@ -76,10 +76,10 @@ func to_chargen():
 		$Worldgen/NoModsDlg.popup()
 		return
 	
-	core.create_tmp_world({
-		"options": $Worldgen/Settings/OptionsPanel.get_options_dict(),
-		"mods": mods
-	});
+	core.create_tmp_world(
+		$Worldgen/Settings/OptionsPanel.get_options_dict(),
+		mods
+	);
 	
 	$Worldgen.visible = false
 	$Chargen.visible = true
