@@ -227,6 +227,18 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="NoModsDlg" type="AcceptDialog" parent="Worldgen"]
+anchor_left = 0.375
+anchor_top = 0.425
+anchor_right = 0.62625
+anchor_bottom = 0.575
+margin_right = -1.60004
+dialog_text = "Unable to create world w/o mods"
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="Chargen" type="Control" parent="."]
 visible = false
 anchor_right = 1.0

@@ -48,3 +48,11 @@ func _on_focus_change():
 
 func on_option_changed(name, value):
 	emit_signal("option_changed", name, value)
+
+func get_options_dict():
+	var result = {}
+	
+	for option in $OptionsList.get_children():
+		result[option.code] = option.current_value
+	
+	return result

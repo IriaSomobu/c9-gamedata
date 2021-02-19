@@ -16,11 +16,13 @@ func set_mode(mode):
 		mod_item.hint_tooltip = "";
 		if mod_item_data["enabled"]: mod_item.pressed = true
 		mod_item.connect("focus_entered", self, "on_mod_item_focused", [mod_item_data])
+		mod_item.connect("toggled",       self, "on_mod_item_toggled", [mod_item_data])
 		$Worldgen/Modlist/ScrollContainer/GridContainer.add_child(mod_item)
 	
 	setup_world_panel();
 
 
+# World panel
 func setup_world_panel():
 	$Worldgen.visible = true
 	$Chargen.visible = false
@@ -45,6 +47,18 @@ func on_mod_item_focused(data):
 	
 	$Worldgen/ModInfoDlg.dialog_text = e_text;
 
+func on_mod_item_toggled(state, data):
+	data["enabled"] = state
+	if state:
+		for dep in data["deps"]:
+			for i in range(current_mods.size()):
+				if current_mods[i]["codename"] == dep:
+					$Worldgen/Modlist/ScrollContainer/GridContainer.get_child(i).pressed = true
+	else:
+		for i in range(current_mods.size()):
+			if current_mods[i]["deps"].has(data["codename"]):
+				$Worldgen/Modlist/ScrollContainer/GridContainer.get_child(i).pressed = false
+
 func on_mod_info_btn():
 	$Worldgen/ModInfoDlg.popup();
 
@@ -53,15 +67,24 @@ func back_to_main():
 
 func to_chargen():
 	
+	var mods = []
+	for mod in current_mods:
+		if mod["enabled"]:
+			mods.append(mod["codename"]);
+	
+	if mods.size() == 0:
+		$Worldgen/NoModsDlg.popup()
+		return
 	
 	core.create_tmp_world({
-		"options": {},
-		"mods": []
+		"options": $Worldgen/Settings/OptionsPanel.get_options_dict(),
+		"mods": mods
 	});
 	
 	$Worldgen.visible = false
 	$Chargen.visible = true
 
+# Chargen
 func back_to_mapgen():
 	setup_world_panel();
 
