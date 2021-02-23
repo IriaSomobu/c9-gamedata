@@ -1,0 +1,6 @@
+json/*.py
+
+mo/
+
+po/en.po
+po/cataclysm-nine.pot

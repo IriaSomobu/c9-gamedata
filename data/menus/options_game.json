@@ -299,7 +299,8 @@
         "code": "USE_LANG",
         "name": "Language",
         "descr": "Switch Language.",
-        "type": "custom_vals"
+        "type": "custom_vals",
+        "default": ""
       },
 
       {
