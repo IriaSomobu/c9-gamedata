@@ -1,0 +1,12 @@
+[
+  {
+    "type": "MOD_INFO",
+    "ident": "c9",
+    "name": "Cataclysm Nine: Core",
+    "description": "Core data of Cataclysm Nine",
+    "category": "content",
+    "core": true,
+    "authors": [ "IriaSomobu" ],
+    "maintainers": [ "IriaSomobu" ]
+  }
+]

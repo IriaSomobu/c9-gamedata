@@ -1,4 +1,4 @@
-# Test Data pseudo-mod #
+# Test Data pseudo-mod
 
 This mod is purely for loading data to be used by `tests/cata_test`. It is
 automatically loaded by `tests/test_main.cpp`, so any items, recipes, or other

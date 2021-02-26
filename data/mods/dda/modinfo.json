@@ -6,7 +6,9 @@
     "description": "Core content for Cataclysm-DDA",
     "category": "content",
     "core": true,
-    "path": "../../json",
-    "legacy": "../../legacy"
+    "authors": [ "Cataclysm: DDA Community", "Cataclysm: BN Community" ],
+    "maintainers": [ "IriaSomobu" ],
+    "path": "json/",
+    "legacy": "legacy/"
   }
 ]
