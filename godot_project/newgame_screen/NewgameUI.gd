@@ -82,6 +82,7 @@ func to_chargen():
 	);
 	
 	$Worldgen.visible = false
+	core.load_chargen();
 	$Chargen.visible = true
 
 # Chargen
@@ -90,4 +91,3 @@ func back_to_mapgen():
 
 func confirm():
 	pass
-

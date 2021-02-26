@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://root/LoadingScreen.gd" type="Script" id=1]
+[ext_resource path="res://theme/terminus.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="LoadingScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stage" type="Label" parent="."]
+anchor_left = 0.375
+anchor_top = 0.4
+anchor_right = 0.62475
+anchor_bottom = 0.4995
+margin_right = 0.32
+margin_bottom = 0.399994
+custom_fonts/font = SubResource( 1 )
+text = "Checking"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Progress" type="Label" parent="."]
+anchor_left = 0.249625
+anchor_top = 0.5
+anchor_right = 0.750063
+anchor_bottom = 0.6
+margin_left = 0.47998
+margin_right = -0.0800171
+custom_fonts/font = SubResource( 2 )
+text = "a"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}

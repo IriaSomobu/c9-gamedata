@@ -6,6 +6,7 @@ var got_nerror = false; # We got error report from natives
 func _ready():
 	core = load("res://front_script.gdns").new()
 	core.set_error_listener(self);
+	core.set_loading_listener(get_node("LoadingScreen"));
 	core.initialize();
 	if got_nerror: return;
 	
@@ -30,7 +31,7 @@ func setup_window_from_options():
 
 
 func clear_contents():
-	for n in get_children():
+	for n in $MenusHolder.get_children():
 		remove_child(n)
 		n.queue_free()
 
@@ -38,20 +39,20 @@ func goto_main():
 	clear_contents();
 	
 	var ui = load("res://main_screen/UI.tscn").instance()
-	add_child(ui)
+	$MenusHolder.add_child(ui)
 
 func goto_newchar(mode):
 	clear_contents();
 	
 	var ui = load("res://newgame_screen/NewgameUI.tscn").instance()
-	add_child(ui)
+	$MenusHolder.add_child(ui)
 	ui.set_mode(mode);
 
 func goto_loading():
 	clear_contents();
 	
 	var ui = load("res://loading_screen/LoadingUI.tscn").instance()
-	add_child(ui)
+	$MenusHolder.add_child(ui)
 
 func on_native_debug(message):
 	print(message)
@@ -62,7 +63,7 @@ func on_native_error(title, message):
 	
 	var ui = load("res://error_screen/UI.tscn").instance()
 	ui.set_error(title, message);
-	add_child(ui)
+	$MenusHolder.add_child(ui)
 
 func on_settings_applied():
 	setup_window_from_options();
