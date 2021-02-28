@@ -6,8 +6,12 @@ var motd = "";
 var credits = "";
 var tip = "";
 
-
 func _ready():
+	get_node("/root/Root").connect("settings_changed", self, "reload_data");
+	reload_data();
+	$Menu/MOTD.grab_focus()
+
+func reload_data():
 	var data = core.get_main_data();
 	tip = data["tip"]
 	motd = data["motd"]
@@ -23,8 +27,6 @@ func _ready():
 	$Menu/Help.text = core.tr("Help");
 	$Menu/Credits.text = core.tr("Credits");
 	$Menu/Quit.text = core.tr("Quit");
-	
-	$Menu/MOTD.grab_focus()
 
 func hide_all_panels():
 	for n in $PanelContainer.get_children():

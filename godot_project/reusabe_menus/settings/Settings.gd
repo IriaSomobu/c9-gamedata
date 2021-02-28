@@ -5,6 +5,7 @@ var pages = [];
 
 func _ready():
 	reload_data();
+	get_node("/root/Root").connect("settings_changed", self, "reload_data");
 
 
 func reload_data():

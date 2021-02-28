@@ -8,6 +8,7 @@ var subtitle_random = "Creates random character, but lets you preview the genera
 var subtitle_playnow = "Puts you right in the game, randomly choosing scenario and character's traits, profession, skills and other parameters."
 
 func _ready():
+	get_node("/root/Root").connect("settings_changed", self, "_ready");
 	$Cursom.title = core.tr("Custom Character");
 	$Cursom.subtitle = "[color=yellow]"+core.tr(subtitle_custom)+"[/color]";
 	

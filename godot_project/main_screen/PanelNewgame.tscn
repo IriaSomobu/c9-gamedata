@@ -24,16 +24,17 @@ __meta__ = {
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 634.0
-margin_bottom = 355.0
+margin_bottom = 394.0
 focus_neighbour_right = NodePath("../Preset")
 title = "Custom Character"
+subtitle = ""
 
 [node name="Preset" parent="." instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 644.0
 margin_right = 1278.0
-margin_bottom = 355.0
+margin_bottom = 394.0
 focus_neighbour_left = NodePath("../Cursom")
 focus_neighbour_right = NodePath("../Random")
 focus_next = NodePath("../Random")
@@ -43,9 +44,9 @@ subtitle = "[color=yellow]Select from one of previously created character templa
 [node name="Random" parent="." instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 365.0
+margin_top = 404.0
 margin_right = 634.0
-margin_bottom = 720.0
+margin_bottom = 798.0
 focus_neighbour_left = NodePath("../Preset")
 focus_neighbour_right = NodePath("../Playnow")
 focus_previous = NodePath("../Preset")
@@ -56,9 +57,9 @@ subtitle = "[color=yellow]Creates random character, but lets you preview the gen
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 644.0
-margin_top = 365.0
+margin_top = 404.0
 margin_right = 1278.0
-margin_bottom = 720.0
+margin_bottom = 798.0
 title = "Play now!"
 subtitle = "[color=yellow]Puts you right in the game, randomly choosing scenario and characters traits, profession, skills and other parameters.[/color]"
 [connection signal="pressed" from="Cursom" to="." method="_on_btn_press" binds= [ "custom" ]]

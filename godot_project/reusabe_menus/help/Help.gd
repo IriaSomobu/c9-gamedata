@@ -5,6 +5,11 @@ onready var core = get_node("/root/Root").core;
 var help_array = [];
 
 func _ready():
+	get_node("/root/Root").connect("settings_changed", self, "reload_data");
+	reload_data()
+
+
+func reload_data():
 	help_array = core.get_help_data();
 	
 	for item in help_array:
