@@ -1,13 +1,15 @@
-# Max length of a line is 78 characters; the following line is for reference
-# Longer lines will be automatically folded
-##############################################################################
+<color_light_cyan>Cataclysm Nine</color> is released under <color_white>CC-BY-SA 4.0</color>:
+<color_cyan>http://creativecommons.org/licenses/by-sa/4.0/</color>
+
+<color_white>Cataclysm Nine is based on Cataclysm: Bright Nights project.</color>
+
 <color_white>Project Manager:</color>
 <color_yellow>  Iria.Somobu</color>
 
 <color_white>Original creators:</color>
 <color_yellow>  Whales, TheDarklingWolf, GlyphGryph</color> (<color_dark_gray>retired</color>)
-<color_yellow>  KevinGranade</color> (<color_dark_gray>from DDA fork</color>)
-<color_yellow>  Coolthulhu</color> (<color_dark_gray>from BN fork</color>)
+<color_yellow>  KevinGranade</color> (<color_dark_gray>Сataclysm: DDA</color>)
+<color_yellow>  Coolthulhu</color> (<color_dark_gray>Cataclysm: BN</color>)
 
 <color_white>Special thanks to:</color>
 <color_yellow>  Contributors</color> - For contributing to development.
@@ -16,8 +18,3 @@
 
 <color_white>For a full list of contributors please see:</color>
 <color_cyan>https://github.com/IriaSomobu/cataclysm-nine/blob/master/AUTHORS.md</color>
-
-<color_light_cyan>Cataclysm Nine</color> is released under <color_white>CC-BY-SA 4.0</color>:
-<color_cyan>http://creativecommons.org/licenses/by-sa/4.0/</color>
-
-<color_white>Cataclysm Nine is based on of Cataclysm: Bright Nights project.</color>
