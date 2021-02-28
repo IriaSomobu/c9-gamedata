@@ -17,19 +17,19 @@
         "default": ""
       },
       {
-        "type": "empty"
-      },
-      {
-        "code": "CHARACTER_POINT_POOLS",
-        "name": "Character point pools",
-        "descr": "Allowed point pools for character generation.",
+        "code": "POINT_POOL_TYPE",
+        "name": "Character point pool type",
+        "descr": "Multiple pools: Stats, traits and skills have separate point pools.  Single pool: Stats, traits and skills share a single point pool.  Freeform: No point limits are enforced",
         "type": "vals",
         "vals": {
-          "any": "Any",
-          "multi_pool": "Multi-pool only",
-          "no_freeform": "No freeform"
+          "multi_pool": "Multiple pools",
+          "single_pool": "Single pool",
+          "freeform": "Freeform"
         },
-        "default": "any"
+        "default": "multi_pool"
+      },
+      {
+        "type": "empty"
       },
       {
         "code": "WORLD_END",
@@ -273,6 +273,18 @@
         "descr": "If true, strength checks and/or lifting qualities no longer need to be met in order to change parts.",
         "type": "bool",
         "default": "false"
+      },
+      {
+        "code": "CHARACTER_POINT_POOLS",
+        "name": "Character point pools",
+        "descr": "Allowed point pools for character generation.",
+        "type": "vals",
+        "vals": {
+          "any": "Any",
+          "multi_pool": "Multi-pool only",
+          "no_freeform": "No freeform"
+        },
+        "default": "any"
       },
       {
         "type": "empty"

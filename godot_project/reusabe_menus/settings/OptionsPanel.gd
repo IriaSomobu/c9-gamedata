@@ -13,6 +13,8 @@ func set_data(page):
 		option.name = o["code"];
 		option.code = o["code"];
 		option.title = o["name"]; 
+		option.descr = o["desc"];
+		option.hint_tooltip = o["desc"];
 		
 		match o["mode"]:
 			"empty":

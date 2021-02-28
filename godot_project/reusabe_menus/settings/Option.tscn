@@ -13,6 +13,11 @@ bg_color = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 0, 30 )
+hint_tooltip = "Awoo
+
+Awoo
+
+asdfasdasdfasdfasdf"
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/hover = SubResource( 1 )
