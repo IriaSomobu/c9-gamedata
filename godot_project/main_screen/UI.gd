@@ -27,6 +27,8 @@ func reload_data():
 	$Menu/Help.text = core.tr("Help");
 	$Menu/Credits.text = core.tr("Credits");
 	$Menu/Quit.text = core.tr("Quit");
+	
+	$BuildInfo.text = data["build_name"] + "\nrev." + data["build_git"]
 
 func hide_all_panels():
 	for n in $PanelContainer.get_children():

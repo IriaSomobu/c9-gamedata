@@ -189,6 +189,21 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="BuildInfo" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -410.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = 49.0
+custom_colors/font_color = Color( 0.439216, 0.439216, 0.439216, 1 )
+text = "'cnCore' build NUM, YYY MMM DD
+rev.GIT_VER"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="focus_entered" from="Menu/MOTD" to="." method="switch_panel" binds= [ "motd" ]]
 [connection signal="focus_entered" from="Menu/NewGame" to="." method="switch_panel" binds= [ "newgame" ]]
 [connection signal="focus_entered" from="Menu/Load" to="." method="switch_panel" binds= [ "loadgame" ]]
