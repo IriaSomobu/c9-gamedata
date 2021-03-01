@@ -1,0 +1,721 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://theme/theme_btn_hover.tres" type="StyleBox" id=1]
+[ext_resource path="res://theme/theme_btn_focus.tres" type="StyleBox" id=2]
+[ext_resource path="res://theme/theme_btn_normal.tres" type="StyleBox" id=3]
+[ext_resource path="res://theme/terminus.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://newgame_screen/Number.tscn" type="PackedScene" id=5]
+[ext_resource path="res://newgame_screen/city.jpg" type="Texture" id=6]
+[ext_resource path="res://newgame_screen/casino_white_18dp.png" type="Texture" id=7]
+[ext_resource path="res://newgame_screen/ChargenScreen.gd" type="Script" id=8]
+[ext_resource path="res://newgame_screen/ScenarioPopup.tscn" type="PackedScene" id=9]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.584314 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 28
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 18
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 18
+font_data = ExtResource( 4 )
+
+[node name="Chargen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnBack" type="Button" parent="."]
+anchor_left = 0.0390625
+anchor_top = 0.05
+anchor_right = 0.1875
+anchor_bottom = 0.1
+custom_styles/hover = ExtResource( 1 )
+custom_styles/focus = ExtResource( 2 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 2 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="BtnConfirm" type="Button" parent="."]
+anchor_left = 0.8125
+anchor_top = 0.05
+anchor_right = 0.960938
+anchor_bottom = 0.1
+custom_styles/hover = ExtResource( 1 )
+custom_styles/focus = ExtResource( 2 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 2 )
+text = "Confirm"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Points" type="Label" parent="."]
+anchor_left = 0.202508
+anchor_top = 0.05
+anchor_right = 0.796492
+anchor_bottom = 0.0999
+margin_left = 0.790009
+margin_right = 0.489929
+margin_bottom = 0.0799866
+custom_fonts/font = SubResource( 3 )
+text = "Очков осталось: 3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Doll" type="Panel" parent="."]
+anchor_left = 0.0390625
+anchor_top = 0.1125
+anchor_right = 0.351562
+anchor_bottom = 0.95
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Doll"]
+anchor_left = 0.025
+anchor_top = 0.0151515
+anchor_right = 0.975
+anchor_bottom = 0.984848
+custom_fonts/font = SubResource( 4 )
+text = "Char
+Doll
+Here"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Basic" type="Panel" parent="."]
+anchor_left = 0.359375
+anchor_top = 0.1125
+anchor_right = 0.664062
+anchor_bottom = 0.325
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SexLabel" type="Label" parent="Basic"]
+anchor_left = 0.029
+anchor_top = 0.059
+anchor_right = 0.256718
+anchor_bottom = 0.235
+margin_left = -0.309982
+margin_top = -0.0299997
+margin_right = -0.11982
+margin_bottom = 0.0499992
+custom_fonts/font = SubResource( 5 )
+text = "Пол"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Sex" type="OptionButton" parent="Basic"]
+anchor_left = 0.359334
+anchor_top = 0.059
+anchor_right = 0.972155
+anchor_bottom = 0.235
+margin_left = -0.139999
+margin_top = -0.0299997
+margin_right = -0.140015
+margin_bottom = 0.0500031
+text = "мужской"
+align = 1
+items = [ "мужской", null, false, 0, null, "женский", null, false, 1, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="NameLabel" type="Label" parent="Basic"]
+anchor_left = 0.029
+anchor_top = 0.294
+anchor_right = 0.256077
+anchor_bottom = 0.471
+margin_left = -0.309982
+margin_top = 0.0200005
+margin_right = 0.130203
+margin_bottom = -0.0699997
+custom_fonts/font = SubResource( 5 )
+text = "Имя"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Name" type="LineEdit" parent="Basic"]
+anchor_left = 0.359334
+anchor_top = 0.294
+anchor_right = 0.897796
+anchor_bottom = 0.471
+margin_left = -0.139999
+margin_top = 0.0200043
+margin_right = -0.140015
+margin_bottom = -0.0699921
+custom_fonts/font = SubResource( 5 )
+text = "Джермейн Рукер"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="NameRandom" type="TextureButton" parent="Basic"]
+anchor_left = 0.897437
+anchor_top = 0.294118
+anchor_right = 0.974
+anchor_bottom = 0.471
+margin_right = 0.140594
+margin_bottom = -0.0699997
+texture_normal = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HeightLabel" type="Label" parent="Basic"]
+anchor_left = 0.0252821
+anchor_top = 0.529
+anchor_right = 0.256821
+anchor_bottom = 0.706
+margin_left = 0.139999
+margin_top = 0.0699997
+margin_right = -0.160004
+margin_bottom = -0.0199966
+custom_fonts/font = SubResource( 5 )
+text = "Рост"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Height" type="SpinBox" parent="Basic"]
+anchor_left = 0.359436
+anchor_top = 0.529
+anchor_right = 0.971
+anchor_bottom = 0.706
+margin_left = -0.179718
+margin_top = 0.0699997
+margin_right = 0.310577
+margin_bottom = -0.0200043
+min_value = 130.0
+max_value = 200.0
+value = 130.0
+align = 1
+suffix = "см"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AgeLabel" type="Label" parent="Basic"]
+anchor_left = 0.0278462
+anchor_top = 0.765
+anchor_right = 0.256821
+anchor_bottom = 0.941
+margin_left = 0.139999
+margin_top = -0.0500031
+margin_right = -0.160004
+margin_bottom = 0.030014
+custom_fonts/font = SubResource( 5 )
+text = "Возраст"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Age" type="SpinBox" parent="Basic"]
+anchor_left = 0.359334
+anchor_top = 0.765
+anchor_right = 0.972155
+anchor_bottom = 0.941
+margin_left = -0.139999
+margin_top = -0.0500031
+margin_right = -0.140015
+margin_bottom = 0.030014
+min_value = 16.0
+max_value = 55.0
+value = 16.0
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Appearance" type="Panel" parent="."]
+anchor_left = 0.359
+anchor_top = 0.3375
+anchor_right = 0.664062
+anchor_bottom = 0.6
+margin_left = 0.47998
+margin_right = 0.000610352
+margin_bottom = -3.05176e-05
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Appearance"]
+anchor_left = 0.0252821
+anchor_top = 0.0478571
+anchor_right = 0.305538
+anchor_bottom = 0.190476
+margin_left = 0.139999
+margin_top = -0.0500002
+margin_right = -0.160004
+margin_bottom = -3.8147e-06
+custom_fonts/font = SubResource( 5 )
+text = "Цвет кожи"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label1" type="Button" parent="Appearance"]
+anchor_left = 0.359333
+anchor_top = 0.0474286
+anchor_right = 0.972154
+anchor_bottom = 0.190333
+margin_left = -0.139999
+margin_top = 0.039999
+margin_right = -0.140015
+margin_bottom = 0.0300179
+custom_fonts/font = SubResource( 5 )
+text = "бронзовый"
+clip_text = true
+align = 0
+
+[node name="Label3" type="Label" parent="Appearance"]
+anchor_left = 0.0252821
+anchor_top = 0.238333
+anchor_right = 0.305538
+anchor_bottom = 0.380952
+margin_left = 0.139999
+margin_top = -0.0500002
+margin_right = -0.160004
+margin_bottom = -3.8147e-06
+custom_fonts/font = SubResource( 5 )
+text = "Волосы"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label2" type="Button" parent="Appearance"]
+anchor_left = 0.359333
+anchor_top = 0.237905
+anchor_right = 0.972154
+anchor_bottom = 0.380809
+margin_left = -0.139999
+margin_top = 0.039999
+margin_right = -0.140015
+margin_bottom = 0.0300179
+custom_fonts/font = SubResource( 5 )
+text = "коричневые, длинные"
+clip_text = true
+align = 0
+
+[node name="Label5" type="Label" parent="Appearance"]
+anchor_left = 0.0252821
+anchor_top = 0.42881
+anchor_right = 0.305538
+anchor_bottom = 0.571429
+margin_left = 0.139999
+margin_top = -0.0500002
+margin_right = -0.160004
+margin_bottom = -3.8147e-06
+custom_fonts/font = SubResource( 5 )
+text = "Усы/борода"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label4" type="Button" parent="Appearance"]
+anchor_left = 0.359333
+anchor_top = 0.428381
+anchor_right = 0.972154
+anchor_bottom = 0.571286
+margin_left = -0.139999
+margin_top = 0.039999
+margin_right = -0.140015
+margin_bottom = 0.0300179
+custom_fonts/font = SubResource( 5 )
+text = "шкиперск.борода"
+clip_text = true
+align = 0
+
+[node name="Label7" type="Label" parent="Appearance"]
+anchor_left = 0.0252821
+anchor_top = 0.619286
+anchor_right = 0.305538
+anchor_bottom = 0.757143
+margin_left = 0.139999
+margin_top = -0.0500002
+margin_right = -0.160004
+margin_bottom = -3.8147e-06
+custom_fonts/font = SubResource( 5 )
+text = "Доп.черты"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label6" type="Button" parent="Appearance"]
+anchor_left = 0.359333
+anchor_top = 0.618857
+anchor_right = 0.972154
+anchor_bottom = 0.952238
+margin_left = -0.139999
+margin_top = 0.0399933
+margin_right = 0.859985
+margin_bottom = 0.030014
+custom_fonts/font = SubResource( 5 )
+text = "нет"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="StartProps" type="Panel" parent="."]
+anchor_left = 0.359375
+anchor_top = 0.6125
+anchor_right = 0.664062
+anchor_bottom = 0.775
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ScenarioLabel" type="Label" parent="StartProps"]
+anchor_left = 0.0253334
+anchor_top = 0.0769231
+anchor_right = 0.328924
+anchor_bottom = 0.230237
+margin_left = 0.12
+margin_top = -9.53674e-07
+margin_right = 1.71999
+margin_bottom = 0.0692368
+custom_fonts/font = SubResource( 5 )
+text = "Сценарий"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Scenario" type="Button" parent="StartProps"]
+anchor_left = 0.359385
+anchor_top = 0.0769231
+anchor_right = 0.974771
+anchor_bottom = 0.229811
+margin_left = -0.160049
+margin_top = -9.53674e-07
+margin_right = -0.160065
+margin_bottom = 0.124596
+custom_fonts/font = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ProfessionLabel" type="Label" parent="StartProps"]
+anchor_left = 0.0253334
+anchor_top = 0.307692
+anchor_right = 0.328924
+anchor_bottom = 0.461006
+margin_left = 0.12
+margin_top = -9.53674e-07
+margin_right = 1.71999
+margin_bottom = 0.0692368
+custom_fonts/font = SubResource( 5 )
+text = "Профессия"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Profession" type="Button" parent="StartProps"]
+anchor_left = 0.359385
+anchor_top = 0.307692
+anchor_right = 0.97395
+anchor_bottom = 0.461539
+margin_left = -0.160049
+margin_top = -9.53674e-07
+margin_right = 0.159973
+margin_bottom = -7.62939e-06
+custom_fonts/font = SubResource( 5 )
+text = "Выживший"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LocationLabel" type="Label" parent="StartProps"]
+anchor_left = 0.0253334
+anchor_top = 0.538462
+anchor_right = 0.328924
+anchor_bottom = 0.691775
+margin_left = 0.12
+margin_top = -9.53674e-07
+margin_right = 1.71999
+margin_bottom = 0.0692368
+custom_fonts/font = SubResource( 5 )
+text = "Локация"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Location" type="Button" parent="StartProps"]
+anchor_left = 0.359385
+anchor_top = 0.538462
+anchor_right = 0.97395
+anchor_bottom = 0.692308
+margin_left = -0.160049
+margin_top = -9.53674e-07
+margin_right = 0.159973
+margin_bottom = -7.62939e-06
+custom_fonts/font = SubResource( 5 )
+text = "АЗС (1 вар)"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VehicleLabel" type="Label" parent="StartProps"]
+anchor_left = 0.0253334
+anchor_top = 0.769231
+anchor_right = 0.328924
+anchor_bottom = 0.922544
+margin_left = 0.12
+margin_top = -9.53674e-07
+margin_right = 1.71999
+margin_bottom = 0.0692368
+custom_fonts/font = SubResource( 5 )
+text = "Транспорт"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label6" type="Button" parent="StartProps"]
+anchor_left = 0.359385
+anchor_top = 0.769231
+anchor_right = 0.97395
+anchor_bottom = 0.923077
+margin_left = -0.160049
+margin_top = -9.53674e-07
+margin_right = 0.159973
+margin_bottom = -7.62939e-06
+custom_fonts/font = SubResource( 5 )
+text = "Food Truck"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Stats" type="Panel" parent="."]
+anchor_left = 0.359375
+anchor_top = 0.7875
+anchor_right = 0.664062
+anchor_bottom = 0.95
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="StrLabel" type="Label" parent="Stats"]
+anchor_left = 0.0253333
+anchor_top = 0.0774617
+anchor_right = 0.320462
+anchor_bottom = 0.230683
+margin_left = 0.12
+margin_top = -0.0700159
+margin_right = 0.0199966
+margin_bottom = 0.0112534
+custom_fonts/font = SubResource( 5 )
+text = "Сила"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Str" parent="Stats" instance=ExtResource( 5 )]
+anchor_left = 0.769231
+anchor_top = 0.0769231
+anchor_right = 0.974359
+anchor_bottom = 0.230769
+
+[node name="DexLabel" type="Label" parent="Stats"]
+anchor_left = 0.0253333
+anchor_top = 0.308231
+anchor_right = 0.320462
+anchor_bottom = 0.461452
+margin_left = 0.12
+margin_top = -0.0700159
+margin_right = 0.0199966
+margin_bottom = 0.0112534
+custom_fonts/font = SubResource( 5 )
+text = "Ловкость"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Dex" parent="Stats" instance=ExtResource( 5 )]
+anchor_left = 0.769231
+anchor_top = 0.307692
+anchor_right = 0.974359
+anchor_bottom = 0.461538
+
+[node name="IntelLabel" type="Label" parent="Stats"]
+anchor_left = 0.0253333
+anchor_top = 0.539
+anchor_right = 0.320462
+anchor_bottom = 0.707606
+margin_left = 0.12
+margin_top = -0.0700159
+margin_right = 0.0199966
+margin_bottom = 0.0112534
+custom_fonts/font = SubResource( 5 )
+text = "Интеллект"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Intel" parent="Stats" instance=ExtResource( 5 )]
+anchor_left = 0.769231
+anchor_top = 0.538462
+anchor_right = 0.974359
+anchor_bottom = 0.692308
+
+[node name="PerceptLabel" type="Label" parent="Stats"]
+anchor_left = 0.0253333
+anchor_top = 0.769769
+anchor_right = 0.320462
+anchor_bottom = 0.92299
+margin_left = 0.12
+margin_top = -0.070015
+margin_right = 0.0199966
+margin_bottom = 0.0112534
+custom_fonts/font = SubResource( 5 )
+text = "Восприятие"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Percept" parent="Stats" instance=ExtResource( 5 )]
+anchor_left = 0.769231
+anchor_top = 0.769231
+anchor_right = 0.974359
+anchor_bottom = 0.923077
+
+[node name="Skills" type="Panel" parent="."]
+anchor_left = 0.671875
+anchor_top = 0.1125
+anchor_right = 0.960938
+anchor_bottom = 0.5
+
+[node name="Label8" type="Label" parent="Skills"]
+anchor_left = 0.027027
+anchor_top = 0.0322581
+anchor_right = 0.972971
+anchor_bottom = 0.83871
+custom_fonts/font = SubResource( 5 )
+text = "Черты:
+- Психоз от стимуляторов
+- Гурман
+- Людоед
+- Психоз
+- Больные колени
+- Перепады настроения"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Edit2" type="Button" parent="Skills"]
+anchor_left = 0.0267572
+anchor_top = 0.870936
+anchor_right = 0.972757
+anchor_bottom = 0.96794
+margin_left = 0.0998306
+margin_top = 0.00997925
+margin_right = 0.0792542
+margin_bottom = -0.0614014
+text = "Изменить"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Traits" type="Panel" parent="."]
+anchor_left = 0.671875
+anchor_top = 0.5125
+anchor_right = 0.960938
+anchor_bottom = 0.95
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label8" type="Label" parent="Traits"]
+anchor_left = 0.027027
+anchor_top = 0.0285714
+anchor_right = 0.972971
+anchor_bottom = 0.857143
+custom_fonts/font = SubResource( 5 )
+text = "Навыки:
+- плавание ( 5 )
+- метание ( 4 )
+- вождение ( 5 )
+"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Edit" type="Button" parent="Traits"]
+anchor_left = 0.027027
+anchor_top = 0.885714
+anchor_right = 0.972755
+anchor_bottom = 0.971
+margin_right = 0.0798645
+margin_bottom = 0.149998
+text = "Изменить"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ScenarioPopup" parent="." instance=ExtResource( 9 )]
+visible = false
+[connection signal="pressed" from="BtnBack" to="." method="_on_BtnBack_pressed"]
+[connection signal="pressed" from="BtnConfirm" to="." method="_on_BtnConfirm_pressed"]
+[connection signal="pressed" from="StartProps/Scenario" to="." method="_on_Scenario_pressed"]

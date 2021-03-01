@@ -1,0 +1,212 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://newgame_screen/WorldgenScreen.gd" type="Script" id=1]
+[ext_resource path="res://reusabe_menus/settings/OptionsPanel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://theme/terminus.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://newgame_screen/space.jpg" type="Texture" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.584314 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color( 0, 0, 0, 0.745098 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color( 0, 0, 0, 0.862745 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 0.27451 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color( 0.301961, 0.298039, 0.298039, 0.572549 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 18
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 26
+font_data = ExtResource( 3 )
+
+[node name="Worldgen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnBack" type="Button" parent="."]
+anchor_left = 0.0390625
+anchor_top = 0.05
+anchor_right = 0.1875
+anchor_bottom = 0.1
+custom_styles/hover = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="BtnConfirm" type="Button" parent="."]
+anchor_left = 0.8125
+anchor_top = 0.05
+anchor_right = 0.960938
+anchor_bottom = 0.1
+custom_styles/hover = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+text = "Confirm"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Modlist" type="Panel" parent="."]
+anchor_left = 0.0390625
+anchor_top = 0.1125
+anchor_right = 0.351562
+anchor_bottom = 0.95
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Title" type="Label" parent="Modlist"]
+anchor_left = 0.025
+anchor_top = 0.015
+anchor_right = 0.974531
+anchor_bottom = 0.075
+margin_left = 3.24249e-05
+margin_top = -0.0500002
+margin_right = 0.1884
+margin_bottom = -0.250004
+custom_fonts/font = SubResource( 6 )
+text = "Active mods"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Modlist"]
+anchor_left = 0.025
+anchor_top = 0.0746269
+anchor_right = 0.975002
+anchor_bottom = 0.791134
+margin_right = 1.90735e-05
+margin_bottom = -0.0600004
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="GridContainer" type="GridContainer" parent="Modlist/ScrollContainer"]
+margin_right = 380.0
+size_flags_horizontal = 3
+custom_constants/vseparation = 7
+
+[node name="ModinfoBtn" type="Button" parent="Modlist"]
+anchor_left = 0.025
+anchor_top = 0.80597
+anchor_right = 0.975001
+anchor_bottom = 0.98497
+margin_right = 0.000190735
+margin_bottom = 0.0699997
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="RichTextLabel" parent="Modlist/ModinfoBtn"]
+anchor_left = 0.0262632
+anchor_top = 0.0834167
+anchor_right = 0.973316
+anchor_bottom = 0.916667
+margin_left = 0.0200005
+margin_top = -0.0100002
+margin_right = 0.139954
+mouse_filter = 2
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Settings" type="Panel" parent="."]
+anchor_left = 0.359375
+anchor_top = 0.1125
+anchor_right = 0.960938
+anchor_bottom = 0.95
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Title" type="Label" parent="Settings"]
+anchor_left = 0.025974
+anchor_top = 0.0149254
+anchor_right = 0.688363
+anchor_bottom = 0.0747612
+margin_right = -0.0400391
+margin_bottom = -0.0900002
+custom_fonts/font = SubResource( 6 )
+text = "World options"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="OptionsPanel" parent="Settings" instance=ExtResource( 2 )]
+anchor_top = 0.0895522
+margin_right = -0.000610352
+margin_bottom = -20.0
+
+[node name="ModInfoDlg" type="AcceptDialog" parent="."]
+anchor_left = 0.3125
+anchor_top = 0.3
+anchor_right = 0.687125
+anchor_bottom = 0.7
+margin_right = 0.479996
+margin_bottom = -3.8147e-06
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="NoModsDlg" type="AcceptDialog" parent="."]
+anchor_left = 0.375
+anchor_top = 0.425
+anchor_right = 0.62625
+anchor_bottom = 0.575
+margin_right = -1.60004
+dialog_text = "Unable to create world w/o mods"
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+[connection signal="pressed" from="BtnBack" to="." method="_on_BtnBack_pressed"]
+[connection signal="pressed" from="BtnConfirm" to="." method="_on_BtnConfirm_pressed"]
+[connection signal="pressed" from="Modlist/ModinfoBtn" to="." method="on_mod_info_btn"]

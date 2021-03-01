@@ -1,0 +1,123 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://newgame_screen/ScenarioPopup.gd" type="Script" id=1]
+[ext_resource path="res://theme/theme.tres" type="Theme" id=2]
+[ext_resource path="res://theme/theme_btn_pressed.tres" type="StyleBox" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.227451, 0.227451, 0.227451, 1 )
+
+[node name="ScenarioPopup" type="Popup"]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.1715
+anchor_top = 0.075
+anchor_right = 0.8285
+anchor_bottom = 0.925
+margin_left = 0.47998
+margin_top = -3.05176e-05
+margin_right = -0.47998
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Items" type="ItemList" parent="Panel"]
+anchor_left = 0.012
+anchor_top = 0.0438824
+anchor_right = 0.487936
+anchor_bottom = 0.985
+margin_left = -0.0800171
+margin_top = 0.160002
+margin_right = 0.133423
+margin_bottom = -49.8
+items = [ "Эвакуированный", null, false, "Крушение вертолета", null, false, "Зараженный", null, false, "Тюрьма", null, false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoText" type="RichTextLabel" parent="Panel"]
+anchor_left = 0.512
+anchor_top = 0.0438824
+anchor_right = 0.999841
+anchor_bottom = 0.985
+margin_left = -0.0800171
+margin_top = 0.160002
+margin_right = 0.133423
+margin_bottom = -49.8
+bbcode_enabled = true
+bbcode_text = "[color=#5C5]Вы пережили первоначальную волну паники и оказались в относительной безопасности в одном из правительственных убежищ.[/color]
+
+[color=white]Стоимость[/color]: [color=grey]0 очков[/color]
+
+[color=white]Профессии[/color]: [color=grey]все[/color]
+По умолчанию: [color=grey]выживший[/color]
+
+Стартовая локация: [color=grey]убежище[/color]
+Вариантов: [color=grey]2[/color]
+
+Транспорт: [color=grey]нет[/color]
+
+Флаги сценария:
+[color=grey]нет[/color]"
+text = "Вы пережили первоначальную волну паники и оказались в относительной безопасности в одном из правительственных убежищ.
+
+Стоимость: 0 очков
+
+Профессии: все
+По умолчанию: выживший
+
+Стартовая локация: убежище
+Вариантов: 2
+
+Транспорт: нет
+
+Флаги сценария:
+нет"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cancel" type="Button" parent="Panel"]
+anchor_left = 0.0118095
+anchor_top = 0.985
+anchor_right = 0.488
+anchor_bottom = 0.987669
+margin_left = 0.0799866
+margin_top = -39.8
+margin_right = 0.0799561
+margin_bottom = -1.61499
+text = "Назад"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Accept" type="Button" parent="Panel"]
+anchor_left = 0.513
+anchor_top = 0.985
+anchor_right = 0.988
+anchor_bottom = 0.987669
+margin_left = 0.0799866
+margin_top = -39.8
+margin_right = 0.0799561
+margin_bottom = -1.61499
+text = "Подтвердить"
+__meta__ = {
+"_edit_use_anchors_": true
+}

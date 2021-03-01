@@ -197,7 +197,7 @@ margin_left = -410.0
 margin_top = 10.0
 margin_right = -10.0
 margin_bottom = 49.0
-custom_colors/font_color = Color( 0.439216, 0.439216, 0.439216, 1 )
+custom_colors/font_color = Color( 0.992157, 0.992157, 0.992157, 0.196078 )
 text = "'cnCore' build NUM, YYY MMM DD
 rev.GIT_VER"
 align = 2
