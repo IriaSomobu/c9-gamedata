@@ -45,10 +45,14 @@ func select_item(index):
 	var desc_field = "desc_m" if is_male else "desc_f"
 	
 	var s = scenarios[index]
+	
+	var default_prof = get_parent().get_default_prof_for_scenario(s["id"])
+	var profname = default_prof["name_m"] if is_male else default_prof["name_f"]
+	
 	var descr = "[color=#5C5]" + s[desc_field] + "[/color]"
 	var cost =      core.tr("Cost:")              + " [color=grey]" + str(s["cost"])     + "[/color]"
 	var proflim =   core.tr("Professions:")       + " [color=grey]" + s["prof_limit"]    + "[/color]"
-	var profdef =   core.tr("Default:")           + " [color=grey]" + "unknown"          + "[/color]"
+	var profdef =   core.tr("Default:")           + " [color=grey]" + profname           + "[/color]"
 	var startloc =  core.tr("Scenario Location:") + " [color=grey]" + s["loc"]           + "[/color]"
 	var startcnt =  core.tr("Total:")             + " [color=grey]" + str(s["loc_cnt"])  + "[/color]"
 	var transport = core.tr("Scenario Vehicle:")  + " [color=grey]нет[/color]"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://theme/theme_btn_hover.tres" type="StyleBox" id=1]
 [ext_resource path="res://theme/theme_btn_focus.tres" type="StyleBox" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://newgame_screen/casino_white_18dp.png" type="Texture" id=7]
 [ext_resource path="res://newgame_screen/ChargenScreen.gd" type="Script" id=8]
 [ext_resource path="res://newgame_screen/ScenarioPopup.tscn" type="PackedScene" id=9]
+[ext_resource path="res://newgame_screen/ProfessionPopup.tscn" type="PackedScene" id=10]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.584314 )
@@ -28,6 +29,12 @@ font_data = ExtResource( 4 )
 [sub_resource type="DynamicFont" id=5]
 size = 18
 font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.478431, 0.352941, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.188235, 0, 0, 1 )
 
 [node name="Chargen" type="Control"]
 anchor_right = 1.0
@@ -92,7 +99,7 @@ margin_left = 0.790009
 margin_right = 0.489929
 margin_bottom = 0.0799866
 custom_fonts/font = SubResource( 3 )
-text = "Очков осталось: 3"
+text = "Points left: 3"
 align = 1
 valign = 1
 __meta__ = {
@@ -114,9 +121,7 @@ anchor_top = 0.0151515
 anchor_right = 0.975
 anchor_bottom = 0.984848
 custom_fonts/font = SubResource( 4 )
-text = "Char
-Doll
-Here"
+text = "N/A"
 align = 1
 valign = 1
 __meta__ = {
@@ -135,15 +140,16 @@ __meta__ = {
 [node name="SexLabel" type="Label" parent="Basic"]
 anchor_left = 0.029
 anchor_top = 0.059
-anchor_right = 0.256718
-anchor_bottom = 0.235
+anchor_right = 0.256
+anchor_bottom = 0.241059
 margin_left = -0.309982
 margin_top = -0.0299997
-margin_right = -0.11982
-margin_bottom = 0.0499992
+margin_right = 0.160149
+margin_bottom = -0.98
 custom_fonts/font = SubResource( 5 )
-text = "Пол"
+text = "Sex"
 valign = 1
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -173,8 +179,9 @@ margin_top = 0.0200005
 margin_right = 0.130203
 margin_bottom = -0.0699997
 custom_fonts/font = SubResource( 5 )
-text = "Имя"
+text = "Name"
 valign = 1
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -218,8 +225,9 @@ margin_top = 0.0699997
 margin_right = -0.160004
 margin_bottom = -0.0199966
 custom_fonts/font = SubResource( 5 )
-text = "Рост"
+text = "Height"
 valign = 1
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -252,8 +260,9 @@ margin_top = -0.0500031
 margin_right = -0.160004
 margin_bottom = 0.030014
 custom_fonts/font = SubResource( 5 )
-text = "Возраст"
+text = "Age"
 valign = 1
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -287,18 +296,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Appearance"]
+[node name="SkinColorLabel" type="Label" parent="Appearance"]
 anchor_left = 0.0252821
 anchor_top = 0.0478571
-anchor_right = 0.305538
+anchor_right = 0.333744
 anchor_bottom = 0.190476
 margin_left = 0.139999
 margin_top = -0.0500002
 margin_right = -0.160004
 margin_bottom = -3.8147e-06
 custom_fonts/font = SubResource( 5 )
-text = "Цвет кожи"
+text = "Skin color"
 valign = 1
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -313,25 +323,27 @@ margin_top = 0.039999
 margin_right = -0.140015
 margin_bottom = 0.0300179
 custom_fonts/font = SubResource( 5 )
-text = "бронзовый"
+disabled = true
+text = "N/A"
 clip_text = true
 align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label3" type="Label" parent="Appearance"]
+[node name="HairLabel" type="Label" parent="Appearance"]
 anchor_left = 0.0252821
 anchor_top = 0.238333
-anchor_right = 0.305538
+anchor_right = 0.333744
 anchor_bottom = 0.380952
 margin_left = 0.139999
 margin_top = -0.0500002
 margin_right = -0.160004
 margin_bottom = -3.8147e-06
 custom_fonts/font = SubResource( 5 )
-text = "Волосы"
+text = "Hair"
 valign = 1
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -346,22 +358,24 @@ margin_top = 0.039999
 margin_right = -0.140015
 margin_bottom = 0.0300179
 custom_fonts/font = SubResource( 5 )
-text = "коричневые, длинные"
+disabled = true
+text = "N/A"
 clip_text = true
 align = 0
 
-[node name="Label5" type="Label" parent="Appearance"]
+[node name="FaceHairLabel" type="Label" parent="Appearance"]
 anchor_left = 0.0252821
 anchor_top = 0.42881
-anchor_right = 0.305538
+anchor_right = 0.333744
 anchor_bottom = 0.571429
 margin_left = 0.139999
 margin_top = -0.0500002
 margin_right = -0.160004
 margin_bottom = -3.8147e-06
 custom_fonts/font = SubResource( 5 )
-text = "Усы/борода"
+text = "Facial hair"
 valign = 1
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -376,25 +390,28 @@ margin_top = 0.039999
 margin_right = -0.140015
 margin_bottom = 0.0300179
 custom_fonts/font = SubResource( 5 )
-text = "шкиперск.борода"
+disabled = true
+text = "N/A"
 clip_text = true
 align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label7" type="Label" parent="Appearance"]
+[node name="AdditFeaturesLabel" type="Label" parent="Appearance"]
 anchor_left = 0.0252821
 anchor_top = 0.619286
-anchor_right = 0.305538
-anchor_bottom = 0.757143
+anchor_right = 0.333744
+anchor_bottom = 0.952381
 margin_left = 0.139999
 margin_top = -0.0500002
 margin_right = -0.160004
 margin_bottom = -3.8147e-06
 custom_fonts/font = SubResource( 5 )
-text = "Доп.черты"
+text = "Additional features"
 valign = 1
+autowrap = true
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -409,7 +426,8 @@ margin_top = 0.0399933
 margin_right = 0.859985
 margin_bottom = 0.030014
 custom_fonts/font = SubResource( 5 )
-text = "нет"
+disabled = true
+text = "N/A"
 clip_text = true
 align = 0
 __meta__ = {
@@ -421,6 +439,7 @@ anchor_left = 0.359375
 anchor_top = 0.6125
 anchor_right = 0.664062
 anchor_bottom = 0.775
+custom_styles/panel = SubResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -435,7 +454,7 @@ margin_top = -9.53674e-07
 margin_right = 1.71999
 margin_bottom = 0.0692368
 custom_fonts/font = SubResource( 5 )
-text = "Сценарий"
+text = "Scenario"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
@@ -557,6 +576,7 @@ anchor_left = 0.359375
 anchor_top = 0.7875
 anchor_right = 0.664062
 anchor_bottom = 0.95
+custom_styles/panel = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -654,6 +674,7 @@ anchor_left = 0.671875
 anchor_top = 0.1125
 anchor_right = 0.960938
 anchor_bottom = 0.5
+custom_styles/panel = SubResource( 6 )
 
 [node name="Label8" type="Label" parent="Skills"]
 anchor_left = 0.027027
@@ -691,6 +712,7 @@ anchor_left = 0.671875
 anchor_top = 0.5125
 anchor_right = 0.960938
 anchor_bottom = 0.95
+custom_styles/panel = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -723,9 +745,12 @@ __meta__ = {
 }
 
 [node name="ScenarioPopup" parent="." instance=ExtResource( 9 )]
+
+[node name="ProfessionPopup" parent="." instance=ExtResource( 10 )]
 [connection signal="pressed" from="BtnBack" to="." method="_on_BtnBack_pressed"]
 [connection signal="pressed" from="BtnConfirm" to="." method="_on_BtnConfirm_pressed"]
 [connection signal="item_selected" from="Basic/Sex" to="." method="_on_Sex_item_selected"]
 [connection signal="pressed" from="Basic/NameRandom" to="." method="_on_NameRandom_pressed"]
 [connection signal="pressed" from="StartProps/Scenario" to="." method="_on_Scenario_pressed"]
+[connection signal="pressed" from="StartProps/Profession" to="." method="_on_Profession_pressed"]
 [connection signal="scenario_selected" from="ScenarioPopup" to="." method="_on_ScenarioPopup_scenario_selected"]
