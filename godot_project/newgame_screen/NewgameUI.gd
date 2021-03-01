@@ -2,7 +2,6 @@ extends Control
 
 onready var core = get_node("/root/Root").core;
 
-
 func set_mode(mode):
 	$Worldgen.setup();
 	show_world_panel();

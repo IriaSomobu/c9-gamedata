@@ -6,6 +6,12 @@ var mod_item_ref = load("res://newgame_screen/ModItem.tscn")
 var settings_page;
 var current_mods;
 
+
+func _ready():
+	$BtnBack.text      = core.tr("Back")
+	$BtnConfirm.text   = core.tr("Confirm")
+
+
 func setup():
 	settings_page = core.get_world_settings()[0]["options"];
 	current_mods = core.list_available_mods()

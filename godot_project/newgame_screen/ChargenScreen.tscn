@@ -159,8 +159,6 @@ margin_right = -0.140015
 margin_bottom = 0.0500031
 text = "мужской"
 align = 1
-items = [ "мужской", null, false, 0, null, "женский", null, false, 1, null ]
-selected = 0
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -191,7 +189,6 @@ margin_top = 0.0200043
 margin_right = -0.140015
 margin_bottom = -0.0699921
 custom_fonts/font = SubResource( 5 )
-text = "Джермейн Рукер"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": true
@@ -238,7 +235,7 @@ margin_right = 0.310577
 margin_bottom = -0.0200043
 min_value = 130.0
 max_value = 200.0
-value = 130.0
+value = 175.0
 align = 1
 suffix = "см"
 __meta__ = {
@@ -272,7 +269,7 @@ margin_right = -0.140015
 margin_bottom = 0.030014
 min_value = 16.0
 max_value = 55.0
-value = 16.0
+value = 25.0
 align = 1
 __meta__ = {
 "_edit_use_anchors_": true
@@ -319,6 +316,9 @@ custom_fonts/font = SubResource( 5 )
 text = "бронзовый"
 clip_text = true
 align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label3" type="Label" parent="Appearance"]
 anchor_left = 0.0252821
@@ -379,6 +379,9 @@ custom_fonts/font = SubResource( 5 )
 text = "шкиперск.борода"
 clip_text = true
 align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label7" type="Label" parent="Appearance"]
 anchor_left = 0.0252821
@@ -407,9 +410,10 @@ margin_right = 0.859985
 margin_bottom = 0.030014
 custom_fonts/font = SubResource( 5 )
 text = "нет"
+clip_text = true
 align = 0
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="StartProps" type="Panel" parent="."]
@@ -447,8 +451,9 @@ margin_top = -9.53674e-07
 margin_right = -0.160065
 margin_bottom = 0.124596
 custom_fonts/font = SubResource( 5 )
+clip_text = true
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="ProfessionLabel" type="Label" parent="StartProps"]
@@ -478,8 +483,9 @@ margin_right = 0.159973
 margin_bottom = -7.62939e-06
 custom_fonts/font = SubResource( 5 )
 text = "Выживший"
+clip_text = true
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="LocationLabel" type="Label" parent="StartProps"]
@@ -509,8 +515,9 @@ margin_right = 0.159973
 margin_bottom = -7.62939e-06
 custom_fonts/font = SubResource( 5 )
 text = "АЗС (1 вар)"
+clip_text = true
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="VehicleLabel" type="Label" parent="StartProps"]
@@ -540,8 +547,9 @@ margin_right = 0.159973
 margin_bottom = -7.62939e-06
 custom_fonts/font = SubResource( 5 )
 text = "Food Truck"
+clip_text = true
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="Stats" type="Panel" parent="."]
@@ -715,7 +723,9 @@ __meta__ = {
 }
 
 [node name="ScenarioPopup" parent="." instance=ExtResource( 9 )]
-visible = false
 [connection signal="pressed" from="BtnBack" to="." method="_on_BtnBack_pressed"]
 [connection signal="pressed" from="BtnConfirm" to="." method="_on_BtnConfirm_pressed"]
+[connection signal="item_selected" from="Basic/Sex" to="." method="_on_Sex_item_selected"]
+[connection signal="pressed" from="Basic/NameRandom" to="." method="_on_NameRandom_pressed"]
 [connection signal="pressed" from="StartProps/Scenario" to="." method="_on_Scenario_pressed"]
+[connection signal="scenario_selected" from="ScenarioPopup" to="." method="_on_ScenarioPopup_scenario_selected"]
