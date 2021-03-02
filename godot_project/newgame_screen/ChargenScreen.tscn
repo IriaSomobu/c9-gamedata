@@ -30,10 +30,10 @@ font_data = ExtResource( 4 )
 size = 18
 font_data = ExtResource( 4 )
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.478431, 0.352941, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.188235, 0, 0, 1 )
 
 [node name="Chargen" type="Control"]
@@ -439,7 +439,7 @@ anchor_left = 0.359375
 anchor_top = 0.6125
 anchor_right = 0.664062
 anchor_bottom = 0.775
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -549,7 +549,7 @@ margin_top = -9.53674e-07
 margin_right = 1.71999
 margin_bottom = 0.0692368
 custom_fonts/font = SubResource( 5 )
-text = "Транспорт"
+text = "Vehicle"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
@@ -565,7 +565,8 @@ margin_top = -9.53674e-07
 margin_right = 0.159973
 margin_bottom = -7.62939e-06
 custom_fonts/font = SubResource( 5 )
-text = "Food Truck"
+disabled = true
+text = "N/A"
 clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -576,7 +577,7 @@ anchor_left = 0.359375
 anchor_top = 0.7875
 anchor_right = 0.664062
 anchor_bottom = 0.95
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -674,7 +675,7 @@ anchor_left = 0.671875
 anchor_top = 0.1125
 anchor_right = 0.960938
 anchor_bottom = 0.5
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 7 )
 
 [node name="Label8" type="Label" parent="Skills"]
 anchor_left = 0.027027
@@ -712,7 +713,7 @@ anchor_left = 0.671875
 anchor_top = 0.5125
 anchor_right = 0.960938
 anchor_bottom = 0.95
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -754,3 +755,4 @@ __meta__ = {
 [connection signal="pressed" from="StartProps/Scenario" to="." method="_on_Scenario_pressed"]
 [connection signal="pressed" from="StartProps/Profession" to="." method="_on_Profession_pressed"]
 [connection signal="scenario_selected" from="ScenarioPopup" to="." method="_on_ScenarioPopup_scenario_selected"]
+[connection signal="on_profession_selected" from="ProfessionPopup" to="." method="_on_ProfessionPopup_on_profession_selected"]
