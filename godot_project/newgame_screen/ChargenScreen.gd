@@ -2,7 +2,7 @@ extends Control
 
 onready var core = get_node("/root/Root").core;
 
-const single_pool_limit = 8
+const single_pool_limit = 24
 const multi_pool_limit = [6, 0, 2]
 const generic_prof_id = "unemployed"
 
@@ -34,6 +34,15 @@ func _ready():
 	$StartProps/ProfessionLabel.text = core.tr("Profession")
 	$StartProps/LocationLabel.text   = core.tr("Location")
 	$StartProps/VehicleLabel.text    = core.tr("Vehicle")
+	
+	$Stats/StrLabel.hint_tooltip      = core.tr("Defines base HP, carry weight and melee damage bonus")
+	$Stats/StrLabel.hint_tooltip             += "\n\n" + core.tr("Strength also makes you more resistant to many diseases and poisons, and makes actions which require brute force more effective.")
+	$Stats/DexLabel.hint_tooltip      = core.tr("Defines to-hit bonus, throwing and ranged penalies")
+	$Stats/DexLabel.hint_tooltip             += "\n\n" + core.tr("Dexterity also enhances many actions which require finesse.")
+	$Stats/IntelLabel.hint_tooltip    = core.tr("Defines crafring bouns and skill rust")
+	$Stats/IntelLabel.hint_tooltip           += "\n\n" + core.tr("Intelligence is also used when crafting, installing bionics, and interacting with NPCs.")
+	$Stats/PerceptLabel.hint_tooltip  = core.tr("Defines aiming penalty")
+	$Stats/PerceptLabel.hint_tooltip         += "\n\n" + core.tr("Perception is also used for detecting traps and other things of interest.")
 
 
 func char_data_ld(data):
@@ -91,7 +100,21 @@ func get_points_left():
 	result -= chargen_data["scenarios"][selected_scenario_idx]["cost"];
 	result -= get_prof_by_id(selected_profession_id)["cost"];
 	
+	result -= calc_stat_point($Stats/Str.value)
+	result -= calc_stat_point($Stats/Dex.value)
+	result -= calc_stat_point($Stats/Intel.value)
+	result -= calc_stat_point($Stats/Percept.value)
+	
 	return result;
+
+
+func calc_stat_point(value):
+	var rz = value - 4
+	
+	if value >= 14:
+		rz += value - 14
+	
+	return rz
 
 
 func get_prof_by_id(prof_id):
@@ -148,7 +171,7 @@ func set_default_loc_for_scenario(scenario_idx):
 
 
 func update_points_label():
-	$Points.text = core.tr("Points left:") + " " + str(get_points_left());
+	$Points.text = core.tr("Points left:") + " " + str(get_points_left() as int);
 
 
 func _on_NameRandom_pressed():
@@ -192,6 +215,10 @@ func _on_ProfessionPopup_on_profession_selected(id):
 
 func _on_LocationPopup_on_location_selected(id):
 	select_location(id)
+
+
+func _on_Stat_changed(current_value):
+	update_points_label()
 
 
 func _on_BtnBack_pressed():

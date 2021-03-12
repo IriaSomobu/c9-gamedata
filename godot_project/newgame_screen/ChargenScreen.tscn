@@ -574,20 +574,22 @@ anchor_left = 0.359375
 anchor_top = 0.7875
 anchor_right = 0.664062
 anchor_bottom = 0.95
-custom_styles/panel = SubResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="StrLabel" type="Label" parent="Stats"]
-anchor_left = 0.0253333
+anchor_left = 0.0253334
 anchor_top = 0.0774617
-anchor_right = 0.320462
+anchor_right = 0.74354
 anchor_bottom = 0.230683
 margin_left = 0.12
 margin_top = -0.0700159
 margin_right = 0.0199966
 margin_bottom = 0.0112534
+hint_tooltip = "Awoo~"
+mouse_filter = 0
+mouse_default_cursor_shape = 16
 custom_fonts/font = SubResource( 5 )
 text = "Сила"
 valign = 1
@@ -602,14 +604,17 @@ anchor_right = 0.974359
 anchor_bottom = 0.230769
 
 [node name="DexLabel" type="Label" parent="Stats"]
-anchor_left = 0.0253333
+anchor_left = 0.0253334
 anchor_top = 0.308231
-anchor_right = 0.320462
+anchor_right = 0.74354
 anchor_bottom = 0.461452
 margin_left = 0.12
 margin_top = -0.0700159
 margin_right = 0.0199966
 margin_bottom = 0.0112534
+hint_tooltip = "Awoo~"
+mouse_filter = 0
+mouse_default_cursor_shape = 16
 custom_fonts/font = SubResource( 5 )
 text = "Ловкость"
 valign = 1
@@ -624,14 +629,17 @@ anchor_right = 0.974359
 anchor_bottom = 0.461538
 
 [node name="IntelLabel" type="Label" parent="Stats"]
-anchor_left = 0.0253333
+anchor_left = 0.0253334
 anchor_top = 0.539
-anchor_right = 0.320462
+anchor_right = 0.74354
 anchor_bottom = 0.707606
 margin_left = 0.12
 margin_top = -0.0700159
 margin_right = 0.0199966
 margin_bottom = 0.0112534
+hint_tooltip = "Awoo~"
+mouse_filter = 0
+mouse_default_cursor_shape = 16
 custom_fonts/font = SubResource( 5 )
 text = "Интеллект"
 valign = 1
@@ -646,14 +654,17 @@ anchor_right = 0.974359
 anchor_bottom = 0.692308
 
 [node name="PerceptLabel" type="Label" parent="Stats"]
-anchor_left = 0.0253333
+anchor_left = 0.0253334
 anchor_top = 0.769769
-anchor_right = 0.320462
+anchor_right = 0.74354
 anchor_bottom = 0.92299
 margin_left = 0.12
 margin_top = -0.070015
 margin_right = 0.0199966
 margin_bottom = 0.0112534
+hint_tooltip = "Awoo~"
+mouse_filter = 0
+mouse_default_cursor_shape = 16
 custom_fonts/font = SubResource( 5 )
 text = "Восприятие"
 valign = 1
@@ -747,7 +758,6 @@ __meta__ = {
 [node name="ProfessionPopup" parent="." instance=ExtResource( 10 )]
 
 [node name="LocationPopup" parent="." instance=ExtResource( 11 )]
-visible = false
 [connection signal="pressed" from="BtnBack" to="." method="_on_BtnBack_pressed"]
 [connection signal="pressed" from="BtnConfirm" to="." method="_on_BtnConfirm_pressed"]
 [connection signal="item_selected" from="Basic/Sex" to="." method="_on_Sex_item_selected"]
@@ -755,6 +765,10 @@ visible = false
 [connection signal="pressed" from="StartProps/Scenario" to="." method="_on_Scenario_pressed"]
 [connection signal="pressed" from="StartProps/Profession" to="." method="_on_Profession_pressed"]
 [connection signal="pressed" from="StartProps/Location" to="." method="_on_Location_pressed"]
+[connection signal="value_changed" from="Stats/Str" to="." method="_on_Stat_changed"]
+[connection signal="value_changed" from="Stats/Dex" to="." method="_on_Stat_changed"]
+[connection signal="value_changed" from="Stats/Intel" to="." method="_on_Stat_changed"]
+[connection signal="value_changed" from="Stats/Percept" to="." method="_on_Stat_changed"]
 [connection signal="scenario_selected" from="ScenarioPopup" to="." method="_on_ScenarioPopup_scenario_selected"]
 [connection signal="on_profession_selected" from="ProfessionPopup" to="." method="_on_ProfessionPopup_on_profession_selected"]
 [connection signal="on_location_selected" from="LocationPopup" to="." method="_on_LocationPopup_on_location_selected"]
