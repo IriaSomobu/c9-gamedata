@@ -11,7 +11,7 @@ var chargen_data;
 var selected_gender_male = true
 var selected_scenario_idx = 0;
 var selected_profession_id = generic_prof_id;
-
+var selected_location_id = "random";
 
 func _ready():
 	$BtnBack.text      = core.tr("Back")
@@ -47,6 +47,7 @@ func char_data_ld(data):
 		if scenario["is_default"]:
 			select_scenario(selected_scenario_idx)
 			set_default_prof_for_scenario(chargen_data["scenarios"][selected_scenario_idx]["id"])
+			set_default_loc_for_scenario(selected_scenario_idx)
 			break;
 		selected_scenario_idx += 1
 	
@@ -69,6 +70,19 @@ func select_prof(id):
 	
 	var name_field = "name_m" if selected_gender_male else "name_f"
 	$StartProps/Profession.text = prof[name_field]
+
+
+func select_location(id):
+	selected_location_id = id;
+	
+	var locname = "";
+	if id == "random":
+		locname = core.tr("Random location");
+	else:
+		var loc = get_loc_by_id(id)
+		locname = loc["name"]
+	$StartProps/Location.text = locname
+	
 
 
 func get_points_left():
@@ -96,6 +110,14 @@ func get_trait_by_id(trait_id):
 	return null;
 
 
+func get_loc_by_id(loc_id):
+	for loc in chargen_data["locs"]:
+		if loc["id"] == loc_id:
+			return loc;
+	
+	return null;
+
+
 func get_default_prof_for_scenario(scenatio_id):
 	
 	var prof_id = null
@@ -115,6 +137,14 @@ func set_default_prof_for_scenario(scenario_id):
 	var prof = get_default_prof_for_scenario(scenario_id);
 	select_prof(prof["id"])
 
+
+func set_default_loc_for_scenario(scenario_idx):
+	var permitted = chargen_data["scenarios"][scenario_idx]["loclist"]
+	
+	if permitted.size() == 1:
+		select_location(permitted[0])
+	else:
+		select_location("random")
 
 
 func update_points_label():
@@ -142,15 +172,26 @@ func _on_Profession_pressed():
 	$ProfessionPopup.show_panel(profs, ids, selected_profession_id);
 
 
+func _on_Location_pressed():
+	var locs = chargen_data["locs"];
+	var ids = chargen_data["scenarios"][selected_scenario_idx]["loclist"]
+	$LocationPopup.show_panel(locs, ids, selected_location_id);
+
+
 func _on_ScenarioPopup_scenario_selected(idx):
 	select_scenario(idx)
 	set_default_prof_for_scenario(chargen_data["scenarios"][idx]["id"])
+	set_default_loc_for_scenario(selected_scenario_idx)
 	update_points_label()
 
 
 func _on_ProfessionPopup_on_profession_selected(id):
 	select_prof(id)
 	update_points_label()
+
+
+func _on_LocationPopup_on_location_selected(id):
+	select_location(id)
 
 
 func _on_BtnBack_pressed():
