@@ -50,7 +50,8 @@ func select_item(index):
 	var profname = default_prof["name_m"] if is_male else default_prof["name_f"]
 	
 	var descr = "[color=#5C5]" + s[desc_field] + "[/color]"
-	var cost =      core.tr("Cost:")              + " [color=grey]" + str(s["cost"])     + "[/color]"
+	var cost_color = " [color=" + ("red" if s["cost"] > 0 else "green") + "]"
+	var cost =      core.tr("Cost:")              +    cost_color   + str(s["cost"])     + "[/color]"
 	var proflim =   core.tr("Professions:")       + " [color=grey]" + s["prof_limit"]    + "[/color]"
 	var profdef =   core.tr("Default:")           + " [color=grey]" + profname           + "[/color]"
 	var startloc =  core.tr("Scenario Location:") + " [color=grey]" + s["loc"]           + "[/color]"

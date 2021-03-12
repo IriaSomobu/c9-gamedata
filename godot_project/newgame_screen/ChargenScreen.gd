@@ -88,6 +88,14 @@ func get_prof_by_id(prof_id):
 	return null;
 
 
+func get_trait_by_id(trait_id):
+	for trait in chargen_data["traits"]:
+		if trait["id"] == trait_id:
+			return trait;
+	
+	return null;
+
+
 func get_default_prof_for_scenario(scenatio_id):
 	
 	var prof_id = null
@@ -106,6 +114,7 @@ func get_default_prof_for_scenario(scenatio_id):
 func set_default_prof_for_scenario(scenario_id):
 	var prof = get_default_prof_for_scenario(scenario_id);
 	select_prof(prof["id"])
+
 
 
 func update_points_label():
