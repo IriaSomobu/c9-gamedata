@@ -1,0 +1,125 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://theme/theme.tres" type="Theme" id=1]
+[ext_resource path="res://theme/theme_btn_pressed.tres" type="StyleBox" id=2]
+[ext_resource path="res://newgame_screen/SkillsPopup.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.227451, 0.227451, 0.227451, 1 )
+
+[node name="SkillsPopup" type="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.241813
+anchor_top = 0.15
+anchor_right = 0.758187
+anchor_bottom = 0.85
+margin_left = 0.47998
+margin_top = -3.05176e-05
+margin_right = -0.47998
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Minus" type="Button" parent="Panel"]
+anchor_left = 0.512121
+anchor_top = 0.0178571
+anchor_right = 0.560606
+anchor_bottom = 0.0732143
+margin_left = 3.05176e-05
+margin_top = -3.8147e-06
+margin_right = 3.05176e-05
+margin_bottom = -3.8147e-06
+text = "<"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Value" type="Label" parent="Panel"]
+anchor_left = 0.575758
+anchor_top = 0.0178572
+anchor_right = 0.621212
+anchor_bottom = 0.0714286
+margin_top = -3.05176e-05
+margin_bottom = -3.43323e-05
+text = "20"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Plus" type="Button" parent="Panel"]
+anchor_left = 0.636364
+anchor_top = 0.0178571
+anchor_right = 0.681818
+anchor_bottom = 0.0714286
+margin_left = 3.05176e-05
+margin_top = -3.8147e-06
+margin_bottom = -3.8147e-06
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Items" type="ItemList" parent="Panel"]
+anchor_left = 0.012
+anchor_top = 0.0144706
+anchor_right = 0.487936
+anchor_bottom = 0.985
+margin_left = -0.0800171
+margin_top = 0.160002
+margin_right = 0.133423
+margin_bottom = -49.8
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="InfoText" type="RichTextLabel" parent="Panel"]
+anchor_left = 0.512242
+anchor_top = 0.106857
+anchor_right = 0.999798
+anchor_bottom = 0.985357
+margin_left = -0.0800171
+margin_top = 0.160002
+margin_right = 0.133423
+margin_bottom = -49.8
+bbcode_enabled = true
+text = "Description here"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Accept" type="Button" parent="Panel"]
+anchor_left = 0.0150303
+anchor_top = 0.985357
+anchor_right = 0.987758
+anchor_bottom = 0.988598
+margin_left = 0.0799866
+margin_top = -39.8
+margin_right = 0.0799561
+margin_bottom = -1.61499
+text = "Подтвердить"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+[connection signal="pressed" from="Panel/Minus" to="." method="_on_Minus_pressed"]
+[connection signal="pressed" from="Panel/Plus" to="." method="_on_Plus_pressed"]
+[connection signal="item_selected" from="Panel/Items" to="." method="select_item"]
+[connection signal="pressed" from="Panel/Accept" to="." method="_on_Accept_pressed"]

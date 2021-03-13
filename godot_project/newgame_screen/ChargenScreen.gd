@@ -12,6 +12,7 @@ var selected_gender_male = true
 var selected_scenario_idx = 0;
 var selected_profession_id = generic_prof_id;
 var selected_location_id = "random";
+var skill_points = []
 
 func _ready():
 	$BtnBack.text      = core.tr("Back")
@@ -48,8 +49,9 @@ func _ready():
 	$Stats/IntelLabel.hint_tooltip           += "\n\n" + core.tr("Intelligence is also used when crafting, installing bionics, and interacting with NPCs.")
 	$Stats/PerceptLabel.hint_tooltip  = core.tr("Defines aiming penalty")
 	$Stats/PerceptLabel.hint_tooltip         += "\n\n" + core.tr("Perception is also used for detecting traps and other things of interest.")
-
-
+	
+	$Traits/Edit.text = core.tr("Edit")
+	$Skills/Edit.text = core.tr("Edit")
 
 
 func char_data_ld(data):
@@ -67,7 +69,11 @@ func char_data_ld(data):
 			break;
 		selected_scenario_idx += 1
 	
+	for i in range(data["skills"].size()):
+		skill_points.append(1)
+	
 	update_points_label();
+	update_skills_label();
 
 
 func rand_name():
@@ -110,6 +116,10 @@ func get_points_left():
 	result -= calc_stat_point($Stats/Dex.value)
 	result -= calc_stat_point($Stats/Intel.value)
 	result -= calc_stat_point($Stats/Percept.value)
+	
+	for i in range(skill_points.size()):
+		var x = skill_points[i]
+		result -= floor(0.25 * x * x)
 	
 	return result;
 
@@ -177,7 +187,25 @@ func set_default_loc_for_scenario(scenario_idx):
 
 
 func update_points_label():
-	$Points.text = core.tr("Points left:") + " " + str(get_points_left() as int);
+	var left = get_points_left() as int
+	$Points.text = core.tr("Points left:") + " " + str(left);
+	$Points.set("custom_colors/font_color", Color.red if left < 0 else Color.white);
+
+
+func update_skills_label():
+	var text = core.tr("Skills:")
+	var appended = false
+	
+	for i in range(skill_points.size()):
+		var points = skill_points[i]
+		if points > 1:
+			text += "\n  "+chargen_data["skills"][i]["name"] + " ["+str(points)+"]"
+			appended = true
+	
+	if not appended:
+		text += "\n  "+core.tr("Default")
+	
+	$Skills/Label.bbcode_text = text;
 
 
 func _on_NameRandom_pressed():
@@ -207,6 +235,10 @@ func _on_Location_pressed():
 	$LocationPopup.show_panel(locs, ids, selected_location_id);
 
 
+func _on_SkillsEdit_pressed():
+	$SkillsPopup.show_panel(chargen_data["skills"], skill_points)
+
+
 func _on_ScenarioPopup_scenario_selected(idx):
 	select_scenario(idx)
 	set_default_prof_for_scenario(chargen_data["scenarios"][idx]["id"])
@@ -225,6 +257,12 @@ func _on_LocationPopup_on_location_selected(id):
 
 func _on_Stat_changed(current_value):
 	update_points_label()
+
+
+func _on_SkillsPopup_skill_updated(idx, new_val):
+	skill_points[idx] = new_val
+	update_points_label();
+	update_skills_label();
 
 
 func _on_BtnBack_pressed():

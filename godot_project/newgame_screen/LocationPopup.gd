@@ -42,7 +42,8 @@ func show_panel(loclist, permitted_ids, _selected_id):
 
 
 func select(idx):
-	selected_id = loaded_locs[idx]["id"]
+	if loaded_locs.size() > idx:
+		selected_id = loaded_locs[idx]["id"]
 
 
 func _on_Items_item_selected(index):

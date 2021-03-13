@@ -1,16 +1,17 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://theme/theme_btn_hover.tres" type="StyleBox" id=1]
 [ext_resource path="res://theme/theme_btn_focus.tres" type="StyleBox" id=2]
 [ext_resource path="res://theme/theme_btn_normal.tres" type="StyleBox" id=3]
 [ext_resource path="res://theme/terminus.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://newgame_screen/Number.tscn" type="PackedScene" id=5]
+[ext_resource path="res://newgame_screen/StatsNumber.tscn" type="PackedScene" id=5]
 [ext_resource path="res://newgame_screen/city.jpg" type="Texture" id=6]
 [ext_resource path="res://newgame_screen/casino_white_18dp.png" type="Texture" id=7]
 [ext_resource path="res://newgame_screen/ChargenScreen.gd" type="Script" id=8]
 [ext_resource path="res://newgame_screen/ScenarioPopup.tscn" type="PackedScene" id=9]
 [ext_resource path="res://newgame_screen/ProfessionPopup.tscn" type="PackedScene" id=10]
 [ext_resource path="res://newgame_screen/LocationPopup.tscn" type="PackedScene" id=11]
+[ext_resource path="res://newgame_screen/SkillsPopup.tscn" type="PackedScene" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.584314 )
@@ -654,14 +655,17 @@ anchor_top = 0.769231
 anchor_right = 0.974359
 anchor_bottom = 0.923077
 
-[node name="Skills" type="Panel" parent="."]
+[node name="Traits" type="Panel" parent="."]
 anchor_left = 0.671875
 anchor_top = 0.1125
 anchor_right = 0.960938
 anchor_bottom = 0.5
 custom_styles/panel = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label8" type="Label" parent="Skills"]
+[node name="Label" type="Label" parent="Traits"]
 anchor_left = 0.027027
 anchor_top = 0.0322581
 anchor_right = 0.972971
@@ -678,7 +682,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Edit2" type="Button" parent="Skills"]
+[node name="Edit" type="Button" parent="Traits"]
 anchor_left = 0.0267572
 anchor_top = 0.870936
 anchor_right = 0.972757
@@ -692,39 +696,33 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Traits" type="Panel" parent="."]
+[node name="Skills" type="Panel" parent="."]
 anchor_left = 0.671875
 anchor_top = 0.5125
 anchor_right = 0.960938
 anchor_bottom = 0.95
-custom_styles/panel = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label8" type="Label" parent="Traits"]
+[node name="Label" type="RichTextLabel" parent="Skills"]
 anchor_left = 0.027027
 anchor_top = 0.0285714
 anchor_right = 0.972971
 anchor_bottom = 0.857143
-custom_fonts/font = SubResource( 5 )
-text = "Навыки:
-- плавание ( 5 )
-- метание ( 4 )
-- вождение ( 5 )
-"
+bbcode_enabled = true
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
-[node name="Edit" type="Button" parent="Traits"]
+[node name="Edit" type="Button" parent="Skills"]
 anchor_left = 0.027027
 anchor_top = 0.885714
 anchor_right = 0.972755
 anchor_bottom = 0.971
 margin_right = 0.0798645
 margin_bottom = 0.149998
-text = "Изменить"
+text = "Edit"
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -734,6 +732,8 @@ __meta__ = {
 [node name="ProfessionPopup" parent="." instance=ExtResource( 10 )]
 
 [node name="LocationPopup" parent="." instance=ExtResource( 11 )]
+
+[node name="SkillsPopup" parent="." instance=ExtResource( 12 )]
 [connection signal="pressed" from="BtnBack" to="." method="_on_BtnBack_pressed"]
 [connection signal="pressed" from="BtnConfirm" to="." method="_on_BtnConfirm_pressed"]
 [connection signal="item_selected" from="Basic/Sex" to="." method="_on_Sex_item_selected"]
@@ -745,6 +745,8 @@ __meta__ = {
 [connection signal="value_changed" from="Stats/Dex" to="." method="_on_Stat_changed"]
 [connection signal="value_changed" from="Stats/Intel" to="." method="_on_Stat_changed"]
 [connection signal="value_changed" from="Stats/Percept" to="." method="_on_Stat_changed"]
+[connection signal="pressed" from="Skills/Edit" to="." method="_on_SkillsEdit_pressed"]
 [connection signal="scenario_selected" from="ScenarioPopup" to="." method="_on_ScenarioPopup_scenario_selected"]
 [connection signal="on_profession_selected" from="ProfessionPopup" to="." method="_on_ProfessionPopup_on_profession_selected"]
 [connection signal="on_location_selected" from="LocationPopup" to="." method="_on_LocationPopup_on_location_selected"]
+[connection signal="skill_updated" from="SkillsPopup" to="." method="_on_SkillsPopup_skill_updated"]
