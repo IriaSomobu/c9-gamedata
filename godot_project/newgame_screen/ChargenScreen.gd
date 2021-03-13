@@ -52,6 +52,8 @@ func _ready():
 	
 	$Traits/Edit.text = core.tr("Edit")
 	$Skills/Edit.text = core.tr("Edit")
+	
+	$NegativePointsPopup.dialog_text = core.tr("Too many points allocated, change some features and try again.")
 
 
 func char_data_ld(data):
@@ -270,5 +272,8 @@ func _on_BtnBack_pressed():
 
 
 func _on_BtnConfirm_pressed():
-	get_parent().confirm();
+	if get_points_left() < 0:
+		$NegativePointsPopup.popup();
+	else:
+		get_parent().confirm();
 

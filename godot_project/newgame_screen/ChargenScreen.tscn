@@ -727,6 +727,17 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="NegativePointsPopup" type="AcceptDialog" parent="."]
+anchor_left = 0.375
+anchor_top = 0.4
+anchor_right = 0.6875
+anchor_bottom = 0.6
+dialog_text = "Negative points amount alert"
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="ScenarioPopup" parent="." instance=ExtResource( 9 )]
 
 [node name="ProfessionPopup" parent="." instance=ExtResource( 10 )]
