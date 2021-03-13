@@ -33,7 +33,12 @@ func _ready():
 	$StartProps/ScenarioLabel.text   = core.tr("Scenario")
 	$StartProps/ProfessionLabel.text = core.tr("Profession")
 	$StartProps/LocationLabel.text   = core.tr("Location")
-	$StartProps/VehicleLabel.text    = core.tr("Vehicle")
+	
+	
+	$Stats/StrLabel.text     = core.tr("Strength")
+	$Stats/DexLabel.text     = core.tr("Dexterity")
+	$Stats/IntelLabel.text   = core.tr("Intelligence")
+	$Stats/PerceptLabel.text = core.tr("Perception")
 	
 	$Stats/StrLabel.hint_tooltip      = core.tr("Defines base HP, carry weight and melee damage bonus")
 	$Stats/StrLabel.hint_tooltip             += "\n\n" + core.tr("Strength also makes you more resistant to many diseases and poisons, and makes actions which require brute force more effective.")
@@ -43,6 +48,8 @@ func _ready():
 	$Stats/IntelLabel.hint_tooltip           += "\n\n" + core.tr("Intelligence is also used when crafting, installing bionics, and interacting with NPCs.")
 	$Stats/PerceptLabel.hint_tooltip  = core.tr("Defines aiming penalty")
 	$Stats/PerceptLabel.hint_tooltip         += "\n\n" + core.tr("Perception is also used for detecting traps and other things of interest.")
+
+
 
 
 func char_data_ld(data):
@@ -91,7 +98,6 @@ func select_location(id):
 		var loc = get_loc_by_id(id)
 		locname = loc["name"]
 	$StartProps/Location.text = locname
-	
 
 
 func get_points_left():

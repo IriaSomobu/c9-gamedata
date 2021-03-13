@@ -16,17 +16,21 @@ func show_panel(loclist, permitted_ids, _selected_id):
 	var selected_idx = 0
 	selected_id = _selected_id;
 	
-	loaded_locs = [ { "id":"random", "name":core.tr("Random location")} ]
+	if permitted_ids.size() == 1:
+		loaded_locs = []
+	else:
+		loaded_locs = [ { "id":"random", "name":core.tr("Random location")} ]
+	
 	var idx = 0
 	for id in permitted_ids:
 		for loc in loclist:
 			if loc["id"] == id:
 				loaded_locs.append(loc)
+				idx += 1
 		
 		if id == _selected_id:
 			selected_idx = idx
 		
-		idx += 1
 	
 	$Panel/Items.clear();
 	for loc in loaded_locs:

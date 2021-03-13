@@ -56,12 +56,10 @@ func select_item(index):
 	var profdef =   core.tr("Default:")           + " [color=grey]" + profname           + "[/color]"
 	var startloc =  core.tr("Scenario Location:") + " [color=grey]" + s["loc"]           + "[/color]"
 	var startcnt =  core.tr("Total:")             + " [color=grey]" + str(s["loc_cnt"])  + "[/color]"
-	var transport = core.tr("Scenario Vehicle:")  + " [color=grey]нет[/color]"
 	var flags =     core.tr("Scenario Flags:")    + "\n[color=grey]нет[/color]"
 	
 	var text = descr + "\n\n" + cost  + "\n\n" +  proflim  + "\n" + profdef
-	text += "\n\n" + startloc + "\n" + startcnt + "\n\n" + transport
-	text += "\n\n" + flags
+	text += "\n\n" + startloc + "\n" + startcnt + "\n\n" + flags
 	
 	$Panel/InfoText.bbcode_text = text;
 

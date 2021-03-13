@@ -31,7 +31,7 @@ font_data = ExtResource( 4 )
 size = 18
 font_data = ExtResource( 4 )
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.188235, 0, 0, 1 )
 
 [node name="Chargen" type="Control"]
@@ -118,12 +118,15 @@ anchor_left = 0.025
 anchor_top = 0.0151515
 anchor_right = 0.975
 anchor_bottom = 0.984848
+hint_tooltip = "Will be implemented in future versions"
+mouse_filter = 0
+mouse_default_cursor_shape = 16
 custom_fonts/font = SubResource( 4 )
 text = "N/A"
 align = 1
 valign = 1
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="Basic" type="Panel" parent="."]
@@ -320,6 +323,8 @@ margin_left = -0.139999
 margin_top = 0.039999
 margin_right = -0.140015
 margin_bottom = 0.0300179
+hint_tooltip = "Will be implemented in future versions"
+mouse_default_cursor_shape = 16
 custom_fonts/font = SubResource( 5 )
 disabled = true
 text = "N/A"
@@ -355,6 +360,8 @@ margin_left = -0.139999
 margin_top = 0.039999
 margin_right = -0.140015
 margin_bottom = 0.0300179
+hint_tooltip = "Will be implemented in future versions"
+mouse_default_cursor_shape = 16
 custom_fonts/font = SubResource( 5 )
 disabled = true
 text = "N/A"
@@ -387,6 +394,8 @@ margin_left = -0.139999
 margin_top = 0.039999
 margin_right = -0.140015
 margin_bottom = 0.0300179
+hint_tooltip = "Will be implemented in future versions"
+mouse_default_cursor_shape = 16
 custom_fonts/font = SubResource( 5 )
 disabled = true
 text = "N/A"
@@ -423,6 +432,8 @@ margin_left = -0.139999
 margin_top = 0.0399933
 margin_right = 0.859985
 margin_bottom = 0.030014
+hint_tooltip = "Will be implemented in future versions"
+mouse_default_cursor_shape = 16
 custom_fonts/font = SubResource( 5 )
 disabled = true
 text = "N/A"
@@ -445,7 +456,7 @@ __meta__ = {
 anchor_left = 0.0253334
 anchor_top = 0.0769231
 anchor_right = 0.328924
-anchor_bottom = 0.230237
+anchor_bottom = 0.30716
 margin_left = 0.12
 margin_top = -9.53674e-07
 margin_right = 1.71999
@@ -460,23 +471,23 @@ __meta__ = {
 [node name="Scenario" type="Button" parent="StartProps"]
 anchor_left = 0.359385
 anchor_top = 0.0769231
-anchor_right = 0.974771
-anchor_bottom = 0.229811
-margin_left = -0.160049
-margin_top = -9.53674e-07
-margin_right = -0.160065
-margin_bottom = 0.124596
+anchor_right = 0.974
+anchor_bottom = 0.308
+margin_left = -0.159943
+margin_top = -2.86102e-06
+margin_right = 0.140594
+margin_bottom = -0.0400047
 custom_fonts/font = SubResource( 5 )
 clip_text = true
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="ProfessionLabel" type="Label" parent="StartProps"]
 anchor_left = 0.0253334
-anchor_top = 0.307692
+anchor_top = 0.384615
 anchor_right = 0.328924
-anchor_bottom = 0.461006
+anchor_bottom = 0.614852
 margin_left = 0.12
 margin_top = -9.53674e-07
 margin_right = 1.71999
@@ -490,25 +501,24 @@ __meta__ = {
 
 [node name="Profession" type="Button" parent="StartProps"]
 anchor_left = 0.359385
-anchor_top = 0.307692
+anchor_top = 0.384615
 anchor_right = 0.97395
-anchor_bottom = 0.461539
+anchor_bottom = 0.615385
 margin_left = -0.160049
 margin_top = -9.53674e-07
 margin_right = 0.159973
 margin_bottom = -7.62939e-06
 custom_fonts/font = SubResource( 5 )
-text = "Выживший"
 clip_text = true
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="LocationLabel" type="Label" parent="StartProps"]
 anchor_left = 0.0253334
-anchor_top = 0.538462
+anchor_top = 0.692308
 anchor_right = 0.328924
-anchor_bottom = 0.691775
+anchor_bottom = 0.922544
 margin_left = 0.12
 margin_top = -9.53674e-07
 margin_right = 1.71999
@@ -522,39 +532,7 @@ __meta__ = {
 
 [node name="Location" type="Button" parent="StartProps"]
 anchor_left = 0.359385
-anchor_top = 0.538462
-anchor_right = 0.97395
-anchor_bottom = 0.692308
-margin_left = -0.160049
-margin_top = -9.53674e-07
-margin_right = 0.159973
-margin_bottom = -7.62939e-06
-custom_fonts/font = SubResource( 5 )
-text = "Starting loc"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VehicleLabel" type="Label" parent="StartProps"]
-anchor_left = 0.0253334
-anchor_top = 0.769231
-anchor_right = 0.328924
-anchor_bottom = 0.922544
-margin_left = 0.12
-margin_top = -9.53674e-07
-margin_right = 1.71999
-margin_bottom = 0.0692368
-custom_fonts/font = SubResource( 5 )
-text = "Vehicle"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Label6" type="Button" parent="StartProps"]
-anchor_left = 0.359385
-anchor_top = 0.769231
+anchor_top = 0.692308
 anchor_right = 0.97395
 anchor_bottom = 0.923077
 margin_left = -0.160049
@@ -562,11 +540,9 @@ margin_top = -9.53674e-07
 margin_right = 0.159973
 margin_bottom = -7.62939e-06
 custom_fonts/font = SubResource( 5 )
-disabled = true
-text = "N/A"
 clip_text = true
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="Stats" type="Panel" parent="."]
@@ -591,7 +567,7 @@ hint_tooltip = "Awoo~"
 mouse_filter = 0
 mouse_default_cursor_shape = 16
 custom_fonts/font = SubResource( 5 )
-text = "Сила"
+text = "Strength"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
@@ -616,7 +592,7 @@ hint_tooltip = "Awoo~"
 mouse_filter = 0
 mouse_default_cursor_shape = 16
 custom_fonts/font = SubResource( 5 )
-text = "Ловкость"
+text = "Dexterity"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
@@ -641,7 +617,7 @@ hint_tooltip = "Awoo~"
 mouse_filter = 0
 mouse_default_cursor_shape = 16
 custom_fonts/font = SubResource( 5 )
-text = "Интеллект"
+text = "Intelligence"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
@@ -666,7 +642,7 @@ hint_tooltip = "Awoo~"
 mouse_filter = 0
 mouse_default_cursor_shape = 16
 custom_fonts/font = SubResource( 5 )
-text = "Восприятие"
+text = "Perception"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
@@ -683,7 +659,7 @@ anchor_left = 0.671875
 anchor_top = 0.1125
 anchor_right = 0.960938
 anchor_bottom = 0.5
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 6 )
 
 [node name="Label8" type="Label" parent="Skills"]
 anchor_left = 0.027027
@@ -721,7 +697,7 @@ anchor_left = 0.671875
 anchor_top = 0.5125
 anchor_right = 0.960938
 anchor_bottom = 0.95
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
