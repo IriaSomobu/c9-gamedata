@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "ScrollContainer",
+"class": "FocusableScrollContainer",
+"language": "GDScript",
+"path": "res://reusabe_menus/FocusableScrollContainer.gd"
+}, {
 "base": "",
 "class": "corescript",
 "language": "NativeScript",
 "path": "res://front_script.gdns"
 } ]
 _global_script_class_icons={
+"FocusableScrollContainer": "",
 "corescript": ""
 }
 

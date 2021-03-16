@@ -237,6 +237,10 @@ func _on_Location_pressed():
 	$LocationPopup.show_panel(locs, ids, selected_location_id);
 
 
+func _on_TraitsEdit_pressed():
+	$TraitsPopup.show_panel()
+
+
 func _on_SkillsEdit_pressed():
 	$SkillsPopup.show_panel(chargen_data["skills"], skill_points)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://theme/theme_btn_hover.tres" type="StyleBox" id=1]
 [ext_resource path="res://theme/theme_btn_focus.tres" type="StyleBox" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://newgame_screen/ProfessionPopup.tscn" type="PackedScene" id=10]
 [ext_resource path="res://newgame_screen/LocationPopup.tscn" type="PackedScene" id=11]
 [ext_resource path="res://newgame_screen/SkillsPopup.tscn" type="PackedScene" id=12]
+[ext_resource path="res://newgame_screen/TraitsPopup.tscn" type="PackedScene" id=13]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.584314 )
@@ -517,15 +518,15 @@ __meta__ = {
 
 [node name="LocationLabel" type="Label" parent="StartProps"]
 anchor_left = 0.0253334
-anchor_top = 0.692308
+anchor_top = 0.692307
 anchor_right = 0.328924
-anchor_bottom = 0.922544
+anchor_bottom = 0.922543
 margin_left = 0.12
 margin_top = -9.53674e-07
 margin_right = 1.71999
 margin_bottom = 0.0692368
 custom_fonts/font = SubResource( 5 )
-text = "Локация"
+text = "Location"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
@@ -744,6 +745,8 @@ __meta__ = {
 
 [node name="LocationPopup" parent="." instance=ExtResource( 11 )]
 
+[node name="TraitsPopup" parent="." instance=ExtResource( 13 )]
+
 [node name="SkillsPopup" parent="." instance=ExtResource( 12 )]
 [connection signal="pressed" from="BtnBack" to="." method="_on_BtnBack_pressed"]
 [connection signal="pressed" from="BtnConfirm" to="." method="_on_BtnConfirm_pressed"]
@@ -756,6 +759,7 @@ __meta__ = {
 [connection signal="value_changed" from="Stats/Dex" to="." method="_on_Stat_changed"]
 [connection signal="value_changed" from="Stats/Intel" to="." method="_on_Stat_changed"]
 [connection signal="value_changed" from="Stats/Percept" to="." method="_on_Stat_changed"]
+[connection signal="pressed" from="Traits/Edit" to="." method="_on_TraitsEdit_pressed"]
 [connection signal="pressed" from="Skills/Edit" to="." method="_on_SkillsEdit_pressed"]
 [connection signal="scenario_selected" from="ScenarioPopup" to="." method="_on_ScenarioPopup_scenario_selected"]
 [connection signal="on_profession_selected" from="ProfessionPopup" to="." method="_on_ProfessionPopup_on_profession_selected"]
