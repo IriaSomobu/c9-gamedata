@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://theme/theme_btn_hover.tres" type="StyleBox" id=1]
 [ext_resource path="res://theme/theme_btn_focus.tres" type="StyleBox" id=2]
@@ -32,9 +32,6 @@ font_data = ExtResource( 4 )
 [sub_resource type="DynamicFont" id=5]
 size = 18
 font_data = ExtResource( 4 )
-
-[sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.188235, 0, 0, 1 )
 
 [node name="Chargen" type="Control"]
 anchor_right = 1.0
@@ -665,26 +662,17 @@ anchor_left = 0.671875
 anchor_top = 0.1125
 anchor_right = 0.960938
 anchor_bottom = 0.5
-custom_styles/panel = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Traits"]
+[node name="Label" type="RichTextLabel" parent="Traits"]
 anchor_left = 0.027027
 anchor_top = 0.0322581
 anchor_right = 0.972971
 anchor_bottom = 0.83871
-custom_fonts/font = SubResource( 5 )
-text = "Черты:
-- Психоз от стимуляторов
-- Гурман
-- Людоед
-- Психоз
-- Больные колени
-- Перепады настроения"
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="Edit" type="Button" parent="Traits"]
@@ -768,4 +756,5 @@ __meta__ = {
 [connection signal="scenario_selected" from="ScenarioPopup" to="." method="_on_ScenarioPopup_scenario_selected"]
 [connection signal="on_profession_selected" from="ProfessionPopup" to="." method="_on_ProfessionPopup_on_profession_selected"]
 [connection signal="on_location_selected" from="LocationPopup" to="." method="_on_LocationPopup_on_location_selected"]
+[connection signal="on_traitslist_changed" from="TraitsPopup" to="." method="_on_TraitsPopup_on_traitslist_changed"]
 [connection signal="skill_updated" from="SkillsPopup" to="." method="_on_SkillsPopup_skill_updated"]

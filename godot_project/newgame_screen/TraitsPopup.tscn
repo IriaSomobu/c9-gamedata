@@ -84,5 +84,10 @@ text = "Подтвердить"
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+margin_right = 108.0
+margin_bottom = 60.0
+dialog_text = "You can spend up to 12 points here"
 [connection signal="item_selected" from="Panel/Tabs" to="." method="on_tab_selected"]
 [connection signal="pressed" from="Panel/Accept" to="." method="_on_Accept_pressed"]

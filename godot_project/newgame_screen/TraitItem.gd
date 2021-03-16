@@ -1,6 +1,6 @@
 extends Control
 
-signal state_changed(id, enabled)
+signal state_changed(ref, id, enabled)
 
 var id = "";
 var description = "";
@@ -33,4 +33,4 @@ func set_active(active):
 
 func _on_TraitItem_pressed():
 	set_state(not enabled)
-	emit_signal("state_changed", id, enabled)
+	emit_signal("state_changed", self, id, enabled)

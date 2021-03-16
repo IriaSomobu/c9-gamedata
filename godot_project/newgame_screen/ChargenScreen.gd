@@ -13,7 +13,7 @@ var selected_scenario_idx = 0;
 var selected_profession_id = generic_prof_id;
 var selected_location_id = "random";
 var skill_points = []
-var selected_traits_id = []
+var selected_traits_ids = []
 
 func _ready():
 	$BtnBack.text      = core.tr("Back")
@@ -76,6 +76,7 @@ func char_data_ld(data):
 		skill_points.append(1)
 	
 	update_points_label();
+	update_traits_label();
 	update_skills_label();
 
 
@@ -120,6 +121,10 @@ func get_points_left():
 	result -= calc_stat_point($Stats/Intel.value)
 	result -= calc_stat_point($Stats/Percept.value)
 	
+	for trait in chargen_data["traits"]:
+		if trait["id"] in selected_traits_ids:
+			result -= trait["cost"]
+	
 	for i in range(skill_points.size()):
 		var x = skill_points[i]
 		result -= floor(0.25 * x * x)
@@ -134,6 +139,13 @@ func calc_stat_point(value):
 		rz += value - 14
 	
 	return rz
+
+
+func rebuild_selected_traits():
+	selected_traits_ids = []
+	
+	var by_prof = get_prof_by_id(selected_profession_id)["trait_ids_mandatory"]
+	for id in by_prof: selected_traits_ids.append(id)
 
 
 func get_prof_by_id(prof_id):
@@ -193,6 +205,21 @@ func update_points_label():
 	var left = get_points_left() as int
 	$Points.text = core.tr("Points left:") + " " + str(left);
 	$Points.set("custom_colors/font_color", Color.red if left < 0 else Color.white);
+
+
+func update_traits_label():
+	var text = core.tr("Traits:")
+	var appended = false
+	
+	for trait in chargen_data["traits"]:
+		if trait["id"] in selected_traits_ids:
+			text += "\n  " + trait["name"]
+			appended = true
+			
+	if not appended:
+		text += "\n  "+core.tr("None")
+	
+	$Traits/Label.bbcode_text = text;
 
 
 func update_skills_label():
@@ -262,7 +289,9 @@ func _on_ScenarioPopup_scenario_selected(idx):
 
 func _on_ProfessionPopup_on_profession_selected(id):
 	select_prof(id)
+	rebuild_selected_traits()
 	update_points_label()
+	update_traits_label()
 
 
 func _on_LocationPopup_on_location_selected(id):
@@ -271,6 +300,12 @@ func _on_LocationPopup_on_location_selected(id):
 
 func _on_Stat_changed(current_value):
 	update_points_label()
+
+
+func _on_TraitsPopup_on_traitslist_changed(list):
+	selected_traits_ids = list
+	update_points_label()
+	update_traits_label()
 
 
 func _on_SkillsPopup_skill_updated(idx, new_val):
