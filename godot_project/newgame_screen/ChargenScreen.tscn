@@ -580,6 +580,7 @@ anchor_left = 0.769231
 anchor_top = 0.0769231
 anchor_right = 0.974359
 anchor_bottom = 0.230769
+min_max = Vector2( 4, 20 )
 
 [node name="DexLabel" type="Label" parent="Stats"]
 anchor_left = 0.0253334
@@ -605,6 +606,7 @@ anchor_left = 0.769231
 anchor_top = 0.307692
 anchor_right = 0.974359
 anchor_bottom = 0.461538
+min_max = Vector2( 4, 20 )
 
 [node name="IntelLabel" type="Label" parent="Stats"]
 anchor_left = 0.0253334
@@ -630,6 +632,7 @@ anchor_left = 0.769231
 anchor_top = 0.538462
 anchor_right = 0.974359
 anchor_bottom = 0.692308
+min_max = Vector2( 4, 20 )
 
 [node name="PerceptLabel" type="Label" parent="Stats"]
 anchor_left = 0.0253334
@@ -655,6 +658,7 @@ anchor_left = 0.769231
 anchor_top = 0.769231
 anchor_right = 0.974359
 anchor_bottom = 0.923077
+min_max = Vector2( 4, 20 )
 
 [node name="Traits" type="Panel" parent="."]
 anchor_left = 0.671875

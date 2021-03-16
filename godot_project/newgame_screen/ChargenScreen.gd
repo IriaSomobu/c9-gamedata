@@ -13,6 +13,7 @@ var selected_scenario_idx = 0;
 var selected_profession_id = generic_prof_id;
 var selected_location_id = "random";
 var skill_points = []
+var selected_traits_id = []
 
 func _ready():
 	$BtnBack.text      = core.tr("Back")
@@ -238,7 +239,14 @@ func _on_Location_pressed():
 
 
 func _on_TraitsEdit_pressed():
-	$TraitsPopup.show_panel()
+	var blocked = []
+	var forced = []
+	
+	var prof = get_prof_by_id(selected_profession_id);
+	for trait in prof["trait_ids_mandatory"]: forced.append(trait)
+	for trait in prof["trait_ids_forbidden"]: blocked.append(trait)
+	
+	$TraitsPopup.show_panel(chargen_data["traits"], blocked, forced)
 
 
 func _on_SkillsEdit_pressed():
